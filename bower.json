@@ -1,0 +1,29 @@
+{
+  "name": "edenjs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/3den/edenjs",
+  "authors": [
+    "Marcelo Eden <edendroid@gmail.com>"
+  ],
+  "description": "A minimal MV* javascript framework",
+  "main": "index.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "mvc",
+    "mvp",
+    "framework",
+    "bdd",
+    "tests"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
