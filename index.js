@@ -1,19 +1,19 @@
 (function(E) { "use strict";
 
-E.observable = function(el) {
+E.observable = function(object) {
   var callbacks = {}, slice = [].slice;
 
-  el.on = function(events, fn) {
+  object.on = function(events, fn) {
     if (typeof fn === "function") {
       events.replace(/[^\s]+/g, function(name, pos) {
         (callbacks[name] = callbacks[name] || []).push(fn);
         fn.typed = pos > 0;
       });
     }
-    return el;
+    return object;
   };
 
-  el.off = function(events, fn) {
+  object.off = function(events, fn) {
     if (events === "*") callbacks = {};
     else if (fn) {
       var arr = callbacks[events];
@@ -25,55 +25,57 @@ E.observable = function(el) {
         callbacks[name] = [];
       });
     }
-    return el;
+    return object;
   };
 
   // only single event supported
-  el.one = function(name, fn) {
+  object.one = function(name, fn) {
     if (fn) fn.one = true;
-    return el.on(name, fn);
+    return object.on(name, fn);
   };
 
-  el.trigger = function(name) {
+  object.trigger = function(name) {
     var args = slice.call(arguments, 1),
       fns = callbacks[name] || [];
 
     for (var i = 0, fn; (fn = fns[i]); ++i) {
       if (!fn.busy) {
         fn.busy = true;
-        fn.apply(el, fn.typed ? [name].concat(args) : args);
+        fn.apply(object, fn.typed ? [name].concat(args) : args);
         if (fn.one) { fns.splice(i, 1); i--; }
         fn.busy = false;
       }
     }
 
-    return el;
+    return object;
   };
 
-  return el;
-
+  return object;
 };
-var FN = {}, // Precompiled templates (JavaScript functions)
-  template_escape = {"\\": "\\\\", "\n": "\\n", "\r": "\\r", "'": "\\'"},
-  render_escape = {'&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;'};
+E.render = (function() {
+  var FN = {},
+    templateEscape = {"\\": "\\\\", "\n": "\\n", "\r": "\\r", "'": "\\'"},
+    renderEscape = {'&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;'};
 
-function default_escape_fn(str, key) {
-  return str == null ? '' : (str+'').replace(/[&\"<>]/g, function(char) {
-    return render_escape[char];
-  });
-}
+  function render(tmpl, data, escapeFn) {
+    if (escapeFn === true) escapeFn = defaultEscapeFn;
+    tmpl = tmpl || '';
 
-E.render = function(tmpl, data, escape_fn) {
-  if (escape_fn === true) escape_fn = default_escape_fn;
-  tmpl = tmpl || '';
+    return (FN[tmpl] = FN[tmpl] || new Function("_", "e", "return '" +
+      tmpl.replace(/[\\\n\r']/g, function(char) {
+        return templateEscape[char];
+      }).replace(/{\s*([\w\.]+)\s*}/g, "' + (e?e(_.$1,'$1'):_.$1||(_.$1==null?'':_.$1)) + '") + "'")
+    )(data, escapeFn);
+  };
 
-  return (FN[tmpl] = FN[tmpl] || new Function("_", "e", "return '" +
-    tmpl.replace(/[\\\n\r']/g, function(char) {
-      return template_escape[char];
-    }).replace(/{\s*([\w\.]+)\s*}/g, "' + (e?e(_.$1,'$1'):_.$1||(_.$1==null?'':_.$1)) + '") + "'")
-  )(data, escape_fn);
-};
+  function defaultEscapeFn(str, key) {
+    return str == null ? '' : (str+'').replace(/[&\"<>]/g, function(char) {
+      return renderEscape[char];
+    });
+  }
 
+  return render;
+}());
 E.route = (function() {
   var map = {},
       fnMap = [],
@@ -141,7 +143,6 @@ E.route = (function() {
   route.fnMap = fnMap;
   return E.observable(route);
 })();
-
 // Browser Navigation
 if (typeof window !== "undefined") {
   // redirect to route, push state
