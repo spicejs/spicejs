@@ -7,5 +7,4 @@ global.E = require("../index");
   "./lib/render_test"
 ].forEach(function(file){
   require("./" + file + ".js");
-
 });
