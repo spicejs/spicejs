@@ -34,7 +34,7 @@ describe("#route", function() {
     assertRoute("/items/{item}/{id}", "/items/debby/2",
       {path: "/items/debby/2", item: "debby", id: "2"});
 
-    assertRoute(".*/{item}/{id}", "/my/crazy/cart/debby/2",
+    assertRoute("/my/.*/{item}/{id}", "/my/crazy/cart/debby/2",
       {path: "/my/crazy/cart/debby/2", item: "debby", id: "2"});
   });
 
