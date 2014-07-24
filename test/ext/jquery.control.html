@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>EdenJS - Test (jquery.control)</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../../index.js"></script>
+    <script src="../../ext/jquery.control.js"></script>
+    <script src="../../bdd.js"></script>
+  </head>
+
+  <body>
+    <p>Open console to view the cliked link params</p>
+    <a href="#">log</a>
+    <script>
+      E.controller("log", function(element) { console.log(element); });
+
+      console.log("It logs each element only once");
+      $("a").on("click", function(){ $("p").control("log") }).control("log")
+    </script>
+  </body>
+</html>
