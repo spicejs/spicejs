@@ -11,7 +11,7 @@ jshint:
 min: init
 	uglifyjs index.js --comments --mangle -o min.js
 
-test: init
+test: min
 	node test/node.js
 
 .PHONY: test
