@@ -1,5 +1,6 @@
-// Browser Navigation
-if (typeof window !== "undefined") {
+(function(exit) { "use strict";
+  if (exit) return;
+
   // redirect to route, push state
   E.route.on("visit", function(to) {
     try {
@@ -7,20 +8,21 @@ if (typeof window !== "undefined") {
     } catch (err) {
       window.location = to[0] === "#" ? to : "#" + to;
     }
-  }).on("load", function() {
-    this(location.pathname + location.search + location.hash);
   });
+
+  // load current path
+  function load() {
+    this(location.pathname + location.search + location.hash);
+  };
 
   // Mozilla, Opera and webkit nightlies currently support this event
   if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", function() {
-      E.route.trigger("load");
-    }, false);
+    document.addEventListener("DOMContentLoaded", load);
 
   // If IE event model is used
   } else if (document.attachEvent) {
     document.attachEvent("onreadystatechange", function() {
-      if (document.readyState === "complete") E.route.trigger("load");
+      if (document.readyState === "complete") load();
     });
   }
-}
+})(typeof window === "undefined");
