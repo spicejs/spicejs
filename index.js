@@ -1,21 +1,30 @@
 (function(E) { "use strict";
-(function(E){ "use strict";
+// Creates a controller
+E.controller = (function() {
   var controllers = {};
 
-  E.controller = function(name, callback) {
+  function controller(name, callback) {
     controllers[name] = callback;
   };
 
-  E.control = function(name, element, options) {
-    if(hasElement(name, element)) return element;
-    addElement(name, element);
+  controller.all = controllers;
+  return controller;
+})();
 
-    controllers[name](element, options);
+// Binds controller to an element
+E.control = (function() {
+  var controllers = E.controller.all;
+
+  function control(name, element, options) {
+    hasElement(name, element) ||
+      addContol(name, element, options);
+
     return element;
   };
 
-  function addElement(name, element) {
+  function addContol(name, element, options) {
     controllers[name]._elements.push(element);
+    controllers[name](element, options);
   }
 
   function hasElement(name, element) {
@@ -23,8 +32,11 @@
     callback._elements = callback._elements || [];
     return callback._elements.indexOf(element) !== -1;
   }
-})(typeof window !== "undefined" ? window.E = {} : exports);
 
+  return control;
+})();
+
+// Creates an observable object
 E.observable = function(object) {
   var callbacks = {}, slice = [].slice;
 
@@ -76,6 +88,8 @@ E.observable = function(object) {
 
   return object;
 };
+
+// Renders object in a template
 E.render = (function() {
   var FN = {},
     templateEscape = {"\\": "\\\\", "\n": "\\n", "\r": "\\r", "'": "\\'"},
@@ -100,6 +114,8 @@ E.render = (function() {
 
   return render;
 }());
+
+// Create & Invoque routes
 E.route = (function() {
   var map = [], current_path;
 
@@ -162,4 +178,5 @@ E.route = (function() {
   route.current_path = current_path;
   return E.observable(route);
 })();
+
 })(typeof window !== "undefined" ? window.E = {} : exports);
