@@ -28,6 +28,17 @@ describe("#route", function() {
     E.route("/other_randow_route") && assert.equal(count, 6);
   });
 
+  it("triggers the same route only once", function(){
+    var count = 0;
+    E.route.clear()(function(){ count++ });
+
+    E.route("/somewhere") && assert.equal(count, 1);
+    E.route("/somewhere") && assert.equal(count, 1);
+    E.route("/somewhere") && assert.equal(count, 1);
+    E.route("/other") && assert.equal(count, 2);
+    E.route("/other") && assert.equal(count, 2);
+  });
+
   it("triggers all routes that matches the path", function(){
     var count = 0, fn = function(){ count++ };
     E.route.clear();

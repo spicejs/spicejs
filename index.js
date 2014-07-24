@@ -147,6 +147,7 @@ E.route = (function() {
 
   function visit(path) {
     var size = map.length, i;
+    if (current_path === path) return;
     for (i = 0; i < size; i++) executeRoute(path, map[i]);
     current_path = path;
     route.trigger("visit", path);
