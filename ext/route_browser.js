@@ -1,6 +1,4 @@
-(function(exit) { "use strict";
-  if (exit) return;
-
+if (typeof window !== "undefined") {
   // redirect to route, push state
   E.route.on("visit", function(to) {
     try {
@@ -8,21 +6,18 @@
     } catch (err) {
       window.location = to[0] === "#" ? to : "#" + to;
     }
-  });
-
-  // load current path
-  function load() {
+  }).on("load", function() {
     this(location.pathname + location.search + location.hash);
-  };
+  });
 
   // Mozilla, Opera and webkit nightlies currently support this event
   if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", load);
+    document.addEventListener("DOMContentLoaded", E.route.load);
 
   // If IE event model is used
   } else if (document.attachEvent) {
     document.attachEvent("onreadystatechange", function() {
-      if (document.readyState === "complete") load();
+      if (document.readyState === "complete") E.route.load();
     });
   }
-})(typeof window === "undefined");
+};
