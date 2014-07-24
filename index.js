@@ -76,7 +76,7 @@ E.render = (function() {
   return render;
 }());
 E.route = (function() {
-  var map = [];
+  var map = [], current_path;
 
   function route(to, callback) {
     var key;
@@ -86,7 +86,7 @@ E.route = (function() {
       set(to, callback);
     } else if (typeof to === "object") {
       for (key in to) to.hasOwnProperty(key) && set(key, to[key]);
-    } else execute(to);
+    } else visit(to);
     return route;
   }
 
@@ -104,13 +104,14 @@ E.route = (function() {
     map.push({regex: new RegExp(regex), keys: keys, callback: callback});
   }
 
-  function execute(to) {
+  function visit(path) {
     var size = map.length, i;
-    for (i = 0; i < size; i++) execRoute(to, map[i]);
-    route.trigger("execute", to);
+    for (i = 0; i < size; i++) executeRoute(path, map[i]);
+    current_path = path;
+    route.trigger("visit", path);
   }
 
-  function execRoute(to, router) {
+  function executeRoute(to, router) {
     var matches = to.match(router.regex);
     if (matches) router.callback(getParams(to, router.keys, matches));
   }
@@ -122,13 +123,14 @@ E.route = (function() {
   }
 
   route.map = map;
+  route.current_path = current_path;
   route.clear = function() { map = []; return route; };
   return E.observable(route);
 })();
 // Browser Navigation
 if (typeof window !== "undefined") {
   // redirect to route, push state
-  E.route.on("execute", function(to) {
+  E.route.on("visit", function(to) {
     try {
       history.pushState(null, null, to);
     } catch (err) {

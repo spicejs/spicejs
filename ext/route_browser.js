@@ -1,7 +1,7 @@
 // Browser Navigation
 if (typeof window !== "undefined") {
   // redirect to route, push state
-  E.route.on("execute", function(to) {
+  E.route.on("visit", function(to) {
     try {
       history.pushState(null, null, to);
     } catch (err) {
