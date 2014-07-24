@@ -111,20 +111,30 @@ E.route = (function() {
     route.trigger("visit", path);
   }
 
-  function executeRoute(to, router) {
-    var matches = to.match(router.regex);
-    if (matches) router.callback(getParams(to, router.keys, matches));
+  function executeRoute(path, router) {
+    var matches = path.match(router.regex);
+    if (matches) router.callback(getParams(path, router.keys, matches));
   }
 
-  function getParams(to, keys, values) {
-    var params = {path: to}, size = keys.length, i;
+  function getParams(path, keys, values) {
+    var params = {path: path}, size = keys.length, i;
     for (i = 0; i < size; i++) params[keys[i]] = values[i];
     return params;
   }
 
+  route.clear = function() {
+    map = [];
+    route.trigger("clear");
+    return route;
+  };
+
+  route.load = function() {
+    route.trigger("load");
+    return route;
+  };
+
   route.map = map;
   route.current_path = current_path;
-  route.clear = function() { map = []; return route; };
   return E.observable(route);
 })();
 })(typeof window !== "undefined" ? window.E = {} : exports);
