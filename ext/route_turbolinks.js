@@ -10,5 +10,4 @@
   E.route.on("visit", function(path) { Turbolinks.visit(path) });
   document.addEventListener("page:load", load);
   document.addEventListener("DOMContentLoaded", load);
-
 })(typeof Turbolinks === "undefined");
