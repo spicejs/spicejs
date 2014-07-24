@@ -14,17 +14,17 @@
     <a href="/hash2">Second</a>
     <a href="/hash3">Third</a>
     <a href="/hash4">Fourth</a>
-  </body>
 
-  <script>
-    var links = document.getElementsByTagName("a"), i;
-    E.route("*/hash{i}", function (params) { console.log("params", params) });
+    <script>
+      var links = document.getElementsByTagName("a"), i;
+      E.route("*/hash{i}", function (params) { console.log("params", params) });
 
-    for (i = 0; i < links.length; i++) {
-      links[i].onclick = function() {
-        E.route(this.getAttribute("href"));
-        return false;
+      for (i = 0; i < links.length; i++) {
+        links[i].onclick = function() {
+          E.route(this.getAttribute("href"));
+          return false;
+        }
       }
-    }
-  </script>
+    </script>
+  </body>
 </html>
