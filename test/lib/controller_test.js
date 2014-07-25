@@ -17,6 +17,11 @@ describe("#controller", function() {
     assertBind("increment", element, {count: 1});
   });
 
+  it("silently fail for undefined controllers", function() {
+    E.control("the-bugged", {});
+    E.control("nobody", {});
+  })
+
   function assertBind(controller, element, expected) {
     E.control(controller, element, {});
     assert.deepEqual(element, expected);

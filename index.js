@@ -16,19 +16,18 @@ E.control = (function() {
   var controllers = E.controller.all;
 
   function control(name, element, options) {
-    hasElement(name, element) ||
-      addContol(name, element, options);
-
+    add(controllers[name], element, options);
     return element;
   };
 
-  function addContol(name, element, options) {
-    controllers[name]._elements.push(element);
-    controllers[name](element, options);
+  function add(callback, element, options) {
+    if (has(callback, element)) return;
+    callback._elements.push(element);
+    callback(element, options);
   }
 
-  function hasElement(name, element) {
-    var callback = controllers[name];
+  function has(callback, element) {
+    if (!callback) return true;
     callback._elements = callback._elements || [];
     return callback._elements.indexOf(element) !== -1;
   }
