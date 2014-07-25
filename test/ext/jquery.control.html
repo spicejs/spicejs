@@ -13,9 +13,12 @@
     <a href="#">log</a>
     <script>
       E.controller("log", function(element) { console.log(element); });
-
       console.log("It logs each element only once");
-      $("a").on("click", function(){ $("p").control("log") }).control("log")
+      $("a").on("click", function(){ $("p").control("log") }).control("log");
+
+      it("sets the data-contol to elements", function() {
+        assert($("a").attr("data-control-log"));
+      });
     </script>
   </body>
 </html>
