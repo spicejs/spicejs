@@ -130,7 +130,7 @@ E.route = (function() {
   }
 
   function set(to, callback) {
-    var keys = ["match"], regex, key;
+    var keys = ["path"], regex, key;
 
     regex = "^\#?\!?" + to
       .replace(/[\/\=\?\$\^]/g, "\\$&")
@@ -157,9 +157,20 @@ E.route = (function() {
   }
 
   function getParams(path, keys, values) {
-    var params = {path: path}, size = keys.length, i;
+    var params = {}, size = keys.length, i;
     for (i = 0; i < size; i++) params[keys[i]] = values[i];
     return params;
+  }
+
+  function replacePath(path) {
+    switch(path[0]) {
+      case "?":
+        return current_path.replace(/\?.*/g, "") + path;
+      case "&":
+        return current_path.replace(/\&.*/g, "") + path;
+      case "#":
+        return current_path.replace(/\#.*/g, "") + path;
+    }
   }
 
   route.clear = function() {
@@ -173,8 +184,12 @@ E.route = (function() {
     return route;
   };
 
+  route.update = function(path, visitable) {
+    path = replacePath(path);
+    visitable === false ? route.trigger("visit", path) : visit(path);
+  }
+
   route.map = map;
-  route.current_path = current_path;
   return E.observable(route);
 })();
 

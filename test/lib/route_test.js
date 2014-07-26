@@ -3,9 +3,9 @@ describe("#route", function() {
     E.route({a: 1, b: 2, c: 3});
 
     assert.deepEqual(E.route.map, [
-      {regex: {}, keys: ["match"], callback: 1},
-      {regex: {}, keys: ["match"], callback: 2},
-      {regex: {}, keys: ["match"], callback: 3} ]);
+      {regex: {}, keys: ["path"], callback: 1},
+      {regex: {}, keys: ["path"], callback: 2},
+      {regex: {}, keys: ["path"], callback: 3} ]);
   });
 
   it("matches a route", function() {
@@ -39,7 +39,7 @@ describe("#route", function() {
     E.route("/other") && assert.equal(count, 2);
   });
 
-  it("triggers all routes that matches the path", function(){
+  it("triggers all routes that matches the path", function() {
     var count = 0, fn = function(){ count++ };
     E.route.clear();
     E.route(fn); E.route({"/my*": fn, "/my/way": fn, "*": fn});
@@ -48,16 +48,52 @@ describe("#route", function() {
     assert.equal(count, 4);
   });
 
+  it("updates the current route", function() {
+    var current;
+    E.route(function(params){ current = params.path; });
+    E.route("/items");
+
+    E.route.update("?search=eden");
+    assert.equal(current, "/items?search=eden");
+
+    E.route.update("?search=pool");
+    assert.equal(current, "/items?search=pool");
+
+    E.route.update("&id=1");
+    assert.equal(current, "/items?search=pool&id=1");
+
+    E.route.update("#hash");
+    assert.equal(current, "/items?search=pool&id=1#hash");
+
+    E.route.update("#hash2");
+    assert.equal(current, "/items?search=pool&id=1#hash2");
+
+    E.route.update("&id=2");
+    assert.equal(current, "/items?search=pool&id=2");
+  });
+
+  it("updates the route silently", function() {
+    var current;
+    E.route(function(params){ current = params.path; });
+    E.route("/items");
+
+    E.route.update("/other_path", false);
+    assert.equal(current, "/items");
+  });
+
   it("matches the params", function() {
     assertRoute("/items?search={q}", "/items?search=hi",
-      {path: "/items?search=hi", match: "/items?search=hi", q: "hi"});
+      {path: "/items?search=hi", q: "hi"});
 
     assertRoute("/items/{item}/{id}", "/items/debby/2",
-      {path: "/items/debby/2", match: "/items/debby/2", item: "debby", id: "2"});
+      {path: "/items/debby/2", item: "debby", id: "2"});
 
     assertRoute("/my/*/{item}/{id}", "/my/crazy/cart/2",
-      {path: "/my/crazy/cart/2", match:  "/my/crazy/cart/2", item: "cart", id: "2"});
+      {path: "/my/crazy/cart/2", item: "cart", id: "2"});
   });
+
+  function assertUpdate(update, expected) {
+  }
 
   function assertRoute(route, path, params) {
     var received = false;
