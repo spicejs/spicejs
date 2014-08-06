@@ -40,7 +40,7 @@ E.observable = function(object) {
 
   object.on = function(events, fn) {
     if (typeof fn === "function") {
-      events.replace(/[^\s]+/g, function(name, pos) {
+      events.replace(/\S+/g, function(name, pos) {
         (callbacks[name] = callbacks[name] || []).push(fn);
         fn.typed = pos > 0;
       });
@@ -56,7 +56,7 @@ E.observable = function(object) {
         if (cb === fn) arr.splice(i, 1);
       }
     } else {
-      events.replace(/[^\s]+/g, function(name) {
+      events.replace(/\S+/g, function(name) {
         callbacks[name] = [];
       });
     }
@@ -143,17 +143,22 @@ E.route = (function() {
     map.push({regex: new RegExp(regex), keys: keys, callback: callback});
   }
 
-  function visit(path) {
+  function visit(path, trigger) {
     var size = map.length, i;
     if (current_path === path) return;
     for (i = 0; i < size; i++) executeRoute(path, map[i]);
+    if (trigger === false) return;
     current_path = path;
     route.trigger("visit", path);
   }
 
   function executeRoute(path, router) {
-    var matches = path.match(router.regex);
-    if (matches) router.callback(getParams(path, router.keys, matches));
+    var matches = path.match(router.regex), callback = router.callback;
+    if (!matches || !callback) return;
+
+    (typeof callback === "function") ?
+      callback(getParams(path, router.keys, matches)) :
+      visit(callback, false);
   }
 
   function getParams(path, keys, values) {

@@ -18,6 +18,16 @@ describe("#route", function() {
     assertRoute("*/items", "/items");
   });
 
+  it("setts and alias route", function(){
+    var count = 0, fn = function(){ count++ };
+    E.route({
+      "/my_route": fn,
+      "/alias_route": "/my_route"
+    }).on("visit", fn);
+
+    E.route("/alias_route") && assert.equal(count, 2);
+  });
+
   it("works with generic routes", function() {
     var count = 0;
     E.route(function(){ count++ });
