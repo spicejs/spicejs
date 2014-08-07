@@ -1,22 +1,27 @@
 describe("#render", function() {
 
-  it("Single token", function() {
+  it('renders the unscaped output', function(){
     assert.equal(E.render("x"), "x");
-    assert.equal(E.render("x", {}), "x");
-    assert.equal(E.render("{x}", { x: "x" }), "x");
-    assert.equal(E.render("{x}", { x: "z" }), "z");
+    assertRender("x", {}, "x");
+    assertRender("{x}", { x: "foo" }, "foo");
+    assertRender("{x}", { x: "foo" }, "foo");
+    assertRender("{x}", { x: true }, "true");
+    assertRender("{x}", { x: '&' }, "&");
+    assertRender("{x}", { x: '"' }, "\"");
+    assertRender("{x}", { x: '<' }, "<");
+    assertRender("{x}", { x: '>' }, ">");
+    assertRender('{x}', {x: '<script>test</script>'}, '<script>test</script>');
+    assertRender('{x}', {x: '<p>test</p>'}, '<p>test</p>');
+    assertRender("{x}{y}", { x: "foo", y: "bar" }, "foobar");
+    assertRender("{x} {y}", { x: "foo", y: "bar" }, "foo bar");
   });
 
-  it("Multiple tokens", function() {
-    assert(E.render("{x}{y}", { x: "x", y: "y" }) == "xy");
-  });
-
-  it("Single quotes", function() {
+  it("renders single quotes", function() {
     assert.equal(E.render("'x'"), "'x'");
     assert.equal(E.render("\'x.\';"), "\'x.\';");
   });
 
-  it("Empty values", function() {
+  it("renders falsey values", function() {
     assert.equal(E.render("{x}", { x: undefined }), "");
     assert.equal(E.render("{x}", { x: null }), "");
     assert.equal(E.render("{x}", { x: true }), "true");
@@ -24,88 +29,55 @@ describe("#render", function() {
     assert.equal(E.render("{x}", { x: 0 }), "0");
   });
 
-  it("With spaces", function() {
-    assert.equal(E.render("{ x }", { x: 'x' }), "x");
-    assert.equal(E.render("{x }", { x: 'x' }), "x");
-    assert.equal(E.render("{ x}", { x: 'x' }), "x");
-    assert.equal(E.render("{  x  }", { x: 'x' }), "x");
+  it("ignores white spaces on variables", function() {
+    assertRender("{ x }", { x: 'foo' }, "foo");
+    assertRender("{x }", { x: 'foo' }, "foo");
+    assertRender("{ x}", { x: 'foo' }, "foo");
+    assertRender("{  x  }", { x: 'foo' }, "foo");
   });
 
-  it("Empty template", function() {
-    assert(E.render() === "");
+  it("renders empty template", function() {
+    assert.equal(E.render(), "");
   });
 
-  it("Nearby brackets", function() {
-    assert.equal(E.render("{{x}", { x: 'x' }), "{x");
-    assert.equal(E.render("{x}}", { x: 'x' }), "x}");
-    assert.equal(E.render("{{x}}", { x: 'x' }), "{x}");
+  it("renders near brackets", function() {
+    assertRender("{{x}", { x: 'foo' }, "{foo");
+    assertRender("{x}}", { x: 'foo' }, "foo}");
+    assertRender("{{x}}", { x: 'foo' }, "{foo}");
   });
 
-  if (typeof jQuery == "function") {
-    it("<template> tag", function() {
-      assert($.trim(E.render($("#test1").html(), {x: 'x'})) == "x");
-    });
-  }
-
-  it("Newline characters", function() {
+  it("renders newline characters", function() {
     assert.equal(E.render("x\r"), "x\r");
     assert.equal(E.render("x\n"), "x\n");
   });
 
-  it("Backslashes", function() {
-    assert.equal(E.render("\\{x}", { x: 'x' }), "\\x");
+  it("renders backslashes", function() {
+    assertRender("\\{x}", { x: 'x' }, "\\x");
   });
 
-  it("Escaping", function() {
-    assert.equal(E.render("{x}", { x: '&' }, true), "&amp;");
-    assert.equal(E.render("{x}", { x: '"' }, true), "&quot;");
-    assert.equal(E.render("{x}", { x: '<' }, true), "&lt;");
-    assert.equal(E.render("{x}", { x: '>' }, true), "&gt;");
+  it("render default escaped values", function() {
+    assertRender("{x}", { x: '&' }, "&amp;", true);
+    assertRender("{x}", { x: '"' }, "&quot;", true);
+    assertRender("{x}", { x: '<' }, "&lt;", true);
+    assertRender("{x}", { x: '>' }, "&gt;", true);
   });
 
-  it("Escaping empty values", function() {
-    assert.equal(E.render("{x}", { x: undefined }, true), "");
-    assert.equal(E.render("{x}", { x: null }, true), "");
-    assert.equal(E.render("{x}", { x: true }, true), "true");
-    assert.equal(E.render("{x}", { x: false }, true), "false");
-    assert.equal(E.render("{x}", { x: 0 }, true), "0");
+  it("renders nested objects", function() {
+    assertRender("{x.y}", { x: { y: 'foo' }}, "foo");
+    assertRender("{x.y.z}", { x: { y: {z: 'bar'} }}, "bar");
   });
 
-  it("Not Escaping", function() {
-    assert.equal(E.render("{x}", { x: '&' }), "&");
-    assert.equal(E.render("{x}", { x: '"' }), "\"");
-    assert.equal(E.render("{x}", { x: '<' }), "<");
-    assert.equal(E.render("{x}", { x: '>' }), ">");
-  });
-
-  it("Nested objects", function() {
-    assert.equal(E.render("{x.y}", { x: { y: 'x' }}), "x");
-  });
-
-  it("Undefined properties", function() {
-    assert.equal(E.render("{x}", {}), "");
-  });
-
-  it('Custom escape function', function(){
-    var template = '{x}',
-      data = {x: 'custom-replace-function'},
-      escape_fn = function(text){ return text.replace(/-/g, '!')};
-
-    assert.equal(E.render(template, data, escape_fn), 'custom!replace!function');
-  });
-
-  it('Custom escape function args', function(){
-    E.render('{x}', { x: 'foo'}, function(val, key) {
+  it('calls a custom escape function', function(){
+    function fn (val, key) {
       assert.equal(key, 'x');
       assert.equal(val, 'foo');
-    });
+      return "bar";
+    };
+
+    assertRender("{x}", {x: 'foo'}, "bar", fn);
   });
 
-  it('Can be set to not escape', function(){
-    var template = '{x}',
-      data = {x: '<script>test</script>'};
-
-    assert.equal(E.render(template, data), '<script>test</script>');
-  });
-
+  function assertRender(template, data, expected, fn) {
+    assert.equal(E.render(template, data, fn), expected);
+  }
 });

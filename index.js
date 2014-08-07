@@ -5,7 +5,7 @@ E.controller = (function() {
 
   function controller(name, callback) {
     controllers[name] = callback;
-  };
+  }
 
   controller.all = controllers;
   return controller;
@@ -18,7 +18,7 @@ E.control = (function() {
   function control(name, element, options) {
     add(controllers[name], element, options);
     return element;
-  };
+  }
 
   function add(callback, element, options) {
     if (!callback || has(callback, element)) return;
@@ -94,15 +94,15 @@ E.render = (function() {
     renderEscape = {'&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;'};
 
   function render(tmpl, data, escapeFn) {
-    if (escapeFn === true) escapeFn = defaultEscapeFn;
     tmpl = tmpl || '';
+    escapeFn = (escapeFn === true) ? defaultEscapeFn : escapeFn;
 
     return (FN[tmpl] = FN[tmpl] || new Function("_", "e", "return '" +
       tmpl.replace(/[\\\n\r']/g, function(char) {
         return templateEscape[char];
       }).replace(/{\s*([\w\.]+)\s*}/g, "' + (e?e(_.$1,'$1'):_.$1||(_.$1==null?'':_.$1)) + '") + "'")
     )(data, escapeFn);
-  };
+  }
 
   function defaultEscapeFn(str, key) {
     return str == null ? '' : (str+'').replace(/[&\"<>]/g, function(char) {
@@ -192,7 +192,7 @@ E.route = (function() {
   route.update = function(path, visitable) {
     path = replacePath(path);
     visitable === false ? route.trigger("visit", path) : visit(path);
-  }
+  };
 
   route.map = map;
   return E.observable(route);
