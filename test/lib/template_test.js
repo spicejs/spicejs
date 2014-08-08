@@ -10,6 +10,7 @@ describe("#template", function() {
 
   it("renders a template directly", function() {
     assert.equal(E.template("<%= x %>", {x: "foo"}), "foo");
+    assert.equal(E.template("<%= x.y.z %>", {x: {y: {z: "bar"}}}), "bar");
     assert.equal(E.template("<%= 10 %>", {}), "10");
     assert.equal(E.template("hi", {}), "hi");
   });
