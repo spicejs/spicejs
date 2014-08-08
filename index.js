@@ -182,19 +182,28 @@ E.template = (function() {
   }
 
   function generate(str) {
+    var wrap = getWrap(), prefix = wrap[0], sufix = wrap[1];
+
     return new Function("obj",
       "var p=[],print=function(){p.push.apply(p,arguments);};" +
       "with(obj){p.push('" + str
         .replace(/[\r\t\n]/g, " ")
-        .split("<%").join("\t")
-        .replace(/((^|%>)[^\t]*)'/g, "$1\r")
-        .replace(/\t=(.*?)%>/g, "',$1,'")
+        .split(prefix).join("\t")
+        .replace(new RegExp("((^|" + sufix +")[^\t]*)'", "g"), "$1\r")
+        .replace(new RegExp("\t=(.*?)" + sufix, "g"), "',$1,'")
         .split("\t").join("');")
-        .split("%>").join("p.push('")
+        .split(sufix).join("p.push('")
         .split("\r").join("\\'")
     + "');}return p.join('');");
   }
 
+  function getWrap() {
+    return (typeof template.wrapper === "string") ?
+      template.wrapper = template.wrapper.replace(/\s+/, "").split("?") :
+      template.wrapper;
+  }
+
+  template.wrapper = "<%?%>";
   return template;
 }());
 

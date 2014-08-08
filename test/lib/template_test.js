@@ -29,4 +29,11 @@ describe("#template", function() {
     assert.equal(tmpl({a: 1, b: 3}), "b = 3");
     assert.equal(tmpl({a: 3, b: 3}), "b(3) == a(3)");
   });
+
+  it("compiles with a custom wrapper", function() {
+    E.template.wrapper = "{{?}}";
+    assert.equal(E.template("{{= x }}", {x: "foo"}), "foo");
+    assert.equal(E.template("{{ if (false) { }} hide {{ } }}", {x: "foo"}), "");
+    E.template.wrapper = "<%?%>";
+  });
 });
