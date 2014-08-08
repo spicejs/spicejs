@@ -35,6 +35,8 @@ describe("#template", function() {
     E.template.wrapper = "{{?}}";
     assert.equal(E.template("{{= x }}", {x: "foo"}), "foo");
     assert.equal(E.template("{{ if (false) { }} hide {{ } }}", {x: "foo"}), "");
+    E.template.wrapper = "<luiz?luiz>"
+    assert.equal(E.template("<luiz= x luiz>", {x: "foo"}), "foo");
     E.template.wrapper = "<%?%>";
   });
 });
