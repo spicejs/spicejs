@@ -49,8 +49,9 @@ E.observable = function(object) {
   };
 
   object.off = function(events, fn) {
-    if (events === "*") callbacks = {};
-    else if (fn) {
+    if (!events || events === "*") {
+      callbacks = {};
+    } else if (fn) {
       var arr = callbacks[events];
       for (var i = 0, cb; (cb = arr && arr[i]); ++i) {
         if (cb === fn) arr.splice(i, 1);
@@ -86,7 +87,6 @@ E.observable = function(object) {
 
   return object;
 };
-
 // Renders object in a template
 E.render = (function() {
   var FN = {},
