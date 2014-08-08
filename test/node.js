@@ -5,7 +5,7 @@ global.E = require("../index");
   "./lib/route_test",
   "./lib/observable_test",
   "./lib/controller_test",
-  "./lib/render_test"
+  "./lib/template_test"
 ].forEach(function(file){
   require("./" + file + ".js");
 });

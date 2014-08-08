@@ -87,32 +87,6 @@ E.observable = function(object) {
 
   return object;
 };
-// Renders object in a template
-E.render = (function() {
-  var FN = {},
-    templateEscape = {"\\": "\\\\", "\n": "\\n", "\r": "\\r", "'": "\\'"},
-    renderEscape = {'&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;'};
-
-  function render(tmpl, data, escapeFn) {
-    tmpl = tmpl || '';
-    escapeFn = (escapeFn === true) ? defaultEscapeFn : escapeFn;
-
-    return (FN[tmpl] = FN[tmpl] || new Function("_", "e", "return '" +
-      tmpl.replace(/[\\\n\r']/g, function(char) {
-        return templateEscape[char];
-      }).replace(/{\s*([\w\.]+)\s*}/g, "' + (e?e(_.$1,'$1'):_.$1||(_.$1==null?'':_.$1)) + '") + "'")
-    )(data, escapeFn);
-  }
-
-  function defaultEscapeFn(str, key) {
-    return str == null ? '' : (str+'').replace(/[&\"<>]/g, function(char) {
-      return renderEscape[char];
-    });
-  }
-
-  return render;
-}());
-
 // Create & Invoque routes
 E.route = (function() {
   var map = [], current_path;
@@ -197,5 +171,31 @@ E.route = (function() {
   route.map = map;
   return E.observable(route);
 })();
+
+// Generates a template function
+E.template = (function() {
+  var cache = {};
+
+  function template(str, data){
+    cache[str] = cache[str] || generate(str);
+    return data ? cache[str](data) : cache[str];
+  }
+
+  function generate(str) {
+    return new Function("obj",
+      "var p=[],print=function(){p.push.apply(p,arguments);};" +
+      "with(obj){p.push('" + str
+        .replace(/[\r\t\n]/g, " ")
+        .split("<%").join("\t")
+        .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+        .replace(/\t=(.*?)%>/g, "',$1,'")
+        .split("\t").join("');")
+        .split("%>").join("p.push('")
+        .split("\r").join("\\'")
+    + "');}return p.join('');");
+  }
+
+  return template;
+}());
 
 })(typeof window !== "undefined" ? window.E = {} : exports);
