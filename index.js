@@ -51,17 +51,18 @@ E.Observable.prototype = {
   },
 
   off: function(events, fn) {
-    var self = this, arr = self._callbacks[events], i, cb;
+    var self = this;
 
     if (!events || events === "*") {
       self._callbacks = {};
-    } else if (fn) {
-      for (i = 0, cb; (cb = arr && arr[i]); ++i) {
-        if (cb === fn) arr.splice(i, 1);
-      }
-    } else {
-      events.replace(/\S+/g, function(name) { self._callbacks[name] = []; });
+      return this;
     }
+
+    events.replace(/\S+/g, function(name) {
+      var arr = self._callbacks[name] || [], i;
+      if(!fn) return self._callbacks[name] = [];
+      for (i = 0; arr[i]; ++i) if (arr[i] === fn) arr.splice(i, 1);
+    });
 
     return this;
   },
