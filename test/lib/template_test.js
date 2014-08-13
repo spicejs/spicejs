@@ -10,6 +10,7 @@ describe("#template", function() {
 
   it("renders a template directly", function() {
     assert.equal(E.template("<%= x %>", {x: "foo"}), "foo");
+    assert.equal(E.template("<p><%= x %></p>", {x: "foo"}), "<p>foo</p>");
     assert.equal(E.template("<%= x.y.z %>", {x: {y: {z: "bar"}}}), "bar");
     assert.equal(E.template("<%= 10 %>", {}), "10");
     assert.equal(E.template("hi", {}), "hi");
@@ -34,7 +35,9 @@ describe("#template", function() {
   it("compiles with a custom wrapper", function() {
     E.template.wrapper = "{{?}}";
     assert.equal(E.template("{{= x }}", {x: "foo"}), "foo");
+    assert.equal(E.template("<p>{{= x }}</p>", {x: "foo"}), "<p>foo</p>");
     assert.equal(E.template("{{ if (false) { }} hide {{ } }}", {x: "foo"}), "");
+
     E.template.wrapper = "<luiz?luiz>"
     assert.equal(E.template("<luiz= x luiz>", {x: "foo"}), "foo");
     E.template.wrapper = "<%?%>";
