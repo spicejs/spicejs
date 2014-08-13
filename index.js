@@ -123,7 +123,7 @@ E.route = (function() {
       .replace(/\*/g, ".*")
       .replace(/\{(\w+)\}/g, function(match, key) {
         keys.push(key);
-        return "(\\w+)";
+        return "([\\w\\-]+)";
       }) + "$";
 
     map.push({regex: new RegExp(regex), keys: keys, callback: callback});

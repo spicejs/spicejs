@@ -11,6 +11,9 @@ describe("#route", function() {
   it("matches a route", function() {
     assertRoute("/home", "/home");
     assertRoute("/items/{item}", "/items/debby");
+    assertRoute("/items/{item}", "/items/Judo_gi");
+    assertRoute("/items/{item}", "/items/judo-gi");
+    assertRoute("/items/{item}", "/items/jiu-Jitsu_gi");
     assertRoute("/items/{item}", "#/items/debby");
     assertRoute("/items/{item}", "#!/items/debby");
     assertRoute("*/items", "/hi/items");
