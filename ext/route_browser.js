@@ -2,7 +2,7 @@ if (typeof window !== "undefined") {
   // redirect to route, push state
   E.route.on("visit", function(to) {
     try {
-      history.pushState(null, null, to);
+      history.pushState({ edenjs: true }, '', to);
     } catch (err) {
       window.location = to[0] === "#" ? to : "#" + to;
     }
@@ -20,4 +20,11 @@ if (typeof window !== "undefined") {
       if (document.readyState === "complete") E.route.load();
     });
   }
+
+  // Popstate event
+  window.addEventListener('popstate', function (e) {
+    if (e.state !== null && e.state['edenjs']) {
+      E.route.load();
+    }
+  });
 };
