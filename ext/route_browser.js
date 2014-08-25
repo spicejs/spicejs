@@ -7,7 +7,7 @@ if (typeof window !== "undefined") {
       window.location = to[0] === "#" ? to : "#" + to;
     }
   }).on("load", function() {
-    this(location.pathname + location.search + location.hash);
+    this(location.pathname + location.search + location.hash, false);
   });
 
   // Mozilla, Opera and webkit nightlies currently support this event
@@ -23,8 +23,6 @@ if (typeof window !== "undefined") {
 
   // Popstate event
   window.addEventListener('popstate', function (e) {
-    if (e.state !== null && e.state['edenjs']) {
-      E.route.load();
-    }
+    if (e.state && e.state['edenjs']) E.route.load();
   });
 };
