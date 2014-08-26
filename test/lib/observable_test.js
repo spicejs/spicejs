@@ -1,5 +1,5 @@
 describe("#observable", function() {
-  var el = E.observable({});
+  var el = S.observable({});
 
   describe("#on", function() {
     it("binds a single listener", function() {

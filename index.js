@@ -1,6 +1,6 @@
-(function(E) { "use strict";
+(function(S) { "use strict";
 // Creates a controller
-E.controller = (function() {
+S.controller = (function() {
   var controllers = {};
 
   function controller(name, callback) {
@@ -12,8 +12,8 @@ E.controller = (function() {
 })();
 
 // Binds controller to an element
-E.control = (function() {
-  var controllers = E.controller.all;
+S.control = (function() {
+  var controllers = S.controller.all;
 
   function control(name, element, options) {
     add(controllers[name], element, options);
@@ -34,9 +34,9 @@ E.control = (function() {
   return control;
 })();
 
-E.Observable = function() { };
+S.Observable = function() { };
 
-E.Observable.prototype = {
+S.Observable.prototype = {
   on: function(events, fn) {
     var callbacks = this._callbacks;
 
@@ -89,19 +89,19 @@ E.Observable.prototype = {
   },
 };
 
-E.observable = function(object) {
+S.observable = function(object) {
   var property, proto ;
   object._callbacks = {};
-  object._observable = new E.Observable();
+  object._observable = new S.Observable();
 
-  for (property in E.Observable.prototype) {
+  for (property in S.Observable.prototype) {
     object[property] = object._observable[property];
   }
 
   return object;
 };
 // Create & Invoque routes
-E.route = (function() {
+S.route = (function() {
   var map = [], current_path;
 
   function route(to, trigger) {
@@ -179,11 +179,11 @@ E.route = (function() {
   };
 
   route.map = map;
-  return E.observable(route);
+  return S.observable(route);
 })();
 
 // Generates a template function
-E.template = (function() {
+S.template = (function() {
   var cache = {};
 
   function template(str, data){
@@ -217,4 +217,4 @@ E.template = (function() {
   return template;
 }());
 
-})(typeof window !== "undefined" ? window.E = {} : exports);
+})(typeof window !== "undefined" ? window.S = {} : exports);

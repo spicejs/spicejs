@@ -1,6 +1,6 @@
 if (typeof window !== "undefined") {
   // redirect to route, push state
-  E.route.on("visit", function(to) {
+  S.route.on("visit", function(to) {
     try {
       history.pushState({ edenjs: true }, '', to);
     } catch (err) {
@@ -12,17 +12,17 @@ if (typeof window !== "undefined") {
 
   // Mozilla, Opera and webkit nightlies currently support this event
   if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", E.route.load);
+    document.addEventListener("DOMContentLoaded", S.route.load);
 
   // If IE event model is used
   } else if (document.attachEvent) {
     document.attachEvent("onreadystatechange", function() {
-      if (document.readyState === "complete") E.route.load();
+      if (document.readyState === "complete") S.route.load();
     });
   }
 
   // Popstate event
   window.addEventListener('popstate', function (e) {
-    if (e.state && e.state['edenjs']) E.route.load();
+    if (e.state && e.state['edenjs']) S.route.load();
   });
 };

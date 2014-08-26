@@ -1,4 +1,4 @@
-global.E = require("../index");
+global.S = require("../index");
 
 [
   "../bdd",

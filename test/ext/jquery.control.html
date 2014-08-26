@@ -12,7 +12,7 @@
     <p>Open console to view the cliked link params</p>
     <a href="#">log</a>
     <script>
-      E.controller("log", function(element) { console.log(element); });
+      S.controller("log", function(element) { console.log(element); });
       console.log("It logs each element only once");
       $("a").on("click", function(){ $("p").control("log") }).control("log");
 

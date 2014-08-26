@@ -1,8 +1,8 @@
 describe("#route", function() {
   it("sets many routes at once", function() {
-    E.route({a: 1, b: 2, c: 3});
+    S.route({a: 1, b: 2, c: 3});
 
-    assert.deepEqual(E.route.map, [
+    assert.deepEqual(S.route.map, [
       {regex: {}, keys: ["path"], callback: 1},
       {regex: {}, keys: ["path"], callback: 2},
       {regex: {}, keys: ["path"], callback: 3} ]);
@@ -23,74 +23,74 @@ describe("#route", function() {
 
   it("setts and alias route", function(){
     var count = 0, fn = function(){ count++ };
-    E.route({
+    S.route({
       "/my_route": fn,
       "/alias_route": "/my_route"
     }).on("visit", fn);
 
-    E.route("/alias_route") && assert.equal(count, 2);
+    S.route("/alias_route") && assert.equal(count, 2);
   });
 
   it("works with generic routes", function() {
     var count = 0;
-    E.route(function(){ count++ });
-    E.route(function(){ count++ });
-    E.route(function(){ count++ });
+    S.route(function(){ count++ });
+    S.route(function(){ count++ });
+    S.route(function(){ count++ });
 
-    E.route("/any_randow_route") && assert.equal(count, 3);
-    E.route("/other_randow_route") && assert.equal(count, 6);
+    S.route("/any_randow_route") && assert.equal(count, 3);
+    S.route("/other_randow_route") && assert.equal(count, 6);
   });
 
   it("triggers the same route only once", function(){
     var count = 0;
-    E.route.clear()(function(){ count++ });
+    S.route.clear()(function(){ count++ });
 
-    E.route("/somewhere") && assert.equal(count, 1);
-    E.route("/somewhere") && assert.equal(count, 1);
-    E.route("/somewhere") && assert.equal(count, 1);
-    E.route("/other") && assert.equal(count, 2);
-    E.route("/other") && assert.equal(count, 2);
+    S.route("/somewhere") && assert.equal(count, 1);
+    S.route("/somewhere") && assert.equal(count, 1);
+    S.route("/somewhere") && assert.equal(count, 1);
+    S.route("/other") && assert.equal(count, 2);
+    S.route("/other") && assert.equal(count, 2);
   });
 
   it("triggers all routes that matches the path", function() {
     var count = 0, fn = function(){ count++ };
-    E.route.clear();
-    E.route(fn); E.route({"/my*": fn, "/my/way": fn, "*": fn});
+    S.route.clear();
+    S.route(fn); S.route({"/my*": fn, "/my/way": fn, "*": fn});
 
-    E.route("/my/way");
+    S.route("/my/way");
     assert.equal(count, 4);
   });
 
   it("updates the current route", function() {
     var current;
-    E.route(function(params){ current = params.path; });
-    E.route("/items");
+    S.route(function(params){ current = params.path; });
+    S.route("/items");
 
-    E.route.update("?search=eden");
+    S.route.update("?search=eden");
     assert.equal(current, "/items?search=eden");
 
-    E.route.update("?search=pool");
+    S.route.update("?search=pool");
     assert.equal(current, "/items?search=pool");
 
-    E.route.update("&id=1");
+    S.route.update("&id=1");
     assert.equal(current, "/items?search=pool&id=1");
 
-    E.route.update("#hash");
+    S.route.update("#hash");
     assert.equal(current, "/items?search=pool&id=1#hash");
 
-    E.route.update("#hash2");
+    S.route.update("#hash2");
     assert.equal(current, "/items?search=pool&id=1#hash2");
 
-    E.route.update("&id=2");
+    S.route.update("&id=2");
     assert.equal(current, "/items?search=pool&id=2");
   });
 
   it("updates the route silently", function() {
     var current;
-    E.route(function(params){ current = params.path; });
-    E.route("/items");
+    S.route(function(params){ current = params.path; });
+    S.route("/items");
 
-    E.route.update("/other_path", false);
+    S.route.update("/other_path", false);
     assert.equal(current, "/items");
   });
 
@@ -111,12 +111,12 @@ describe("#route", function() {
   function assertRoute(route, path, params) {
     var received = false;
 
-    E.route.clear()(route, function(p) {
+    S.route.clear()(route, function(p) {
       received = true
       params && assert.deepEqual(p, params)
     });
 
-    E.route(path);
+    S.route(path);
     assert(received, "Invalid route to => " + path);
   }
 });
