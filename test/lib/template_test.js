@@ -1,6 +1,6 @@
 describe("#template", function() {
   it("generates a template function", function() {
-    var tmpl = E.template("<%= x %>");
+    var tmpl = S.template("<%= x %>");
     assert.equal(tmpl({x: "foo"}), "foo");
     assert.equal(tmpl({x: 1}), "1");
     assert.equal(tmpl({x: true}), "true");
@@ -9,15 +9,15 @@ describe("#template", function() {
   });
 
   it("renders a template directly", function() {
-    assert.equal(E.template("<%= x %>", {x: "foo"}), "foo");
-    assert.equal(E.template("<p><%= x %></p>", {x: "foo"}), "<p>foo</p>");
-    assert.equal(E.template("<%= x.y.z %>", {x: {y: {z: "bar"}}}), "bar");
-    assert.equal(E.template("<%= 10 %>", {}), "10");
-    assert.equal(E.template("hi", {}), "hi");
+    assert.equal(S.template("<%= x %>", {x: "foo"}), "foo");
+    assert.equal(S.template("<p><%= x %></p>", {x: "foo"}), "<p>foo</p>");
+    assert.equal(S.template("<%= x.y.z %>", {x: {y: {z: "bar"}}}), "bar");
+    assert.equal(S.template("<%= 10 %>", {}), "10");
+    assert.equal(S.template("hi", {}), "hi");
   });
 
   it("compiles javascript code", function() {
-    var tmpl = E.template(
+    var tmpl = S.template(
       "<% if (a > b) { %>" +
         "a = <%= a %>" +
       "<% } else if (b > a) { %>" +
@@ -33,13 +33,13 @@ describe("#template", function() {
   });
 
   it("compiles with a custom wrapper", function() {
-    E.template.wrapper = "{{?}}";
-    assert.equal(E.template("{{= x }}", {x: "foo"}), "foo");
-    assert.equal(E.template("<p>{{= x }}</p>", {x: "foo"}), "<p>foo</p>");
-    assert.equal(E.template("{{ if (false) { }} hide {{ } }}", {x: "foo"}), "");
+    S.template.wrapper = "{{?}}";
+    assert.equal(S.template("{{= x }}", {x: "foo"}), "foo");
+    assert.equal(S.template("<p>{{= x }}</p>", {x: "foo"}), "<p>foo</p>");
+    assert.equal(S.template("{{ if (false) { }} hide {{ } }}", {x: "foo"}), "");
 
-    E.template.wrapper = "<luiz?luiz>"
-    assert.equal(E.template("<luiz= x luiz>", {x: "foo"}), "foo");
-    E.template.wrapper = "<%?%>";
+    S.template.wrapper = "<luiz?luiz>"
+    assert.equal(S.template("<luiz= x luiz>", {x: "foo"}), "foo");
+    S.template.wrapper = "<%?%>";
   });
 });

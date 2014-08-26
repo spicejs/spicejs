@@ -17,11 +17,11 @@
 
     <script>
       var links = document.getElementsByTagName("a"), i;
-      E.route("*/hash{i}", function (params) { console.log("params", params) });
+      S.route("*/hash{i}", function (params) { console.log("params", params) });
 
       for (i = 0; i < links.length; i++) {
         links[i].onclick = function() {
-          E.route(this.getAttribute("href"));
+          S.route(this.getAttribute("href"));
           return false;
         }
       }

@@ -1,5 +1,5 @@
 describe("#controller", function() {
-  E.controller("increment", function(element, options){
+  S.controller("increment", function(element, options){
     element.count++;
   });
 
@@ -18,12 +18,12 @@ describe("#controller", function() {
   });
 
   it("silently fail for undefined controllers", function() {
-    E.control("the-bugged", {});
-    E.control("nobody", {});
+    S.control("the-bugged", {});
+    S.control("nobody", {});
   })
 
   function assertBind(controller, element, expected) {
-    E.control(controller, element, {});
+    S.control(controller, element, {});
     assert.deepEqual(element, expected);
   }
 });
