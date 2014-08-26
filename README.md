@@ -4,7 +4,7 @@
 
 ## Introduction
 
-spice.js is a super minimal (< 3k) and flexible MVC framework for javascript.
+Spice.js is a super minimal (< 3k) and flexible MVC framework for javascript.
 
 ## Documentation
 
