@@ -1,7 +1,7 @@
 init:
-	echo '(function(E) { "use strict";' > index.js
+	echo '(function(S) { "use strict";' > index.js
 	cat lib/* >> index.js
-	echo '})(typeof window !== "undefined" ? window.E = {} : exports);' >> index.js
+	echo '})(typeof window !== "undefined" ? window.S = {} : exports);' >> index.js
 
 jshint: init
 	jshint index.js

@@ -1,9 +1,10 @@
 {
-  "name": "edenjs",
+  "name": "spicejs",
   "version": "0.5.8",
-  "homepage": "https://github.com/3den/edenjs",
+  "homepage": "https://github.com/3den/spicejs",
   "authors": [
-    "Marcelo Eden <edendroid@gmail.com>"
+    "Marcelo Eden <edendroid@gmail.com>",
+    "Luiz Tiago <luiztiago@gmail.com>"
   ],
   "description": "A minimal MV* javascript framework",
   "main": "index.js",
