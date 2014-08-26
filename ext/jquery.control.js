@@ -4,6 +4,6 @@ if (typeof jQuery !== "undefined") {
 
     if (this.attr(dataControl)) return this;
     this.attr(dataControl, true);
-    return E.control(name, this, options);
+    return S.control(name, this, options);
   };
 }

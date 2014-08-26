@@ -1,3 +1,3 @@
 if (typeof Turbolinks !== "undefined") {
-  document.addEventListener("page:load", E.route.load);
+  document.addEventListener("page:load", S.route.load);
 }
