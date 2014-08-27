@@ -14,8 +14,8 @@ describe("#observable", function() {
     it("binds multiple listeners", function() {
       var count = 0;
 
-      el.on("b/4 c-d d:x", function(e) { count++ });
-      el.trigger("b/4").trigger("c-d").trigger("d:x");
+      el.on("b/4 c-d d:x", function(n) { count += n });
+      el.trigger("b/4", 0).trigger("c-d", 1).trigger("d:x", 2);
       assert.equal(count, 3);
     });
   });
