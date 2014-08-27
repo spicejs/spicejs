@@ -55,7 +55,8 @@ S.Observable.prototype = {
     var self = this;
 
     if (!events || events === "*") {
-      self._callbacks = {};
+      self._callbacks = this._parent ?
+        Object.create(this._parent._callbacks) : {};
       return this;
     }
 
@@ -68,9 +69,9 @@ S.Observable.prototype = {
     return this;
   },
 
-  one: function(name, fn) {
+  one: function(events, fn) {
     if (fn) fn.one = true;
-    return this.on(name, fn);
+    return this.on(events, fn);
   },
 
   trigger: function(name) {
@@ -88,6 +89,12 @@ S.Observable.prototype = {
     }
 
     return this;
+  },
+
+  create: function(object) {
+    object._parent = this
+    object._callbacks = Object.create(this._callbacks);
+    return merge(Object.create(this), object);
   }
 };
 
