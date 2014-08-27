@@ -117,7 +117,7 @@ describe("#observable", function() {
 
     it("overloads the parent properties", function() {
       assert.deepEqual(Item,
-        {price:1, _callbacks:{}});
+        {price:1, _parent: S.observable.proto, _callbacks:{}});
 
       assert.deepEqual(item1,
         {name:"burrito", price:2, _parent: Item, _callbacks: {}});

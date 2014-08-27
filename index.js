@@ -34,11 +34,13 @@ S.control = (function() {
   return control;
 })();
 
-S.Observable = function() {
-  this._callbacks = {};
+S.observable = function(object) {
+  return merge(object, S.observable.proto.create({}));
 };
 
-S.Observable.prototype = {
+S.observable.proto = {
+  _callbacks: {},
+
   on: function(events, fn) {
     var callbacks = this._callbacks;
 
@@ -55,8 +57,7 @@ S.Observable.prototype = {
     var self = this;
 
     if (!events || events === "*") {
-      self._callbacks = this._parent ?
-        Object.create(this._parent._callbacks) : {};
+      self._callbacks = Object.create(this._parent._callbacks);
       return this;
     }
 
@@ -96,10 +97,6 @@ S.Observable.prototype = {
     object._callbacks = Object.create(this._callbacks);
     return merge(Object.create(this), object);
   }
-};
-
-S.observable = function(object) {
-  return merge(object, new S.Observable());
 };
 
 function merge(obj, obj2) {
