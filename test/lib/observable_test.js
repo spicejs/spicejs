@@ -108,4 +108,48 @@ describe("#observable", function() {
       assert.deepEqual(args, [1, [2, 3], {a: 1}, "hi", true]);
     });
   });
+
+  describe("#create", function() {
+    var Item = S.observable({price: 1}),
+      item1 = Item.create({name: "burrito", price: 2}),
+      item2 = item1.create({name: "Super Burrito", price: 3});
+      item3 = Item.create({name: "taco"}),
+
+    it("overloads the parent properties", function() {
+      assert.deepEqual(Item,
+        {price:1, _parent: S.observable.proto, _callbacks:{}});
+
+      assert.deepEqual(item1,
+        {name:"burrito", price:2, _parent: Item, _callbacks: {}});
+
+      assert.deepEqual(item2,
+        {name:"Super Burrito", price:3, _parent: item1, _callbacks: {}});
+
+      assert.deepEqual(item3,
+        {name:"taco", _parent: Item, _callbacks: {}});
+
+      assert.equal(item3.price, 1);
+    });
+
+    it("sets the correct prototypes", function() {
+      assert(Item.isPrototypeOf(item1));
+      assert(Item.isPrototypeOf(item2));
+      assert(item1.isPrototypeOf(item2));
+      assert(Item.isPrototypeOf(item3));
+    });
+
+    it("binds events incrementaly and fallback to the parent events", function() {
+      var a = 0, b = 0;
+      Item.on("a", function() { a++ });
+      item1.on("b", function() { b++ });
+
+      item1.trigger("a").trigger("b");
+      item3.trigger("b");
+      assert.equal(a, 1);
+      assert.equal(b, 1);
+
+      item1.off().trigger("a");
+      assert.equal(a, 2);
+    });
+  })
 });
