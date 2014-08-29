@@ -20,9 +20,22 @@ describe("#controller", function() {
   it("silently fail for undefined controllers", function() {
     S.control("the-bugged", {});
     S.control("nobody", {});
-  })
+  });
+
+
+  it("allows a custom prefix", function() {
+    var element = {count: 0}, prefix = S.control.prefix;
+
+    assertBind("increment", element, {count: 1});
+    assert(element._control_increment);
+
+    S.control.prefix = "_cutom_prefix_";
+    assertBind("increment", element, {count: 2, _control_increment: true});
+    S.control.prefix = prefix;
+  });
 
   function assertBind(controller, element, expected) {
+    expected[S.control.prefix + controller] = true;
     S.control(controller, element, {});
     assert.deepEqual(element, expected);
   }

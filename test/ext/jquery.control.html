@@ -15,6 +15,7 @@
       S.controller("log", function(element) { console.log(element); });
       console.log("It logs each element only once");
       $("a").on("click", function(){ $("p").control("log") }).control("log");
+      $("#nothin").control("log"); // should not be show
 
       it("sets the data-contol to elements", function() {
         assert($("a").attr("data-control-log"));

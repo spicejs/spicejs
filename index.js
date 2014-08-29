@@ -1,39 +1,4 @@
 (function(S) { "use strict";
-// Creates a controller
-S.controller = (function() {
-  var controllers = {};
-
-  function controller(name, callback) {
-    controllers[name] = callback;
-  }
-
-  controller.all = controllers;
-  return controller;
-})();
-
-// Binds controller to an element
-S.control = (function() {
-  var controllers = S.controller.all;
-
-  function control(name, element, options) {
-    add(controllers[name], element, options);
-    return element;
-  }
-
-  function add(callback, element, options) {
-    if (!callback || has(callback, element)) return;
-    callback._elements.push(element);
-    callback(element, options);
-  }
-
-  function has(callback, element) {
-    callback._elements = callback._elements || [];
-    return callback._elements.indexOf(element) !== -1;
-  }
-
-  return control;
-})();
-
 S.observable = function(object) {
   return merge(object, S.observable.proto.create({}));
 };
@@ -103,6 +68,41 @@ function merge(obj, obj2) {
   for (var property in obj2) obj[property] = obj2[property];
   return obj;
 }
+// Generates a template function
+S.template = (function() {
+  var cache = {};
+
+  function template(str, data){
+    cache[str] = cache[str] || generate(str);
+    return data ? cache[str](data) : cache[str];
+  }
+
+  function generate(str) {
+    var wrap = getWrap(), prefix = wrap[0], sufix = wrap[1];
+
+    return new Function("obj",
+      "var p=[];" +
+      "with(obj){p.push('" + str
+        .replace(/[\r\t\n]/g, " ")
+        .split(prefix).join("\t")
+        .replace(new RegExp("((^|" + sufix +")[^\t]*)'", "g"), "$1\r")
+        .replace(new RegExp("\t=(.*?)" + sufix, "g"), "',$1,'")
+        .split("\t").join("');")
+        .split(sufix).join("p.push('")
+        .split("\r").join("\\'")
+    + "');}return p.join('');");
+  }
+
+  function getWrap() {
+    return (typeof template.wrapper === "string") ?
+      template.wrapper = template.wrapper.replace(/\s+/, "").split("?") :
+      template.wrapper;
+  }
+
+  template.wrapper = "<%?%>";
+  return template;
+}());
+
 // Create & Invoque routes
 S.route = (function() {
   var map = [], current_path;
@@ -185,39 +185,31 @@ S.route = (function() {
   return S.observable(route);
 })();
 
-// Generates a template function
-S.template = (function() {
-  var cache = {};
-
-  function template(str, data){
-    cache[str] = cache[str] || generate(str);
-    return data ? cache[str](data) : cache[str];
+// Creates a controller
+S.controller = (function() {
+  function controller(name, callback) {
+    controller.on(name, callback);
   }
 
-  function generate(str) {
-    var wrap = getWrap(), prefix = wrap[0], sufix = wrap[1];
+  return S.observable(controller);
+})();
 
-    return new Function("obj",
-      "var p=[];" +
-      "with(obj){p.push('" + str
-        .replace(/[\r\t\n]/g, " ")
-        .split(prefix).join("\t")
-        .replace(new RegExp("((^|" + sufix +")[^\t]*)'", "g"), "$1\r")
-        .replace(new RegExp("\t=(.*?)" + sufix, "g"), "',$1,'")
-        .split("\t").join("');")
-        .split(sufix).join("p.push('")
-        .split("\r").join("\\'")
-    + "');}return p.join('');");
+// Binds controller to an element
+S.control = (function() {
+  function control(name, element, options) {
+    has(name, element) || S.controller.trigger(name, element, options);
+    return element;
   }
 
-  function getWrap() {
-    return (typeof template.wrapper === "string") ?
-      template.wrapper = template.wrapper.replace(/\s+/, "").split("?") :
-      template.wrapper;
+  function has(name, element) {
+    var attr = control.prefix + name;
+    if (element[attr]) return true;
+    element[attr] = true;
+    return false;
   }
 
-  template.wrapper = "<%?%>";
-  return template;
-}());
+  control.prefix = "_control_";
+  return control;
+})();
 
 })(typeof window !== "undefined" ? window.S = {} : exports);

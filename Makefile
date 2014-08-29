@@ -1,6 +1,9 @@
 init:
 	echo '(function(S) { "use strict";' > index.js
-	cat lib/* >> index.js
+	cat lib/observable.js >> index.js
+	cat lib/template.js >> index.js
+	cat lib/route.js >> index.js
+	cat lib/controller.js >> index.js
 	echo '})(typeof window !== "undefined" ? window.S = {} : exports);' >> index.js
 
 jshint: init
