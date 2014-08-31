@@ -11,6 +11,7 @@ describe("#template", function() {
   it("renders a template directly", function() {
     assert.equal(S.template("<%= x %>", {x: "foo"}), "foo");
     assert.equal(S.template("<p><%= x %></p>", {x: "foo"}), "<p>foo</p>");
+    assert.equal(S.template("    <%= x %> ", {x: "foo"}), "foo");
     assert.equal(S.template("<%= x.y.z %>", {x: {y: {z: "bar"}}}), "bar");
     assert.equal(S.template("<%= 10 %>", {}), "10");
     assert.equal(S.template("hi", {}), "hi");
