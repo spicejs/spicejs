@@ -83,6 +83,9 @@ describe("#route", function() {
 
     S.route.update("&id=2");
     assert.equal(current, "/items?search=pool&id=2");
+
+    S.route.update("/page");
+    assert.equal(current, "/page");
   });
 
   it("updates the route silently", function() {

@@ -163,6 +163,8 @@ S.route = (function() {
         return current_path.replace(/\&.*/g, "") + path;
       case "#":
         return current_path.replace(/\#.*/g, "") + path;
+      default:
+        return path;
     }
   }
 
