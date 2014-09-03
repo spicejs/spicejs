@@ -23,6 +23,6 @@ if (typeof window !== "undefined") {
 
   // Popstate event
   window.addEventListener('popstate', function (e) {
-    if (e.state && e.state['edenjs']) S.route.load();
+    if (e.state && e.state.edenjs) S.route.load();
   });
 };
