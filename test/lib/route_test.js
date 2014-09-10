@@ -41,17 +41,6 @@ describe("#route", function() {
     S.route("/other_randow_route") && assert.equal(count, 6);
   });
 
-  it("triggers the same route only once", function(){
-    var count = 0;
-    S.route.clear()(function(){ count++ });
-
-    S.route("/somewhere") && assert.equal(count, 1);
-    S.route("/somewhere") && assert.equal(count, 1);
-    S.route("/somewhere") && assert.equal(count, 1);
-    S.route("/other") && assert.equal(count, 2);
-    S.route("/other") && assert.equal(count, 2);
-  });
-
   it("triggers all routes that matches the path", function() {
     var count = 0, fn = function(){ count++ };
     S.route.clear();
