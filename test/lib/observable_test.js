@@ -80,18 +80,6 @@ describe("#observable", function() {
   });
 
   describe("#trigger", function() {
-    it("does not call trigger infinitely", function() {
-      var count = 0;
-
-      el.on("update", function(value) {
-        el.trigger("update", value);
-        count++;
-      });
-
-      el.trigger("update", "foo");
-      assert.equal(1, count);
-    });
-
     it("is able to trigger events inside a listener", function() {
       var e2;
       el.on("e1", function() { this.trigger("e2"); });
@@ -151,5 +139,28 @@ describe("#observable", function() {
       item1.off().trigger("a");
       assert.equal(a, 2);
     });
-  })
+  });
+
+  describe("#set", function() {
+    var args; function callback() { args = arguments; }
+
+    it("sets a property", function() {
+      assert.equal(el.total, undefined);
+
+      el.set("total", 10);
+      assert.equal(el.total, 10)
+    });
+
+    it("triggers the 'set' callback", function() {
+      el.on("set", callback);
+      el.set("total", 5);
+      assert.deepEqual(args, {0: "total", 1: 5, 2: 10})
+    });
+
+    it("triggers the attribute callback", function() {
+      el.on("total", callback);
+      el.set("total", 4);
+      assert.deepEqual(args, {0: 4, 1: 5})
+    });
+  });
 });
