@@ -1,6 +1,6 @@
 (function(S) { "use strict";
 S.observable = function(object) {
-  return merge(object, S.observable.proto.create({}));
+  return merge(object, S.observable.proto.create());
 };
 
 S.observable.proto = {
@@ -61,6 +61,7 @@ S.observable.proto = {
   },
 
   create: function(object) {
+    object = object || {};
     object._parent = this;
     object._callbacks = Object.create(this._callbacks);
     return merge(Object.create(this), object);

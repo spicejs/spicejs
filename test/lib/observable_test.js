@@ -139,6 +139,10 @@ describe("#observable", function() {
       item1.off().trigger("a");
       assert.equal(a, 2);
     });
+
+    it("creates without passing any arg", function() {
+      assert(Item.create());
+    });
   });
 
   describe("#set", function() {
