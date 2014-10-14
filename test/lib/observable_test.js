@@ -152,7 +152,7 @@ describe("#observable", function() {
       assert.equal(el.total, undefined);
 
       el.set("total", 10);
-      assert.equal(el.total, 10)
+      assert.equal(el.get("total"), 10)
     });
 
     it("triggers the 'set' callback", function() {
