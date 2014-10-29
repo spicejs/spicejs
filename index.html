@@ -46,8 +46,8 @@
 
 <p>Spice is a super minimal (&lt; 3k) and flexible MVC framework for javascript. Spice was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.</p>
 
-<h3>
-<a name="why-yet-an-other-mvc-framework" class="anchor" href="#why-yet-an-other-mvc-framework"><span class="octicon octicon-link"></span></a>Why yet an other MVC framework?</h3>
+<h2>
+<a name="why-yet-an-other-mvc-framework" class="anchor" href="#why-yet-an-other-mvc-framework"><span class="octicon octicon-link"></span></a>Why yet an other MVC framework?</h2>
 
 <p>Currently all major MVC frameworks for javascript have a huge APIs and you end up writing more code to satisfy the the framework requirements than your own business logic, that leads to code that is tightly coupled to the framework and hard to reuse, sometimes even hard to update for new versions of the framework.</p>
 
@@ -65,6 +65,7 @@
 <li>Routes: You can use routes to bind controllers and plugins, on pages where they are needed and you can have more than one route callback matching the same path.</li>
 <li>Observables: You can turn any javascript object, or function, into an observable that can listen and trigger events.</li>
 <li>Supper Flexible: You can use any javascript lib or jQuery plugin with spice, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.</li>
+<li>Write once use everywhere: Spice promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.</li>
 <li>Testable: Is very simple to test spice code, controllers are just a function, templates are just a string and observables are just objects. Spice also comes out of the box with a simple BDD framework.</li>
 </ul>
 
@@ -105,20 +106,171 @@
 <span class="c">&lt;!-- Add other extensions as needed... --&gt;</span>
 </pre></div>
 
-<p>If you don't want to use bower you can just copy the files you need from <a href="https://github.com/3den/spicejs">https://github.com/3den/spicejs</a> but bower is highly recommended.</p>
+<p>If you don't want to use bower you can just copy the files you need from <a href="https://github.com/3den/spicejs">https://github.com/3den/spicejs</a>.</p>
 
-<h3>
-<a name="spice-on-nodejs" class="anchor" href="#spice-on-nodejs"><span class="octicon octicon-link"></span></a>Spice on Node.js</h3>
+<h2>
+<a name="spice-on-nodejs" class="anchor" href="#spice-on-nodejs"><span class="octicon octicon-link"></span></a>Spice on Node.js</h2>
 
 <p>You can use Spice.js on node, to include spice do:</p>
 
 <div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"./bower_components/spicejs"</span><span class="p">);</span>
 
-<span class="c1">// now you can use spice on the backend</span>
+<span class="c1">// now you can user spice on the backend</span>
 </pre></div>
 
 <h1>
-<a name="sobservable" class="anchor" href="#sobservable"><span class="octicon octicon-link"></span></a>S.observable</h1>
+<a name="sobservableobject" class="anchor" href="#sobservableobject"><span class="octicon octicon-link"></span></a>S.observable(object)</h1>
+
+<p>This method turns any object or function into an <code>observable</code> by adding some methods for dealing with events properties and inheritance. The <code>observable</code> can be considered the M (Model) of MVC, if is deals with data and business logic.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Example of a a Search model</span>
+<span class="kd">var</span> <span class="nx">Search</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">observable</span><span class="p">({</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
+  <span class="nx">page</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+
+  <span class="nx">search</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+    <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">format</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
+      <span class="nx">search</span><span class="o">:</span> <span class="nx">query</span>
+    <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">query</span> <span class="o">=</span> <span class="nx">query</span><span class="p">;</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">page</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+      <span class="c1">// Triggers an event on the Search object.</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js">unit tests</a> for S.observable.</p>
+
+<h2>
+<a name="observableonevent-callback" class="anchor" href="#observableonevent-callback"><span class="octicon octicon-link"></span></a>observable.on(event, callback)</h2>
+
+<p>Observables can listen to events using the the <code>on</code> callback.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">Search</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// prints the data returned by the search</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// prints the query used to search</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="observableoneevent-callback" class="anchor" href="#observableoneevent-callback"><span class="octicon octicon-link"></span></a>observable.one(event, callback)</h2>
+
+<p>Does the same as <code>on</code> but the callback is altomatically removed after it is called the first time.</p>
+
+<h2>
+<a name="observableoffevent-callback" class="anchor" href="#observableoffevent-callback"><span class="octicon octicon-link"></span></a>observable.off(event, callback)</h2>
+
+<p>Allows you to remove event listeners.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Removes all callbacks</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">();</span>
+
+<span class="c1">// Removes the 'search' callbacks</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">"search"</span><span class="p">);</span>
+
+<span class="c1">// Removes just the `someCallback` function 'search' callbacks</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="nx">someCallback</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="observabletriggerevent-arg1-arg2" class="anchor" href="#observabletriggerevent-arg1-arg2"><span class="octicon octicon-link"></span></a>observable.trigger(event, arg1, arg2...)</h2>
+
+<p>Triggers an event, the arguments are passed to the callback lisetener.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">"Borderlands"</span><span class="p">},</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">"Doom 3"</span><span class="p">}]</span>
+  <span class="p">,</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">"games"</span><span class="p">;</span>
+
+<span class="c1">// This will call all callbacks attached to the "search" event</span>
+<span class="c1">// passing `data` and `query` as the arguments.</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="observablesetkey-value" class="anchor" href="#observablesetkey-value"><span class="octicon octicon-link"></span></a>observable.set(key, value)</h2>
+
+<p>Sets the value of a property and triggers the events "set" and <code>key</code>, passing</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Order</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">observable</span><span class="p">({</span>
+  <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">total</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">shipping</span><span class="o">:</span> <span class="mi">0</span>
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"subtotal shipping"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"changed from "</span> <span class="o">+</span> <span class="nx">oldValue</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"total"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">shipping</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"set"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">attr</span> <span class="o">+</span> <span class="s2">" changed from "</span> <span class="o">+</span> <span class="nx">oldValue</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Updates the subtotal to 10,</span>
+<span class="c1">// the total will be altomatically set to 10</span>
+<span class="nx">Order</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"subtotal"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// Updates the shipping to 2.50,</span>
+<span class="c1">// the total will be altomatically set to 12.50</span>
+<span class="nx">Order</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"shipping"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="observablegetkey" class="anchor" href="#observablegetkey"><span class="octicon octicon-link"></span></a>observable.get(key)</h2>
+
+<p>Returns the value of a property.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">Order</span><span class="p">.</span><span class="nx">total</span> <span class="o">===</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'total'</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="observablecreateproperties" class="anchor" href="#observablecreateproperties"><span class="octicon octicon-link"></span></a>observable.create(properties)</h2>
+
+<p>Creates a new object based on the observable, Spice uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">TaxableOrder</span> <span class="o">=</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">tax</span><span class="o">:</span> <span class="mi">0</span>
+
+<span class="p">}).</span><span class="nx">off</span><span class="p">(</span>
+  <span class="c1">// Removes the subtotal and shipping callbacks</span>
+  <span class="s2">"subtotal shipping"</span>
+
+<span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"subtotal shipping tax"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Adds the new callback</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"total"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">shipping</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">tax</span><span class="p">);</span>
+
+<span class="p">});</span>
+
+<span class="c1">// Setting the tax updates the total</span>
+<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"tax"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">total</span> <span class="o">===</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">total</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1">// Overriding a property dont touch the parent</span>
+<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"subtotal"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">!==</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">subtotal</span>
+</pre></div>
+
+<h1>
+<a name="stemplatetext--object" class="anchor" href="#stemplatetext--object"><span class="octicon octicon-link"></span></a>S.template(text [, object])</h1>
+
+<h1>
+<a name="scontrollername-callback" class="anchor" href="#scontrollername-callback"><span class="octicon octicon-link"></span></a>S.controller(name, callback)</h1>
+
+<h2>
+<a name="scontrolname-element--options" class="anchor" href="#scontrolname-element--options"><span class="octicon octicon-link"></span></a>S.control(name, element [, options])</h2>
+
+<h1>
+<a name="sroutepath-callbacak" class="anchor" href="#sroutepath-callbacak"><span class="octicon octicon-link"></span></a>S.route(path, callbacak)</h1>
+
+<h2>
+<a name="srouteobject" class="anchor" href="#srouteobject"><span class="octicon octicon-link"></span></a>S.route(object)</h2>
+
+<h2>
+<a name="sroutepath" class="anchor" href="#sroutepath"><span class="octicon octicon-link"></span></a>S.route(path)</h2>
+
+<h2>
+<a name="srouteupdatepath" class="anchor" href="#srouteupdatepath"><span class="octicon octicon-link"></span></a>S.route.update(path)</h2>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/3den">3den</a></p>
