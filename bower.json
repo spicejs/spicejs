@@ -1,6 +1,6 @@
 {
   "name": "spicejs",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "homepage": "https://github.com/3den/spicejs",
   "authors": [
     "Marcelo Eden <edendroid@gmail.com>",
@@ -14,7 +14,6 @@
   ],
   "keywords": [
     "mvc",
-    "mvp",
     "framework",
     "bdd",
     "tests"
