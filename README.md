@@ -12,7 +12,7 @@ On Spice most of the code you write is pure javascript the framework API is mini
 
 Spice.js was inspired by [the SOLID Principles](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)), [jQuery](http://jquery.com/) and [Riot.js](https://github.com/muut/riotjs).
 
-## The Good
+### The Good
 
 * Easy to learn: Spice will few very straight forward for developers are familiar with jQuery and JavaScript.
 * Unobtrusive JavaScript: Spice makes [progressive enhancement](http://en.wikipedia.org/wiki/Progressive_enhancement) simpler, you can load your views on the server and use Spice's controllers to add frontend features.
@@ -20,22 +20,20 @@ Spice.js was inspired by [the SOLID Principles](http://en.wikipedia.org/wiki/SOL
 * Routes: You can use routes to bind controllers and plugins, on pages where they are needed and you can have more than one route callback matching the same path.
 * Observables: You can turn any javascript object, or function, into an observable that can listen and trigger events.
 * Supper Flexible: You can use any javascript lib or jQuery plugin with spice, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.
+* Write once use everywhere: Spice promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.
 * Testable: Is very simple to test spice code, controllers are just a function, templates are just a string and observables are just objects. Spice also comes out of the box with a simple BDD framework.
 
-## The Bad
+### The Bad
 
 * To Flexible: There is no restriction on your code structure so you can make a very good architecture with Spice or a very bad one.
 * To Young: It is a new project so there is not much documentation yet.
 
-## The Ugly
+### The Ugly
 
 * Using with other MVC Frameworks: It is possible to use Spice with other javascript frameworks but that is not recommended since it could lead to a  confusing code.
 
-# Documentation
 
-This documentation will explain with examples how to build cool web apps with Spice.
-
-## Install
+# Install
 
 The best way to install `Spice.js`, and most js packages, is using bower:
 
@@ -58,7 +56,7 @@ By default bower will install packages in `./bower_components` so you can add sp
 <!-- Add other extensions as needed... -->
 ```
 
-If you don't want to use bower you can just copy the files you need from https://github.com/3den/spicejs but bower is highly recommended.
+If you don't want to use bower you can just copy the files you need from https://github.com/3den/spicejs.
 
 ## Spice on Node.js
 
@@ -70,4 +68,156 @@ var S = require("./bower_components/spicejs");
 // now you can user spice on the backend
 ```
 
-## S.observable
+# S.observable(object)
+
+This method turns any object or function into an `observable` by adding some methods for dealing with events properties and inheritance. The `observable` can be considered the M (Model) of MVC, if is deals with data and business logic.
+
+
+
+```js
+// Example of a a Search model
+var Search = S.observable({
+  query: undefined,
+  page: 1,
+
+  search: function(path, query) {
+    var self = this;
+
+    $.get(path, {
+      format: "json",
+      search: query
+    }).done(function(data) {
+      self.query = query;
+      self.page = 1;
+
+      // Triggers an event on the Search object.
+      self.trigger("search", data, query);
+    });
+  }
+});
+```
+Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js) for S.observable.
+
+## observable.on(event, callback)
+
+Observables can listen to events using the the `on` callback.
+
+```js
+Search.on("search", function(data, query) {
+  console.log(data); // prints the data returned by the search
+  console.log(data); // prints the query used to search
+});
+```
+
+## observable.one(event, callback)
+
+Does the same as `on` but the callback is altomatically removed after it is called the first time.
+
+## observable.off(event, callback)
+
+Allows you to remove event listeners.
+
+```js
+// Removes all callbacks
+Search.off();
+
+// Removes the 'search' callbacks
+Search.off("search");
+
+// Removes just the `someCallback` function 'search' callbacks
+Search.off("search", someCallback);
+```
+
+## observable.trigger(event, arg1, arg2...)
+
+Triggers an event, the arguments are passed to the callback lisetener.
+
+```js
+var data = [{id: 1, name: "Borderlands"}, {id: 2, name: "Doom 3"}]
+  , query = "games";
+
+// This will call all callbacks attached to the "search" event
+// passing `data` and `query` as the arguments.
+Search.trigger("search", data, query);
+```
+
+## observable.set(key, value)
+
+Sets the value of a property and triggers the events "set" and `key`, passing
+
+```js
+var Order = S.observable({
+  subtotal: 0,
+  total: 0,
+  shipping: 0
+}).on("subtotal shipping", function(value, oldValue) {
+  console.log("changed from " + oldValue + " to " + value);
+  this.set("total", this.subtotal + this.shipping);
+}).on("set", function(attr, value, oldValue) {
+  console.log(attr + " changed from " + oldValue + " to " + value);
+});
+
+// Updates the subtotal to 10,
+// the total will be altomatically set to 10
+Order.set("subtotal", 10);
+
+// Updates the shipping to 2.50,
+// the total will be altomatically set to 12.50
+Order.set("shipping", 10);
+```
+
+## observable.get(key)
+
+Returns the value of a property.
+
+```js
+Order.total === Order.get('total');
+```
+
+## observable.create(properties)
+
+Creates a new object based on the observable, Spice uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.
+
+```js
+var TaxableOrder = Order.create({
+  tax: 0
+
+}).off(
+  // Removes the subtotal and shipping callbacks
+  "subtotal shipping"
+
+).on("subtotal shipping tax", function() {
+  // Adds the new callback
+  this.set("total", this.subtotal + this.shipping + this.tax);
+
+});
+
+// Setting the tax updates the total
+TaxableOrder.set("tax", 1)
+TaxableOrder.total === Order.total + 1
+
+// Overriding a property dont touch the parent
+TaxableOrder.set("subtotal", 5)
+TaxableOrder.subtotal !== Order.subtotal
+```
+
+
+# S.template(text [, object])
+
+
+# S.controller(name, callback)
+
+
+## S.control(name, element [, options])
+
+
+# S.route(path, callbacak)
+
+
+## S.route(object)
+
+
+## S.route(path)
+
+
+## S.route.update(path)
