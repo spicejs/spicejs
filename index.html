@@ -38,7 +38,7 @@
 <h2>
 <a name="why-yet-an-other-mvc-framework" class="anchor" href="#why-yet-an-other-mvc-framework"><span class="octicon octicon-link"></span></a>Why yet an other MVC framework?</h2>
 
-<p>Currently all major MVC frameworks for javascript have a huge APIs and you end up writing more code to satisfy the the framework requirements than your own business logic, that leads to code that is tightly coupled to the framework and hard to reuse, sometimes even hard to update for new versions of the framework.</p>
+<p>Currently all major MVC frameworks for javascript have a huge API and you end up writing more code to satisfy the the framework requirements than your own business logic, that leads to code that is tightly coupled to the framework and hard to reuse, sometimes even hard to update for new versions of the framework.</p>
 
 <p>On Spice most of the code you write is pure javascript the framework API is minimal (just 5 methods) that helps you to make your code easier to reuse and test. The core of Spice is pure javascript (without any external dependency) that is fully unit tested and can be easily extended.</p>
 
@@ -48,29 +48,40 @@
 <a name="the-good" class="anchor" href="#the-good"><span class="octicon octicon-link"></span></a>The Good</h3>
 
 <ul>
-<li>Easy to learn: Spice will few very straight forward for developers are familiar with jQuery and JavaScript.</li>
-<li>Unobtrusive JavaScript: Spice makes <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a> simpler, you can load your views on the server and use Spice's controllers to add frontend features.</li>
-<li>Powerful template engine: Spice comes with <code>S.template</code> which creates a precompiled template that is supper fast, you can also write any javascript code in your template without having to learn different syntaxes.</li>
-<li>Routes: You can use routes to bind controllers and plugins, on pages where they are needed and you can have more than one route callback matching the same path.</li>
-<li>Observables: You can turn any javascript object, or function, into an observable that can listen and trigger events.</li>
-<li>Supper Flexible: You can use any javascript lib or jQuery plugin with spice, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.</li>
-<li>Write once use everywhere: Spice promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.</li>
-<li>Testable: Is very simple to test spice code, controllers are just a function, templates are just a string and observables are just objects. Spice also comes out of the box with a simple BDD framework.</li>
+<li>
+<strong>Easy to learn</strong>: Spice will few very straight forward for developers are familiar with jQuery and JavaScript.</li>
+<li>
+<strong>Unobtrusive JavaScript</strong>: Spice makes <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a> simpler, you can load your views on the server and use Spice's controllers to add frontend features.</li>
+<li>
+<strong>Powerful template engine</strong>: Spice comes with <code>S.template</code> which creates a precompiled template that is supper fast, you can also write any javascript code in your template without having to learn different syntaxes.</li>
+<li>
+<strong>Routes</strong>: You can use routes to bind controllers and plugins, on pages where they are needed and you can have more than one route callback matching the same path.</li>
+<li>
+<strong>Observables</strong>: You can turn any javascript object, or function, into an observable that can listen and trigger events.</li>
+<li>
+<strong>Supper Flexible</strong>: You can use any javascript lib or jQuery plugin with spice, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.</li>
+<li>
+<strong>Write once use everywhere</strong>: Spice promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.</li>
+<li>
+<strong>Testable</strong>: Is very simple to test spice code, controllers are just a function, templates are just a string and observables are just objects. Spice also comes out of the box with a simple BDD framework.</li>
 </ul>
 
 <h3>
 <a name="the-bad" class="anchor" href="#the-bad"><span class="octicon octicon-link"></span></a>The Bad</h3>
 
 <ul>
-<li>To Flexible: There is no restriction on your code structure so you can make a very good architecture with Spice or a very bad one.</li>
-<li>To Young: It is a new project so there is not much documentation yet.</li>
+<li>
+<strong>To Flexible</strong>: There is no restriction on your code structure so you can make a very good architecture with Spice or a very bad one.</li>
+<li>
+<strong>To Young</strong>: It is a new project so there is not much documentation yet.</li>
 </ul>
 
 <h3>
 <a name="the-ugly" class="anchor" href="#the-ugly"><span class="octicon octicon-link"></span></a>The Ugly</h3>
 
 <ul>
-<li>Using with other MVC Frameworks: It is possible to use Spice with other javascript frameworks but that is not recommended since it could lead to a  confusing code.</li>
+<li>
+<strong>Using with other MVC Frameworks</strong>: It is possible to use Spice with other javascript frameworks but that is not recommended since it could lead to a confusing code.</li>
 </ul>
 
 <h1>
@@ -134,7 +145,7 @@
 <span class="p">});</span>
 </pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js">unit tests</a> for S.observable.</p>
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js">unit tests</a> for <code>S.observable</code>.</p>
 
 <h2>
 <a name="observableonevent-callback" class="anchor" href="#observableonevent-callback"><span class="octicon octicon-link"></span></a>observable.on(event, callback)</h2>
@@ -250,16 +261,93 @@
 <a name="scontrolname-element--options" class="anchor" href="#scontrolname-element--options"><span class="octicon octicon-link"></span></a>S.control(name, element [, options])</h2>
 
 <h1>
-<a name="sroutepath-callbacak" class="anchor" href="#sroutepath-callbacak"><span class="octicon octicon-link"></span></a>S.route(path, callbacak)</h1>
+<a name="sroute" class="anchor" href="#sroute"><span class="octicon octicon-link"></span></a>S.route</h1>
+
+<p>The <code>S.route</code> method can do diverent things depending on what arguments are passed (following the jQuery sytle). The route matcher can have params <code>/search?q={query}</code> and wildcards <code>/users*</code>, and it is possible to have many one callbacks trigered for a given path.</p>
+
+<p>Routes should be used to bind controllers, plugins or to trigger actions on a model. This will help to keep you code well organized and respond correctly to changes on the page.</p>
+
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/route_test.js">unit tests</a> for <code>S.route</code>.</p>
+
+<h2>
+<a name="sroutecallback" class="anchor" href="#sroutecallback"><span class="octicon octicon-link"></span></a>S.route(callback)</h2>
+
+<p>This defines a generic route that will be called for all paths. This is usefull for binding plugins that will be used on all pages.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// binds select2 plugin to all `select` tags</span>
+  <span class="c1">// http://ivaynberg.github.io/select2/</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">"select"</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
+
+  <span class="c1">// prints the path of the current page.</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="sroutepath-callback" class="anchor" href="#sroutepath-callback"><span class="octicon octicon-link"></span></a>S.route(path, callback)</h2>
+
+<p>The given <code>callback</code> will be called for all routes that match the given <code>path</code> expression.</p>
+
+<div class="highlight highlight-js"><pre>
+</pre></div>
 
 <h2>
 <a name="srouteobject" class="anchor" href="#srouteobject"><span class="octicon octicon-link"></span></a>S.route(object)</h2>
 
-<h2>
-<a name="sroutepath" class="anchor" href="#sroutepath"><span class="octicon octicon-link"></span></a>S.route(path)</h2>
+<p>This sintax alows to set many route callbacks at once.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// This code will do exactly the same as the previous example.</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
+  <span class="s2">"/search*"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-field"</span><span class="p">),</span> <span class="p">{</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-results"</span><span class="p">),</span>
+      <span class="nx">model</span><span class="o">:</span> <span class="nx">Search</span>
+    <span class="p">});</span>
+  <span class="p">},</span>
+
+  <span class="s2">"/search?q={query}"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Search</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
 
 <h2>
-<a name="srouteupdatepath" class="anchor" href="#srouteupdatepath"><span class="octicon octicon-link"></span></a>S.route.update(path)</h2>
+<a name="sroutepath--triggersvisit--true" class="anchor" href="#sroutepath--triggersvisit--true"><span class="octicon octicon-link"></span></a>S.route(path [, triggersVisit = true])</h2>
+
+<p>Triggers all callbacks that match the given path, if <code>triggersVisit</code> is set to <code>false</code> it will NOT send a push state to update the browser.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Triggers all callbacks that match "/somepath"</span>
+<span class="c1">// and also calls `route.trigger("visit", "/somepath")`</span>
+<span class="c1">// that will send a push state to the browser updating</span>
+<span class="c1">// the url if `ext/route_browser.js` was included.</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/somepath"</span><span class="p">);</span>
+
+<span class="c1">// Triggers all callbacks that match "/somepath"</span>
+<span class="c1">// but do NOT call `route.trigger("visit", "/somepath")`</span>
+<span class="c1">// so the browser URL wont change</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/somepath"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="srouteupdatepath--callsvisit--true" class="anchor" href="#srouteupdatepath--callsvisit--true"><span class="octicon octicon-link"></span></a>S.route.update(path [, callsVisit = true])</h2>
+
+<p>Updates a portion the current current url and calls all callbacks that match the new path, if callsVisit is set to <code>false</code> it will update the URL without triggering the callbacks.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// visits the "/search" and triggers all callbacks that match that route.</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/search"</span><span class="p">);</span>
+
+<span class="c1">// Updates the current path to "/search?q=spice"</span>
+<span class="c1">// and triggers all callbacks for visiting that route.</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"?q=spice"</span><span class="p">);</span>
+
+<span class="c1">// Updates the current path to "/search?q=spice#doc"</span>
+<span class="c1">// WITHOUT triggering the callbacks for visinting that route</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"#doc"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</pre></div>
+
+<h1>
+<a name="extensions" class="anchor" href="#extensions"><span class="octicon octicon-link"></span></a>Extensions</h1>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
