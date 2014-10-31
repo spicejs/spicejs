@@ -30,42 +30,40 @@
 
       </header>
       <section>
-        <p><a href="https://travis-ci.org/3den/spicejs"><img src="https://travis-ci.org/3den/spicejs.svg?branch=master" alt="Build Status"></a></p>
+        <h1>
+<a name="what-is-spicejs" class="anchor" href="#what-is-spicejs"><span class="octicon octicon-link"></span></a>What is <em>Spice.js</em>?</h1>
 
-<h1>
-<a name="what-is-spicejs" class="anchor" href="#what-is-spicejs"><span class="octicon octicon-link"></span></a>What is Spice.js?</h1>
-
-<p>Spice is a super minimal (&lt; 3k) and flexible MVC framework for javascript. Spice was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.</p>
+<p><em>Spice</em> is a super minimal (&lt; 3k) and flexible MVC framework for javascript. <em>Spice</em> was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.</p>
 
 <h2>
 <a name="why-yet-an-other-mvc-framework" class="anchor" href="#why-yet-an-other-mvc-framework"><span class="octicon octicon-link"></span></a>Why yet an other MVC framework?</h2>
 
 <p>Currently all major MVC frameworks for javascript have a huge API and you end up writing more code to satisfy the the framework requirements than your own business logic, that leads to code that is tightly coupled to the framework and hard to reuse, sometimes even hard to update for new versions of the framework.</p>
 
-<p>On Spice most of the code you write is pure javascript the framework API is minimal (just 5 methods) that helps you to make your code easier to reuse and test. The core of Spice is pure javascript (without any external dependency) that is fully unit tested and can be easily extended.</p>
+<p>On <em>Spice</em> most of the code you write is pure javascript the framework API is minimal (just 5 methods) that helps you to make your code easier to reuse and test. The core of <em>Spice</em> is pure javascript (without any external dependency) that is fully unit tested and can be easily extended. This documentation will explain with examples how you can use <em>Spice</em> to build cool web apps.</p>
 
-<p>Spice.js was inspired by <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">the SOLID Principles</a>, <a href="http://jquery.com/">jQuery</a> and <a href="https://github.com/muut/riotjs">Riot.js</a>.</p>
+<p><em>Spice</em>.js was inspired by <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">the SOLID Principles</a>, <a href="http://jquery.com/">jQuery</a> and <a href="https://github.com/muut/riotjs">Riot.js</a>.</p>
 
 <h3>
 <a name="the-good" class="anchor" href="#the-good"><span class="octicon octicon-link"></span></a>The Good</h3>
 
 <ul>
 <li>
-<strong>Easy to learn</strong>: Spice will few very straight forward for developers are familiar with jQuery and JavaScript.</li>
+<strong>Easy to learn</strong>: <em>Spice</em> will few very straight forward for developers are familiar with jQuery and JavaScript.</li>
 <li>
-<strong>Unobtrusive JavaScript</strong>: Spice makes <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a> simpler, you can load your views on the server and use Spice's controllers to add frontend features.</li>
+<strong>Unobtrusive JavaScript</strong>: <em>Spice</em> makes <a href="http://en.wikipedia.org/wiki/Progressive_enhancement">progressive enhancement</a> simpler, you can load your views on the server and use <em>Spice</em>'s controllers to add frontend features.</li>
 <li>
-<strong>Powerful template engine</strong>: Spice comes with <code>S.template</code> which creates a precompiled template that is supper fast, you can also write any javascript code in your template without having to learn different syntaxes.</li>
+<strong>Powerful template engine</strong>: <em>Spice</em> comes with <code>S.template</code> which creates a precompiled template that is supper fast, you can also write any javascript code in your template without having to learn different syntaxes.</li>
 <li>
 <strong>Routes</strong>: You can use routes to bind controllers and plugins, on pages where they are needed and you can have more than one route callback matching the same path.</li>
 <li>
 <strong>Observables</strong>: You can turn any javascript object, or function, into an observable that can listen and trigger events.</li>
 <li>
-<strong>Supper Flexible</strong>: You can use any javascript lib or jQuery plugin with spice, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.</li>
+<strong>Supper Flexible</strong>: You can use any javascript lib or jQuery plugin with <em>Spice</em>, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.</li>
 <li>
-<strong>Write once use everywhere</strong>: Spice promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.</li>
+<strong>Write once use everywhere</strong>: <em>Spice</em> promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.</li>
 <li>
-<strong>Testable</strong>: Is very simple to test spice code, controllers are just a function, templates are just a string and observables are just objects. Spice also comes out of the box with a simple BDD framework.</li>
+<strong>Testable</strong>: Is very simple to test <em>Spice</em> code, controllers are just a function, templates are just a string and observables are just objects. <em>Spice</em> also comes out of the box with a simple BDD framework.</li>
 </ul>
 
 <h3>
@@ -73,7 +71,7 @@
 
 <ul>
 <li>
-<strong>To Flexible</strong>: There is no restriction on your code structure so you can make a very good architecture with Spice or a very bad one.</li>
+<strong>To Flexible</strong>: There is no restriction on your code structure so you can make a very good architecture with <em>Spice</em> or a very bad one.</li>
 <li>
 <strong>To Young</strong>: It is a new project so there is not much documentation yet.</li>
 </ul>
@@ -83,7 +81,7 @@
 
 <ul>
 <li>
-<strong>Using with other MVC Frameworks</strong>: It is possible to use Spice with other javascript frameworks but that is not recommended since it could lead to a confusing code.</li>
+<strong>Using with other MVC Frameworks</strong>: It is possible to use <em>Spice</em> with other javascript frameworks but that is not recommended since it could lead to a confusing code.</li>
 </ul>
 
 <h1>
@@ -91,10 +89,10 @@
 
 <p>The best way to install <code>Spice.js</code>, and most js packages, is using bower:</p>
 
-<pre><code>$ bower install spicejs
+<pre><code>$ bower install _Spice_
 </code></pre>
 
-<p>By default bower will install packages in <code>./bower_components</code> so you can add spice and the extensions you need using:</p>
+<p>By default bower will install packages in <code>./bower_components</code> so you can add <em>Spice</em> and the extensions you need using:</p>
 
 <div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="c">&lt;!-- or "bower_components/spicejs/index.js" for the uncompressed version --&gt;</span>
@@ -111,13 +109,93 @@
 <p>If you don't want to use bower you can just copy the files you need from <a href="https://github.com/3den/spicejs">https://github.com/3den/spicejs</a>.</p>
 
 <h2>
-<a name="spice-on-nodejs" class="anchor" href="#spice-on-nodejs"><span class="octicon octicon-link"></span></a>Spice on Node.js</h2>
+<a name="spice-on-nodejs" class="anchor" href="#spice-on-nodejs"><span class="octicon octicon-link"></span></a>
+<em>Spice</em> on Node.js</h2>
 
-<p>You can use Spice.js on node, to include spice do:</p>
+<p>You can use Spice.js on node, to include <em>Spice</em> do:</p>
 
 <div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"./bower_components/spicejs"</span><span class="p">);</span>
 
-<span class="c1">// now you can user spice on the backend</span>
+<span class="c1">// now you can user _Spice_ on the backend</span>
+</pre></div>
+
+<h1>
+<a name="test-driven-development" class="anchor" href="#test-driven-development"><span class="octicon octicon-link"></span></a>Test Driven Development</h1>
+
+<p>Testability was the main focus of <em>Spice</em> the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini <a href="https://github.com/3den/spicejs/blob/master/bdd.js">BDD</a> (Dehaiviour Driven Development) framework that was inspired by <a href="http://jasmine.github.io/">jasmine</a> but is <strong>only 30 lines of code</strong> and works on node and the browser.</p>
+
+<h2>
+<a name="bdd-on-the-browser" class="anchor" href="#bdd-on-the-browser"><span class="octicon octicon-link"></span></a>BDD on the Browser</h2>
+
+<div class="highlight highlight-html"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My Test<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/bdd.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="c">&lt;!-- the bdd framework can be used with or without spice --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+    <span class="c">&lt;!-- Add all source files the you are testing here --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/some_file_that_will_be_tested.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    ...
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="c">&lt;!-- The test results will be displayed on the browser console %&gt;</span>
+<span class="c">    &lt;p&gt;Open console to view the results&lt;/p&gt;</span>
+
+<span class="c">    &lt;!-- Add all test files here --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"test/some_file_that_will_be_tested_test.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    ...
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/index.html">test/index.html</a> for <em>Spice</em> it self.</p>
+
+<h2>
+<a name="bdd-on-nodejs" class="anchor" href="#bdd-on-nodejs"><span class="octicon octicon-link"></span></a>BDD on Node.js</h2>
+
+<div class="highlight highlight-js"><pre><span class="c1">// This is needed if the app you are testing uses spice</span>
+<span class="nx">global</span><span class="p">.</span><span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"bower_components/spicejs/index"</span><span class="p">);</span>
+
+<span class="p">[</span>
+  <span class="s2">"bower_components/spicejs/bdd"</span><span class="p">,</span>
+  <span class="c1">// require all your test files after the bdd framework</span>
+  <span class="s2">"test/your_awesome_test"</span><span class="p">,</span>
+<span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">){</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s2">"./"</span> <span class="o">+</span> <span class="nx">file</span> <span class="o">+</span> <span class="s2">".js"</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/node.js">test/node.js</a> for <em>Spice</em> it self.</p>
+
+<h2>
+<a name="writing-tests" class="anchor" href="#writing-tests"><span class="octicon octicon-link"></span></a>Writing tests</h2>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Some object</span>
+<span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">index</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">add</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">index</span><span class="o">++</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Testing the object</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s2">"counter"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s2">"starts with index === 0"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">describe</span><span class="p">(</span><span class="s2">"#add"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">counter</span><span class="p">);</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s2">"increments the index"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+      <span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
 </pre></div>
 
 <h1>
@@ -163,7 +241,7 @@
 <h2>
 <a name="observableoneevent-callback" class="anchor" href="#observableoneevent-callback"><span class="octicon octicon-link"></span></a>observable.one(event, callback)</h2>
 
-<p>Does the same as <code>on</code> but the callback is altomatically removed after it is called the first time.</p>
+<p>Does the same as "<code>observable.on</code>" but the callback is altomatically removed after called the first time.</p>
 
 <h2>
 <a name="observableoffevent-callback" class="anchor" href="#observableoffevent-callback"><span class="octicon octicon-link"></span></a>observable.off(event, callback)</h2>
@@ -229,7 +307,7 @@
 <h2>
 <a name="observablecreateproperties" class="anchor" href="#observablecreateproperties"><span class="octicon octicon-link"></span></a>observable.create(properties)</h2>
 
-<p>Creates a new object based on the observable, Spice uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.</p>
+<p>Creates a new object based on the observable, <em>Spice</em> uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.</p>
 
 <div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">TaxableOrder</span> <span class="o">=</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
   <span class="nx">tax</span><span class="o">:</span> <span class="mi">0</span>
@@ -372,6 +450,77 @@
 
 <h1>
 <a name="extensions" class="anchor" href="#extensions"><span class="octicon octicon-link"></span></a>Extensions</h1>
+
+<p>The core of <em>Spice</em> is very minimal but supper flexible. With extensions it is easy to add powerfull features to <em>Spice</em> and to also to simplify the use of spice with other technologies.</p>
+
+<p>All <em>Spice</em> extenssions work out-of-the-box without any settup, all you need to do is to include it on your app, and thats it!</p>
+
+<p><em>Spice</em> already comes with some usefull extensions that will be explained in this chapter.</p>
+
+<h2>
+<a name="extpolyfilljs" class="anchor" href="#extpolyfilljs"><span class="octicon octicon-link"></span></a>ext/polyfill.js</h2>
+
+<p>Add this if you need for compatibility with old browsers (like IE7), if you dont care about old browsers you dont need it.</p>
+
+<div class="highlight highlight-html"><pre><span class="c">&lt;!--makes _Spice_ compatible with older browsers --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/ext/polyfill.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<h2>
+<a name="extroute_browserjs" class="anchor" href="#extroute_browserjs"><span class="octicon octicon-link"></span></a>ext/route_browser.js</h2>
+
+<p>Enables the <code>S.route</code> to change, and listen to changes, on the browser url. It will automatically use pushState or fallback to "#/" if the browser dont support push state.</p>
+
+<p>This extension should be used on the frontend of any app that needs the router.</p>
+
+<div class="highlight highlight-html"><pre><span class="c">&lt;!-- adds route extension for browser navigation --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/ext/route_browser.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/ext/route_browser.html">tests</a> for <code>ext/route_browser</code>.</p>
+
+<h2>
+<a name="extroute_turbolinksjs" class="anchor" href="#extroute_turbolinksjs"><span class="octicon octicon-link"></span></a>ext/route_turbolinks.js</h2>
+
+<p>This is a complementary route extension that is only needed on apps use <a href="https://github.com/rails/turbolinks">turbolinks</a> and it must be added after the <code>ext/route_browser.js</code>. It will enable <em>Spice</em> router to listen to URL changes that are triggered by turbolinks.</p>
+
+<div class="highlight highlight-html"><pre><span class="c">&lt;!-- router will listen to turbolinks navigation --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/ext/route_browser.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/ext/route_turbolinks.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<h2>
+<a name="extjquerycontroljs" class="anchor" href="#extjquerycontroljs"><span class="octicon octicon-link"></span></a>ext/jquery.control.js</h2>
+
+<p>This supper cool extenssion will add a jQuery plugin that makes much easier to bind controllers to jQuery elements. I makes sure that the controller binds only once to an element that avoids issues of having the same element listening to duplicated events.</p>
+
+<div class="highlight highlight-html"><pre><span class="c">&lt;!-- adds the `.control` plugin to jquery --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/spicejs/ext/jquery.control.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>With this you can bind controllers using a jquery plugin.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Creates a controller that logs when fields change</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">"log-change"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">elements</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"change"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s2">"changed to =&gt; "</span><span class="o">+</span> <span class="nx">target</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Binds all inputs with [data-log-change] to the "log-change" controller</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"input[data-log-change]"</span><span class="p">).</span><span class="nx">control</span><span class="p">(</span><span class="s2">"log-change"</span><span class="p">)</span>
+</pre></div>
+
+<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html">tests</a> for <code>ext/route_browser</code>.</p>
+
+<h1>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
+
+<ul>
+<li>
+<a href="https://github.com/3den/spicejs-connect4">Connect4</a>: A simple connect4 game built with <strong>Spice</strong>.</li>
+</ul>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
