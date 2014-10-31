@@ -68,6 +68,86 @@ var S = require("./bower_components/spicejs");
 // now you can user _Spice_ on the backend
 ```
 
+# Test Driven Development
+
+Testability was the main focus of _Spice_ the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini [BDD](https://github.com/3den/spicejs/blob/master/bdd.js) (Dehaiviour Driven Development) framework that was inspired by [jasmine](http://jasmine.github.io/) but is **only 30 lines of code** and works on node and the browser.
+
+
+## BDD on the Browser
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>My Test</title>
+    <script src="bower_components/spicejs/bdd.js"></script>
+
+    <!-- the bdd framework can be used with or without spice -->
+    <script src="bower_components/spicejs/index.js"></script>
+
+    <!-- Add all source files the you are testing here -->
+    <script src="js/some_file_that_will_be_tested.js"></script>
+    ...
+  </head>
+
+  <body>
+    <!-- The test results will be displayed on the browser console %>
+    <p>Open console to view the results</p>
+
+    <!-- Add all test files here -->
+    <script src="test/some_file_that_will_be_tested_test.js"></script>
+    ...
+  </body>
+</html>
+```
+
+Check the [test/index.html](https://github.com/3den/spicejs/blob/master/test/index.html) for _Spice_ it self.
+
+## BDD on Node.js
+
+```js
+// This is needed if the app you are testing uses spice
+global.S = require("bower_components/spicejs/index");
+
+[
+  "bower_components/spicejs/bdd",
+  // require all your test files after the bdd framework
+  "test/your_awesome_test",
+].forEach(function(file){
+  require("./" + file + ".js");
+});
+```
+
+Check the [test/node.js](https://github.com/3den/spicejs/blob/master/test/node.js) for _Spice_ it self.
+
+## Writing tests
+
+```js
+// Some object
+var counter = {
+  index: 0,
+  add: function() { this.index++; }
+};
+
+// Testing the object
+describe("counter", function() {
+  it("starts with index === 0", function() {
+    assert.equal(counter.index, 0);
+  });
+
+  describe("#add", function() {
+    var c = Object.create(counter);
+
+    it("increments the index", function() {
+      c.add(); assert.equal(c.index, 1);
+      c.add(); assert.equal(c.index, 2);
+      c.add(); assert.equal(c.index, 3);
+    });
+  });
+});
+```
+
+
 # S.observable(object)
 
 This method turns any object or function into an `observable` by adding some methods for dealing with events properties and inheritance. The `observable` can be considered the M (Model) of MVC, if is deals with data and business logic.
