@@ -30,7 +30,9 @@
 
       </header>
       <section>
-        <h1>
+        <p><a href="https://travis-ci.org/3den/spicejs"><img src="https://travis-ci.org/3den/spicejs.svg?branch=master" alt="Build Status"></a></p>
+
+<h1>
 <a name="what-is-spicejs" class="anchor" href="#what-is-spicejs"><span class="octicon octicon-link"></span></a>What is Spice.js?</h1>
 
 <p>Spice is a super minimal (&lt; 3k) and flexible MVC framework for javascript. Spice was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.</p>
@@ -289,7 +291,21 @@
 
 <p>The given <code>callback</code> will be called for all routes that match the given <code>path</code> expression.</p>
 
-<div class="highlight highlight-js"><pre>
+<div class="highlight highlight-js"><pre><span class="c1">// Sets a callback that will bind the "search" controller</span>
+<span class="c1">// on all paths that start with "/search".</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/search*"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-field"</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-results"</span><span class="p">),</span>
+    <span class="nx">model</span><span class="o">:</span> <span class="nx">Search</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Sets a callback that will call the `Search.search`</span>
+<span class="c1">// with the current path and given query</span>
+<span class="c1">// for routes that match "/search?q={query}"</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/search?q={query}"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Search</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
 
 <h2>
@@ -299,6 +315,8 @@
 
 <div class="highlight highlight-js"><pre><span class="c1">// This code will do exactly the same as the previous example.</span>
 <span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
+  <span class="c1">// Sets a callback that will bind the "search" controller</span>
+  <span class="c1">// on all paths that start with "/search".</span>
   <span class="s2">"/search*"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-field"</span><span class="p">),</span> <span class="p">{</span>
       <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-results"</span><span class="p">),</span>
@@ -306,6 +324,9 @@
     <span class="p">});</span>
   <span class="p">},</span>
 
+  <span class="c1">// Sets a callback that will call the `Search.search`</span>
+  <span class="c1">// with the current path and given query</span>
+  <span class="c1">// for routes that match "/search?q={query}"</span>
   <span class="s2">"/search?q={query}"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">Search</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span>
   <span class="p">}</span>
@@ -344,6 +365,9 @@
 <span class="c1">// Updates the current path to "/search?q=spice#doc"</span>
 <span class="c1">// WITHOUT triggering the callbacks for visinting that route</span>
 <span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"#doc"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+
+<span class="c1">// Does exactly the same as `S.route("/search");`</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"/search"</span><span class="p">);</span>
 </pre></div>
 
 <h1>
