@@ -383,3 +383,7 @@ $("input[data-log-change]").control("log-change")
 ```
 
 Check the [tests](https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html) for `ext/route_browser`.
+
+# Examples
+
+* [Connect4](https://github.com/3den/spicejs-connect4): A simple connect4 game built with __Spice__.
