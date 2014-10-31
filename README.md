@@ -1,36 +1,36 @@
 [![Build Status](https://travis-ci.org/3den/spicejs.svg?branch=master)](https://travis-ci.org/3den/spicejs)
 
-# What is Spice.js?
+# What is _Spice.js_?
 
-Spice is a super minimal (< 3k) and flexible MVC framework for javascript. Spice was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.
+_Spice_ is a super minimal (< 3k) and flexible MVC framework for javascript. _Spice_ was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.
 
 ## Why yet an other MVC framework?
 
 Currently all major MVC frameworks for javascript have a huge API and you end up writing more code to satisfy the the framework requirements than your own business logic, that leads to code that is tightly coupled to the framework and hard to reuse, sometimes even hard to update for new versions of the framework.
 
-On Spice most of the code you write is pure javascript the framework API is minimal (just 5 methods) that helps you to make your code easier to reuse and test. The core of Spice is pure javascript (without any external dependency) that is fully unit tested and can be easily extended.
+On _Spice_ most of the code you write is pure javascript the framework API is minimal (just 5 methods) that helps you to make your code easier to reuse and test. The core of _Spice_ is pure javascript (without any external dependency) that is fully unit tested and can be easily extended. This documentation will explain with examples how you can use _Spice_ to build cool web apps.
 
-Spice.js was inspired by [the SOLID Principles](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)), [jQuery](http://jquery.com/) and [Riot.js](https://github.com/muut/riotjs).
+_Spice_.js was inspired by [the SOLID Principles](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)), [jQuery](http://jquery.com/) and [Riot.js](https://github.com/muut/riotjs).
 
 ### The Good
 
-* **Easy to learn**: Spice will few very straight forward for developers are familiar with jQuery and JavaScript.
-* **Unobtrusive JavaScript**: Spice makes [progressive enhancement](http://en.wikipedia.org/wiki/Progressive_enhancement) simpler, you can load your views on the server and use Spice's controllers to add frontend features.
-* **Powerful template engine**: Spice comes with `S.template` which creates a precompiled template that is supper fast, you can also write any javascript code in your template without having to learn different syntaxes.
+* **Easy to learn**: _Spice_ will few very straight forward for developers are familiar with jQuery and JavaScript.
+* **Unobtrusive JavaScript**: _Spice_ makes [progressive enhancement](http://en.wikipedia.org/wiki/Progressive_enhancement) simpler, you can load your views on the server and use _Spice_'s controllers to add frontend features.
+* **Powerful template engine**: _Spice_ comes with `S.template` which creates a precompiled template that is supper fast, you can also write any javascript code in your template without having to learn different syntaxes.
 * **Routes**: You can use routes to bind controllers and plugins, on pages where they are needed and you can have more than one route callback matching the same path.
 * **Observables**: You can turn any javascript object, or function, into an observable that can listen and trigger events.
-* **Supper Flexible**: You can use any javascript lib or jQuery plugin with spice, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.
-* **Write once use everywhere**: Spice promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.
-* **Testable**: Is very simple to test spice code, controllers are just a function, templates are just a string and observables are just objects. Spice also comes out of the box with a simple BDD framework.
+* **Supper Flexible**: You can use any javascript lib or jQuery plugin with _Spice_, there is extensions for jQuery controllers, turbolinks and it is easy to write other extensions for the features you need.
+* **Write once use everywhere**: _Spice_ promotes reuse, it is easy to create generic controlers and models that can be reused in diferent parts of the same app or on diferent apps.
+* **Testable**: Is very simple to test _Spice_ code, controllers are just a function, templates are just a string and observables are just objects. _Spice_ also comes out of the box with a simple BDD framework.
 
 ### The Bad
 
-* **To Flexible**: There is no restriction on your code structure so you can make a very good architecture with Spice or a very bad one.
+* **To Flexible**: There is no restriction on your code structure so you can make a very good architecture with _Spice_ or a very bad one.
 * **To Young**: It is a new project so there is not much documentation yet.
 
 ### The Ugly
 
-* **Using with other MVC Frameworks**: It is possible to use Spice with other javascript frameworks but that is not recommended since it could lead to a confusing code.
+* **Using with other MVC Frameworks**: It is possible to use _Spice_ with other javascript frameworks but that is not recommended since it could lead to a confusing code.
 
 
 # Install
@@ -38,10 +38,10 @@ Spice.js was inspired by [the SOLID Principles](http://en.wikipedia.org/wiki/SOL
 The best way to install `Spice.js`, and most js packages, is using bower:
 
 ```
-$ bower install spicejs
+$ bower install _Spice_
 ```
 
-By default bower will install packages in `./bower_components` so you can add spice and the extensions you need using:
+By default bower will install packages in `./bower_components` so you can add _Spice_ and the extensions you need using:
 
 ```html
 <script src="bower_components/spicejs/min.js"></script>
@@ -58,14 +58,14 @@ By default bower will install packages in `./bower_components` so you can add sp
 
 If you don't want to use bower you can just copy the files you need from https://github.com/3den/spicejs.
 
-## Spice on Node.js
+## _Spice_ on Node.js
 
-You can use Spice.js on node, to include spice do:
+You can use Spice.js on node, to include _Spice_ do:
 
 ```js
 var S = require("./bower_components/spicejs");
 
-// now you can user spice on the backend
+// now you can user _Spice_ on the backend
 ```
 
 # S.observable(object)
@@ -176,7 +176,7 @@ Order.total === Order.get('total');
 
 ## observable.create(properties)
 
-Creates a new object based on the observable, Spice uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.
+Creates a new object based on the observable, _Spice_ uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.
 
 ```js
 var TaxableOrder = Order.create({
@@ -320,3 +320,66 @@ S.route.update("/search");
 
 # Extensions
 
+The core of _Spice_ is very minimal but supper flexible. With extensions it is easy to add powerfull features to _Spice_ and to also to simplify the use of spice with other technologies.
+
+All _Spice_ extenssions work out-of-the-box without any settup, all you need to do is to include it on your app, and thats it!
+
+_Spice_ already comes with some usefull extensions that will be explained in this chapter.
+
+## ext/polyfill.js
+
+Add this if you need for compatibility with old browsers (like IE7), if you dont care about old browsers you dont need it.
+
+```html
+<!--makes _Spice_ compatible with older browsers -->
+<script src="bower_components/spicejs/ext/polyfill.js"></script>
+```
+
+## ext/route_browser.js
+
+Enables the `S.route` to change, and listen to changes, on the browser url. It will automatically use pushState or fallback to "#/" if the browser dont support push state.
+
+This extension should be used on the frontend of any app that needs the router.
+
+```html
+<!-- adds route extension for browser navigation -->
+<script src="bower_components/spicejs/ext/route_browser.js"></script>
+```
+
+Check the [tests](https://github.com/3den/spicejs/blob/master/test/ext/route_browser.html) for `ext/route_browser`.
+
+## ext/route_turbolinks.js
+
+This is a complementary route extension that is only needed on apps use [turbolinks](https://github.com/rails/turbolinks) and it must be added after the `ext/route_browser.js`. It will enable _Spice_ router to listen to URL changes that are triggered by turbolinks.
+
+```html
+<!-- router will listen to turbolinks navigation -->
+<script src="bower_components/spicejs/ext/route_browser.js"></script>
+<script src="bower_components/spicejs/ext/route_turbolinks.js"></script>
+```
+
+## ext/jquery.control.js
+
+This supper cool extenssion will add a jQuery plugin that makes much easier to bind controllers to jQuery elements. I makes sure that the controller binds only once to an element that avoids issues of having the same element listening to duplicated events.
+
+```html
+<!-- adds the `.control` plugin to jquery -->
+<script src="bower_components/spicejs/ext/jquery.control.js"></script>
+```
+
+With this you can bind controllers using a jquery plugin.
+
+```js
+// Creates a controller that logs when fields change
+S.controller("log-change", function(elements, function(element) {
+  elements.on("change", function(e) {
+    var target = $(e.target);
+    console.log(target, "changed to => "+ target.val());
+  });
+});
+
+// Binds all inputs with [data-log-change] to the "log-change" controller
+$("input[data-log-change]").control("log-change")
+```
+
+Check the [tests](https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html) for `ext/route_browser`.
