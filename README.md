@@ -111,7 +111,7 @@ Search.on("search", function(data, query) {
 
 ## observable.one(event, callback)
 
-Does the same as `on` but the callback is altomatically removed after it is called the first time.
+Does the same as "`observable.on`" but the callback is altomatically removed after called the first time.
 
 ## observable.off(event, callback)
 
