@@ -239,7 +239,21 @@ S.route(function(params) {
 The given `callback` will be called for all routes that match the given `path` expression.
 
 ```js
+// Sets a callback that will bind the "search" controller
+// on all paths that start with "/search".
+S.route("/search*", function(params) {
+  S.controll('search', document.getElementById("search-field"), {
+    target: document.getElementById("search-results"),
+    model: Search
+  });
+});
 
+// Sets a callback that will call the `Search.search`
+// with the current path and given query
+// for routes that match "/search?q={query}"
+S.route("/search?q={query}", function(params) {
+  Search.search(params.path, params.query);
+});
 ```
 
 ## S.route(object)
@@ -249,6 +263,8 @@ This sintax alows to set many route callbacks at once.
 ```js
 // This code will do exactly the same as the previous example.
 S.route({
+  // Sets a callback that will bind the "search" controller
+  // on all paths that start with "/search".
   "/search*": function(params) {
     S.controll('search', document.getElementById("search-field"), {
       target: document.getElementById("search-results"),
@@ -256,6 +272,9 @@ S.route({
     });
   },
 
+  // Sets a callback that will call the `Search.search`
+  // with the current path and given query
+  // for routes that match "/search?q={query}"
   "/search?q={query}": function(params) {
     Search.search(params.path, params.query);
   }
@@ -294,6 +313,10 @@ S.route.update("?q=spice");
 // Updates the current path to "/search?q=spice#doc"
 // WITHOUT triggering the callbacks for visinting that route
 S.route.update("#doc", false);
+
+// Does exactly the same as `S.route("/search");`
+S.route.update("/search");
 ```
 
 # Extensions
+
