@@ -191,7 +191,7 @@ Search.on("search", function(data, query) {
 
 ## observable.one(event, callback)
 
-Does the same as "`observable.on`" but the callback is altomatically removed after called the first time.
+Does the same as "`observable.on`" but the callback is automatically removed after called the first time.
 
 ## observable.off(event, callback)
 
@@ -256,7 +256,7 @@ Order.total === Order.get('total');
 
 ## observable.create(properties)
 
-Creates a new object based on the observable, _Spice_ uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.
+Creates a new object based on the observable, _Spice_ uses prototypal inheritance to do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parent.
 
 ```js
 var TaxableOrder = Order.create({
@@ -284,16 +284,56 @@ TaxableOrder.subtotal !== Order.subtotal
 
 # S.template(text [, object])
 
+A `S.template` methods which creates a precompiled template. You needs a string that contains some tags. By default, tags are indicated by `<% ? %>`. A <% name %> tag renders the value of the `name` key in the current `object`. You can also write a javascript code in your template without having to learn different syntaxes.
+
+```js
+var user = {name: 'John Lennon'};
+var tmpl = S.template('<p><% name %></p>);
+
+document.querySelector('body').innerHTML = tmpl(user);
+```
 
 # S.controller(name, callback)
 
+A `S.controller` method which creates a organized, performing and stateful controls with declarative event binding. Use this method to create UI controls and organize them into higher-order business rules with S.route. It can serve as both a traditionals views and controllers.
 
-## S.control(name, element [, options])
+```js
+S.controller("increment", function(item) {
+  item.on("click", increment);
 
+  function increment(e) {
+    var input = e.target;
+    input.value = paseInt(input.value, 10) + 1;
+  }
+});
+```
+
+If you want, you can add some options on controller callback.
+
+```js
+S.controller("increment", function(item, options) {
+  var target = options.target || item;
+
+  item.on("click", increment);
+
+  function increment(e) {
+    var input = document.getElementById(e.target);
+    target.value = parseInt(input.value, 10) + 1;
+  }
+});
+```
+
+## S.control(name[, options])
+
+A `S.control` method which be used to bind a controller. Usually as used inside a routes callbacks.
+
+```js
+$("button").control("increment", { target: document.querySelector('#count') });
+```
 
 # S.route
 
-The `S.route` method can do diverent things depending on what arguments are passed (following the jQuery sytle). The route matcher can have params `/search?q={query}` and wildcards `/users*`, and it is possible to have many one callbacks trigered for a given path.
+The `S.route` method can do diverent things depending on what arguments are passed (following the jQuery sytle). The route matcher can have params `/search?q={query}` and wildcards `/users*`, and it is possible to have many one callbacks triggered for a given path.
 
 Routes should be used to bind controllers, plugins or to trigger actions on a model. This will help to keep you code well organized and respond correctly to changes on the page.
 
