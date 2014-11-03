@@ -312,7 +312,7 @@ If you want, you can add some options on controller callback.
 
 ```js
 S.controller("increment", function(item, options) {
-  var target = options.target || item.selector;
+  var target = options.target || item;
 
   item.on("click", increment);
 
@@ -328,12 +328,7 @@ S.controller("increment", function(item, options) {
 A `S.control` method which be used to bind a controller. Usually as used inside a routes callbacks.
 
 ```js
-S.route({
-  "/contact*": function (params) {
-    $("button").control("increment", {target: $('#count')});
-  }
-});
-
+$("button").control("increment", { target: document.querySelector('#count') });
 ```
 
 # S.route
