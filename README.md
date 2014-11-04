@@ -63,7 +63,7 @@ If you don't want to use bower you can just copy the files you need from https:/
 You can use Spice.js on node, to include _Spice_ do:
 
 ```js
-var S = require("./bower_components/spicejs");
+var S = require('./bower_components/spicejs');
 
 // now you can user _Spice_ on the backend
 ```
@@ -107,14 +107,14 @@ Check the [test/index.html](https://github.com/3den/spicejs/blob/master/test/ind
 
 ```js
 // This is needed if the app you are testing uses spice
-global.S = require("bower_components/spicejs/index");
+global.S = require('bower_components/spicejs/index');
 
 [
-  "bower_components/spicejs/bdd",
+  'bower_components/spicejs/bdd',
   // require all your test files after the bdd framework
-  "test/your_awesome_test",
+  'test/your_awesome_test',
 ].forEach(function(file){
-  require("./" + file + ".js");
+  require('./' + file + '.js');
 });
 ```
 
@@ -130,15 +130,15 @@ var counter = {
 };
 
 // Testing the object
-describe("counter", function() {
-  it("starts with index === 0", function() {
+describe('counter', function() {
+  it('starts with index === 0', function() {
     assert.equal(counter.index, 0);
   });
 
-  describe("#add", function() {
+  describe('#add', function() {
     var c = Object.create(counter);
 
-    it("increments the index", function() {
+    it('increments the index', function() {
       c.add(); assert.equal(c.index, 1);
       c.add(); assert.equal(c.index, 2);
       c.add(); assert.equal(c.index, 3);
@@ -164,14 +164,14 @@ var Search = S.observable({
     var self = this;
 
     $.get(path, {
-      format: "json",
+      format: 'json',
       search: query
     }).done(function(data) {
       self.query = query;
       self.page = 1;
 
       // Triggers an event on the Search object.
-      self.trigger("search", data, query);
+      self.trigger('search', data, query);
     });
   }
 });
@@ -183,7 +183,7 @@ Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/obse
 Observables can listen to events using the the `on` callback.
 
 ```js
-Search.on("search", function(data, query) {
+Search.on('search', function(data, query) {
   console.log(data); // prints the data returned by the search
   console.log(data); // prints the query used to search
 });
@@ -191,7 +191,7 @@ Search.on("search", function(data, query) {
 
 ## observable.one(event, callback)
 
-Does the same as "`observable.on`" but the callback is automatically removed after called the first time.
+Does the same as '`observable.on`' but the callback is automatically removed after called the first time.
 
 ## observable.off(event, callback)
 
@@ -202,10 +202,10 @@ Allows you to remove event listeners.
 Search.off();
 
 // Removes the 'search' callbacks
-Search.off("search");
+Search.off('search');
 
 // Removes just the `someCallback` function 'search' callbacks
-Search.off("search", someCallback);
+Search.off('search', someCallback);
 ```
 
 ## observable.trigger(event, arg1, arg2...)
@@ -213,37 +213,37 @@ Search.off("search", someCallback);
 Triggers an event, the arguments are passed to the callback lisetener.
 
 ```js
-var data = [{id: 1, name: "Borderlands"}, {id: 2, name: "Doom 3"}]
-  , query = "games";
+var data = [{id: 1, name: 'Borderlands'}, {id: 2, name: 'Doom 3'}]
+  , query = 'games';
 
-// This will call all callbacks attached to the "search" event
+// This will call all callbacks attached to the 'search' event
 // passing `data` and `query` as the arguments.
-Search.trigger("search", data, query);
+Search.trigger('search', data, query);
 ```
 
 ## observable.set(key, value)
 
-Sets the value of a property and triggers the events "set" and `key`, passing
+Sets the value of a property and triggers the events 'set' and `key`, passing
 
 ```js
 var Order = S.observable({
   subtotal: 0,
   total: 0,
   shipping: 0
-}).on("subtotal shipping", function(value, oldValue) {
-  console.log("changed from " + oldValue + " to " + value);
-  this.set("total", this.subtotal + this.shipping);
-}).on("set", function(attr, value, oldValue) {
-  console.log(attr + " changed from " + oldValue + " to " + value);
+}).on('subtotal shipping', function(value, oldValue) {
+  console.log('changed from ' + oldValue + ' to ' + value);
+  this.set('total', this.subtotal + this.shipping);
+}).on('set', function(attr, value, oldValue) {
+  console.log(attr + ' changed from ' + oldValue + ' to ' + value);
 });
 
 // Updates the subtotal to 10,
 // the total will be altomatically set to 10
-Order.set("subtotal", 10);
+Order.set('subtotal', 10);
 
 // Updates the shipping to 2.50,
 // the total will be altomatically set to 12.50
-Order.set("shipping", 10);
+Order.set('shipping', 10);
 ```
 
 ## observable.get(key)
@@ -264,20 +264,20 @@ var TaxableOrder = Order.create({
 
 }).off(
   // Removes the subtotal and shipping callbacks
-  "subtotal shipping"
+  'subtotal shipping'
 
-).on("subtotal shipping tax", function() {
+).on('subtotal shipping tax', function() {
   // Adds the new callback
-  this.set("total", this.subtotal + this.shipping + this.tax);
+  this.set('total', this.subtotal + this.shipping + this.tax);
 
 });
 
 // Setting the tax updates the total
-TaxableOrder.set("tax", 1)
+TaxableOrder.set('tax', 1)
 TaxableOrder.total === Order.total + 1
 
 // Overriding a property dont touch the parent
-TaxableOrder.set("subtotal", 5)
+TaxableOrder.set('subtotal', 5)
 TaxableOrder.subtotal !== Order.subtotal
 ```
 
@@ -288,7 +288,7 @@ A `S.template` methods which creates a precompiled template. You needs a string 
 
 ```js
 var user = {name: 'John Lennon'};
-var tmpl = S.template('<p><% name %></p>);
+var tmpl = S.template('<p><% name %></p>');
 
 document.querySelector('body').innerHTML = tmpl(user);
 ```
@@ -298,8 +298,8 @@ document.querySelector('body').innerHTML = tmpl(user);
 A `S.controller` method which creates a organized, performing and stateful controls with declarative event binding. Use this method to create UI controls and organize them into higher-order business rules with S.route. It can serve as both a traditionals views and controllers.
 
 ```js
-S.controller("increment", function(item) {
-  item.on("click", increment);
+S.controller('increment', function(item) {
+  item.on('click', increment);
 
   function increment(e) {
     var input = e.target;
@@ -311,10 +311,10 @@ S.controller("increment", function(item) {
 If you want, you can add some options on controller callback.
 
 ```js
-S.controller("increment", function(item, options) {
+S.controller('increment', function(item, options) {
   var target = options.target || item;
 
-  item.on("click", increment);
+  item.on('click', increment);
 
   function increment(e) {
     var input = document.getElementById(e.target);
@@ -328,7 +328,7 @@ S.controller("increment", function(item, options) {
 A `S.control` method which be used to bind a controller. Usually as used inside a routes callbacks.
 
 ```js
-$("button").control("increment", { target: document.querySelector('#count') });
+$('button').control('increment', { target: document.querySelector('#count') });
 ```
 
 # S.route
@@ -347,7 +347,7 @@ This defines a generic route that will be called for all paths. This is usefull 
 S.route(function(params) {
   // binds select2 plugin to all `select` tags
   // http://ivaynberg.github.io/select2/
-  $("select").select();
+  $('select').select();
 
   // prints the path of the current page.
   console.log(params.path);
@@ -359,19 +359,19 @@ S.route(function(params) {
 The given `callback` will be called for all routes that match the given `path` expression.
 
 ```js
-// Sets a callback that will bind the "search" controller
-// on all paths that start with "/search".
-S.route("/search*", function(params) {
-  S.controll('search', document.getElementById("search-field"), {
-    target: document.getElementById("search-results"),
+// Sets a callback that will bind the 'search' controller
+// on all paths that start with '/search'.
+S.route('/search*', function(params) {
+  S.controll('search', document.getElementById('search-field'), {
+    target: document.getElementById('search-results'),
     model: Search
   });
 });
 
 // Sets a callback that will call the `Search.search`
 // with the current path and given query
-// for routes that match "/search?q={query}"
-S.route("/search?q={query}", function(params) {
+// for routes that match '/search?q={query}'
+S.route('/search?q={query}', function(params) {
   Search.search(params.path, params.query);
 });
 ```
@@ -383,19 +383,19 @@ This sintax alows to set many route callbacks at once.
 ```js
 // This code will do exactly the same as the previous example.
 S.route({
-  // Sets a callback that will bind the "search" controller
-  // on all paths that start with "/search".
-  "/search*": function(params) {
-    S.controll('search', document.getElementById("search-field"), {
-      target: document.getElementById("search-results"),
+  // Sets a callback that will bind the 'search' controller
+  // on all paths that start with '/search'.
+  '/search*': function(params) {
+    S.controll('search', document.getElementById('search-field'), {
+      target: document.getElementById('search-results'),
       model: Search
     });
   },
 
   // Sets a callback that will call the `Search.search`
   // with the current path and given query
-  // for routes that match "/search?q={query}"
-  "/search?q={query}": function(params) {
+  // for routes that match '/search?q={query}'
+  '/search?q={query}': function(params) {
     Search.search(params.path, params.query);
   }
 });
@@ -406,16 +406,16 @@ S.route({
 Triggers all callbacks that match the given path, if `triggersVisit` is set to `false` it will NOT send a push state to update the browser.
 
 ```js
-// Triggers all callbacks that match "/somepath"
-// and also calls `route.trigger("visit", "/somepath")`
+// Triggers all callbacks that match '/somepath'
+// and also calls `route.trigger('visit', '/somepath')`
 // that will send a push state to the browser updating
 // the url if `ext/route_browser.js` was included.
-S.route("/somepath");
+S.route('/somepath');
 
-// Triggers all callbacks that match "/somepath"
-// but do NOT call `route.trigger("visit", "/somepath")`
+// Triggers all callbacks that match '/somepath'
+// but do NOT call `route.trigger('visit', '/somepath')`
 // so the browser URL wont change
-S.route("/somepath", false);
+S.route('/somepath', false);
 ```
 
 ## S.route.update(path [, callsVisit = true])
@@ -423,19 +423,19 @@ S.route("/somepath", false);
 Updates a portion the current current url and calls all callbacks that match the new path, if callsVisit is set to `false` it will update the URL without triggering the callbacks.
 
 ```js
-// visits the "/search" and triggers all callbacks that match that route.
-S.route("/search");
+// visits the '/search' and triggers all callbacks that match that route.
+S.route('/search');
 
-// Updates the current path to "/search?q=spice"
+// Updates the current path to '/search?q=spice'
 // and triggers all callbacks for visiting that route.
-S.route.update("?q=spice");
+S.route.update('?q=spice');
 
-// Updates the current path to "/search?q=spice#doc"
+// Updates the current path to '/search?q=spice#doc'
 // WITHOUT triggering the callbacks for visinting that route
-S.route.update("#doc", false);
+S.route.update('#doc', false);
 
-// Does exactly the same as `S.route("/search");`
-S.route.update("/search");
+// Does exactly the same as `S.route('/search');`
+S.route.update('/search');
 ```
 
 # Extensions
@@ -491,15 +491,15 @@ With this you can bind controllers using a jquery plugin.
 
 ```js
 // Creates a controller that logs when fields change
-S.controller("log-change", function(elements, function(element) {
-  elements.on("change", function(e) {
+S.controller('log-change', function(elements, function(element) {
+  elements.on('change', function(e) {
     var target = $(e.target);
-    console.log(target, "changed to => "+ target.val());
+    console.log(target, 'changed to => '+ target.val());
   });
 });
 
-// Binds all inputs with [data-log-change] to the "log-change" controller
-$("input[data-log-change]").control("log-change")
+// Binds all inputs with [data-log-change] to the 'log-change' controller
+$('input[data-log-change]').control('log-change')
 ```
 
 Check the [tests](https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html) for `ext/route_browser`.
