@@ -201,7 +201,7 @@ Allows you to remove event listeners.
 // Removes all callbacks
 Search.off();
 
-// Removes the 'search' callbacks
+// Removes the "search" callbacks
 Search.off("search");
 
 // Removes just the `someCallback` function 'search' callbacks
@@ -251,7 +251,7 @@ Order.set("shipping", 10);
 Returns the value of a property.
 
 ```js
-Order.total === Order.get('total');
+Order.total === Order.get("total");
 ```
 
 ## observable.create(properties)
@@ -287,10 +287,10 @@ TaxableOrder.subtotal !== Order.subtotal
 A `S.template` methods which creates a precompiled template. You needs a string that contains some tags. By default, tags are indicated by `<% ? %>`. A <% name %> tag renders the value of the `name` key in the current `object`. You can also write a javascript code in your template without having to learn different syntaxes.
 
 ```js
-var user = {name: 'John Lennon'};
-var tmpl = S.template('<p><% name %></p>);
+var user = {name: "John Lennon"};
+var tmpl = S.template("<p><% name %></p>");
 
-document.querySelector('body').innerHTML = tmpl(user);
+document.querySelector("body").innerHTML = tmpl(user);
 ```
 
 # S.controller(name, callback)
@@ -328,7 +328,7 @@ S.controller("increment", function(item, options) {
 A `S.control` method which be used to bind a controller. Usually as used inside a routes callbacks.
 
 ```js
-$("button").control("increment", { target: document.querySelector('#count') });
+$("button").control("increment", { target: document.querySelector("#count") });
 ```
 
 # S.route
@@ -362,7 +362,7 @@ The given `callback` will be called for all routes that match the given `path` e
 // Sets a callback that will bind the "search" controller
 // on all paths that start with "/search".
 S.route("/search*", function(params) {
-  S.controll('search', document.getElementById("search-field"), {
+  S.controll("search", document.getElementById("search-field"), {
     target: document.getElementById("search-results"),
     model: Search
   });
@@ -386,7 +386,7 @@ S.route({
   // Sets a callback that will bind the "search" controller
   // on all paths that start with "/search".
   "/search*": function(params) {
-    S.controll('search', document.getElementById("search-field"), {
+    S.controll("search", document.getElementById("search-field"), {
       target: document.getElementById("search-results"),
       model: Search
     });
