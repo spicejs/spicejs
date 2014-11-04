@@ -30,13 +30,15 @@
 
       </header>
       <section>
-        <h1>
-<a name="what-is-spicejs" class="anchor" href="#what-is-spicejs"><span class="octicon octicon-link"></span></a>What is <em>Spice.js</em>?</h1>
+        <p><a href="https://travis-ci.org/3den/spicejs"><img src="https://travis-ci.org/3den/spicejs.svg?branch=master" alt="Build Status"></a></p>
+
+<h1>
+<a id="what-is-spicejs" class="anchor" href="#what-is-spicejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is <em>Spice.js</em>?</h1>
 
 <p><em>Spice</em> is a super minimal (&lt; 3k) and flexible MVC framework for javascript. <em>Spice</em> was built to be easily added to any existent application and play well with other technologies such as jQuery, pjax, turbolinks, node or whatever else you are using.</p>
 
 <h2>
-<a name="why-yet-an-other-mvc-framework" class="anchor" href="#why-yet-an-other-mvc-framework"><span class="octicon octicon-link"></span></a>Why yet an other MVC framework?</h2>
+<a id="why-yet-an-other-mvc-framework" class="anchor" href="#why-yet-an-other-mvc-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why yet an other MVC framework?</h2>
 
 <p>Currently all major MVC frameworks for javascript have a huge API and you end up writing more code to satisfy the the framework requirements than your own business logic, that leads to code that is tightly coupled to the framework and hard to reuse, sometimes even hard to update for new versions of the framework.</p>
 
@@ -45,7 +47,7 @@
 <p><em>Spice</em>.js was inspired by <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">the SOLID Principles</a>, <a href="http://jquery.com/">jQuery</a> and <a href="https://github.com/muut/riotjs">Riot.js</a>.</p>
 
 <h3>
-<a name="the-good" class="anchor" href="#the-good"><span class="octicon octicon-link"></span></a>The Good</h3>
+<a id="the-good" class="anchor" href="#the-good" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Good</h3>
 
 <ul>
 <li>
@@ -67,7 +69,7 @@
 </ul>
 
 <h3>
-<a name="the-bad" class="anchor" href="#the-bad"><span class="octicon octicon-link"></span></a>The Bad</h3>
+<a id="the-bad" class="anchor" href="#the-bad" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Bad</h3>
 
 <ul>
 <li>
@@ -77,7 +79,7 @@
 </ul>
 
 <h3>
-<a name="the-ugly" class="anchor" href="#the-ugly"><span class="octicon octicon-link"></span></a>The Ugly</h3>
+<a id="the-ugly" class="anchor" href="#the-ugly" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Ugly</h3>
 
 <ul>
 <li>
@@ -85,7 +87,7 @@
 </ul>
 
 <h1>
-<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h1>
 
 <p>The best way to install <code>Spice.js</code>, and most js packages, is using bower:</p>
 
@@ -109,23 +111,23 @@
 <p>If you don't want to use bower you can just copy the files you need from <a href="https://github.com/3den/spicejs">https://github.com/3den/spicejs</a>.</p>
 
 <h2>
-<a name="spice-on-nodejs" class="anchor" href="#spice-on-nodejs"><span class="octicon octicon-link"></span></a>
+<a id="spice-on-nodejs" class="anchor" href="#spice-on-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>
 <em>Spice</em> on Node.js</h2>
 
 <p>You can use Spice.js on node, to include <em>Spice</em> do:</p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"./bower_components/spicejs"</span><span class="p">);</span>
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./bower_components/spicejs'</span><span class="p">);</span>
 
 <span class="c1">// now you can user _Spice_ on the backend</span>
 </pre></div>
 
 <h1>
-<a name="test-driven-development" class="anchor" href="#test-driven-development"><span class="octicon octicon-link"></span></a>Test Driven Development</h1>
+<a id="test-driven-development" class="anchor" href="#test-driven-development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test Driven Development</h1>
 
 <p>Testability was the main focus of <em>Spice</em> the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini <a href="https://github.com/3den/spicejs/blob/master/bdd.js">BDD</a> (Dehaiviour Driven Development) framework that was inspired by <a href="http://jasmine.github.io/">jasmine</a> but is <strong>only 30 lines of code</strong> and works on node and the browser.</p>
 
 <h2>
-<a name="bdd-on-the-browser" class="anchor" href="#bdd-on-the-browser"><span class="octicon octicon-link"></span></a>BDD on the Browser</h2>
+<a id="bdd-on-the-browser" class="anchor" href="#bdd-on-the-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>BDD on the Browser</h2>
 
 <div class="highlight highlight-html"><pre><span class="cp">&lt;!doctype html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
@@ -155,24 +157,24 @@
 <p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/index.html">test/index.html</a> for <em>Spice</em> it self.</p>
 
 <h2>
-<a name="bdd-on-nodejs" class="anchor" href="#bdd-on-nodejs"><span class="octicon octicon-link"></span></a>BDD on Node.js</h2>
+<a id="bdd-on-nodejs" class="anchor" href="#bdd-on-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>BDD on Node.js</h2>
 
 <div class="highlight highlight-js"><pre><span class="c1">// This is needed if the app you are testing uses spice</span>
-<span class="nx">global</span><span class="p">.</span><span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"bower_components/spicejs/index"</span><span class="p">);</span>
+<span class="nx">global</span><span class="p">.</span><span class="nx">S</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'bower_components/spicejs/index'</span><span class="p">);</span>
 
 <span class="p">[</span>
-  <span class="s2">"bower_components/spicejs/bdd"</span><span class="p">,</span>
+  <span class="s1">'bower_components/spicejs/bdd'</span><span class="p">,</span>
   <span class="c1">// require all your test files after the bdd framework</span>
-  <span class="s2">"test/your_awesome_test"</span><span class="p">,</span>
+  <span class="s1">'test/your_awesome_test'</span><span class="p">,</span>
 <span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">){</span>
-  <span class="nx">require</span><span class="p">(</span><span class="s2">"./"</span> <span class="o">+</span> <span class="nx">file</span> <span class="o">+</span> <span class="s2">".js"</span><span class="p">);</span>
+  <span class="nx">require</span><span class="p">(</span><span class="s1">'./'</span> <span class="o">+</span> <span class="nx">file</span> <span class="o">+</span> <span class="s1">'.js'</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
 <p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/node.js">test/node.js</a> for <em>Spice</em> it self.</p>
 
 <h2>
-<a name="writing-tests" class="anchor" href="#writing-tests"><span class="octicon octicon-link"></span></a>Writing tests</h2>
+<a id="writing-tests" class="anchor" href="#writing-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing tests</h2>
 
 <div class="highlight highlight-js"><pre><span class="c1">// Some object</span>
 <span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="p">{</span>
@@ -181,15 +183,15 @@
 <span class="p">};</span>
 
 <span class="c1">// Testing the object</span>
-<span class="nx">describe</span><span class="p">(</span><span class="s2">"counter"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">it</span><span class="p">(</span><span class="s2">"starts with index === 0"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">'counter'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">'starts with index === 0'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">counter</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
   <span class="p">});</span>
 
-  <span class="nx">describe</span><span class="p">(</span><span class="s2">"#add"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">'#add'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">counter</span><span class="p">);</span>
 
-    <span class="nx">it</span><span class="p">(</span><span class="s2">"increments the index"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">'increments the index'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
       <span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
       <span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span> <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
@@ -199,7 +201,7 @@
 </pre></div>
 
 <h1>
-<a name="sobservableobject" class="anchor" href="#sobservableobject"><span class="octicon octicon-link"></span></a>S.observable(object)</h1>
+<a id="sobservableobject" class="anchor" href="#sobservableobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.observable(object)</h1>
 
 <p>This method turns any object or function into an <code>observable</code> by adding some methods for dealing with events properties and inheritance. The <code>observable</code> can be considered the M (Model) of MVC, if is deals with data and business logic.</p>
 
@@ -212,14 +214,14 @@
     <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 
     <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">format</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
+      <span class="nx">format</span><span class="o">:</span> <span class="s1">'json'</span><span class="p">,</span>
       <span class="nx">search</span><span class="o">:</span> <span class="nx">query</span>
     <span class="p">}).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">self</span><span class="p">.</span><span class="nx">query</span> <span class="o">=</span> <span class="nx">query</span><span class="p">;</span>
       <span class="nx">self</span><span class="p">.</span><span class="nx">page</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
       <span class="c1">// Triggers an event on the Search object.</span>
-      <span class="nx">self</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">);</span>
+      <span class="nx">self</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">);</span>
     <span class="p">});</span>
   <span class="p">}</span>
 <span class="p">});</span>
@@ -228,23 +230,23 @@
 <p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js">unit tests</a> for <code>S.observable</code>.</p>
 
 <h2>
-<a name="observableonevent-callback" class="anchor" href="#observableonevent-callback"><span class="octicon octicon-link"></span></a>observable.on(event, callback)</h2>
+<a id="observableonevent-callback" class="anchor" href="#observableonevent-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.on(event, callback)</h2>
 
 <p>Observables can listen to events using the the <code>on</code> callback.</p>
 
-<div class="highlight highlight-js"><pre><span class="nx">Search</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight highlight-js"><pre><span class="nx">Search</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// prints the data returned by the search</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// prints the query used to search</span>
 <span class="p">});</span>
 </pre></div>
 
 <h2>
-<a name="observableoneevent-callback" class="anchor" href="#observableoneevent-callback"><span class="octicon octicon-link"></span></a>observable.one(event, callback)</h2>
+<a id="observableoneevent-callback" class="anchor" href="#observableoneevent-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.one(event, callback)</h2>
 
-<p>Does the same as "<code>observable.on</code>" but the callback is altomatically removed after called the first time.</p>
+<p>Does the same as '<code>observable.on</code>' but the callback is automatically removed after called the first time.</p>
 
 <h2>
-<a name="observableoffevent-callback" class="anchor" href="#observableoffevent-callback"><span class="octicon octicon-link"></span></a>observable.off(event, callback)</h2>
+<a id="observableoffevent-callback" class="anchor" href="#observableoffevent-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.off(event, callback)</h2>
 
 <p>Allows you to remove event listeners.</p>
 
@@ -252,52 +254,52 @@
 <span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">();</span>
 
 <span class="c1">// Removes the 'search' callbacks</span>
-<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">"search"</span><span class="p">);</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">'search'</span><span class="p">);</span>
 
 <span class="c1">// Removes just the `someCallback` function 'search' callbacks</span>
-<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="nx">someCallback</span><span class="p">);</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nx">someCallback</span><span class="p">);</span>
 </pre></div>
 
 <h2>
-<a name="observabletriggerevent-arg1-arg2" class="anchor" href="#observabletriggerevent-arg1-arg2"><span class="octicon octicon-link"></span></a>observable.trigger(event, arg1, arg2...)</h2>
+<a id="observabletriggerevent-arg1-arg2" class="anchor" href="#observabletriggerevent-arg1-arg2" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.trigger(event, arg1, arg2...)</h2>
 
 <p>Triggers an event, the arguments are passed to the callback lisetener.</p>
 
-<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">"Borderlands"</span><span class="p">},</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">"Doom 3"</span><span class="p">}]</span>
-  <span class="p">,</span> <span class="nx">query</span> <span class="o">=</span> <span class="s2">"games"</span><span class="p">;</span>
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">'Borderlands'</span><span class="p">},</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">'Doom 3'</span><span class="p">}]</span>
+  <span class="p">,</span> <span class="nx">query</span> <span class="o">=</span> <span class="s1">'games'</span><span class="p">;</span>
 
-<span class="c1">// This will call all callbacks attached to the "search" event</span>
+<span class="c1">// This will call all callbacks attached to the 'search' event</span>
 <span class="c1">// passing `data` and `query` as the arguments.</span>
-<span class="nx">Search</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s2">"search"</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">);</span>
+<span class="nx">Search</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">query</span><span class="p">);</span>
 </pre></div>
 
 <h2>
-<a name="observablesetkey-value" class="anchor" href="#observablesetkey-value"><span class="octicon octicon-link"></span></a>observable.set(key, value)</h2>
+<a id="observablesetkey-value" class="anchor" href="#observablesetkey-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.set(key, value)</h2>
 
-<p>Sets the value of a property and triggers the events "set" and <code>key</code>, passing</p>
+<p>Sets the value of a property and triggers the events 'set' and <code>key</code>, passing</p>
 
 <div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">Order</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">observable</span><span class="p">({</span>
   <span class="nx">subtotal</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
   <span class="nx">total</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
   <span class="nx">shipping</span><span class="o">:</span> <span class="mi">0</span>
-<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"subtotal shipping"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"changed from "</span> <span class="o">+</span> <span class="nx">oldValue</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"total"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">shipping</span><span class="p">);</span>
-<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"set"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">attr</span> <span class="o">+</span> <span class="s2">" changed from "</span> <span class="o">+</span> <span class="nx">oldValue</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'subtotal shipping'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'changed from '</span> <span class="o">+</span> <span class="nx">oldValue</span> <span class="o">+</span> <span class="s1">' to '</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'total'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">shipping</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'set'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">attr</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">oldValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">attr</span> <span class="o">+</span> <span class="s1">' changed from '</span> <span class="o">+</span> <span class="nx">oldValue</span> <span class="o">+</span> <span class="s1">' to '</span> <span class="o">+</span> <span class="nx">value</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// Updates the subtotal to 10,</span>
 <span class="c1">// the total will be altomatically set to 10</span>
-<span class="nx">Order</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"subtotal"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">Order</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'subtotal'</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 
 <span class="c1">// Updates the shipping to 2.50,</span>
 <span class="c1">// the total will be altomatically set to 12.50</span>
-<span class="nx">Order</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"shipping"</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nx">Order</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'shipping'</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
 </pre></div>
 
 <h2>
-<a name="observablegetkey" class="anchor" href="#observablegetkey"><span class="octicon octicon-link"></span></a>observable.get(key)</h2>
+<a id="observablegetkey" class="anchor" href="#observablegetkey" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.get(key)</h2>
 
 <p>Returns the value of a property.</p>
 
@@ -305,59 +307,98 @@
 </pre></div>
 
 <h2>
-<a name="observablecreateproperties" class="anchor" href="#observablecreateproperties"><span class="octicon octicon-link"></span></a>observable.create(properties)</h2>
+<a id="observablecreateproperties" class="anchor" href="#observablecreateproperties" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.create(properties)</h2>
 
-<p>Creates a new object based on the observable, <em>Spice</em> uses prototypal inheritance do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parrent.</p>
+<p>Creates a new object based on the observable, <em>Spice</em> uses prototypal inheritance to do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parent.</p>
 
 <div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">TaxableOrder</span> <span class="o">=</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
   <span class="nx">tax</span><span class="o">:</span> <span class="mi">0</span>
 
 <span class="p">}).</span><span class="nx">off</span><span class="p">(</span>
   <span class="c1">// Removes the subtotal and shipping callbacks</span>
-  <span class="s2">"subtotal shipping"</span>
+  <span class="s1">'subtotal shipping'</span>
 
-<span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"subtotal shipping tax"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'subtotal shipping tax'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// Adds the new callback</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"total"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">shipping</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">tax</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'total'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">shipping</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">tax</span><span class="p">);</span>
 
 <span class="p">});</span>
 
 <span class="c1">// Setting the tax updates the total</span>
-<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"tax"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'tax'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">total</span> <span class="o">===</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">total</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="c1">// Overriding a property dont touch the parent</span>
-<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">"subtotal"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'subtotal'</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nx">TaxableOrder</span><span class="p">.</span><span class="nx">subtotal</span> <span class="o">!==</span> <span class="nx">Order</span><span class="p">.</span><span class="nx">subtotal</span>
 </pre></div>
 
 <h1>
-<a name="stemplatetext--object" class="anchor" href="#stemplatetext--object"><span class="octicon octicon-link"></span></a>S.template(text [, object])</h1>
+<a id="stemplatetext--object" class="anchor" href="#stemplatetext--object" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.template(text [, object])</h1>
+
+<p>A <code>S.template</code> methods which creates a precompiled template. You needs a string that contains some tags. By default, tags are indicated by <code>&lt;% ? %&gt;</code>. A &lt;% name %&gt; tag renders the value of the <code>name</code> key in the current <code>object</code>. You can also write a javascript code in your template without having to learn different syntaxes.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">'John Lennon'</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">tmpl</span> <span class="o">=</span> <span class="nx">S</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="s1">'&lt;p&gt;&lt;% name %&gt;&lt;/p&gt;'</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">tmpl</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+</pre></div>
 
 <h1>
-<a name="scontrollername-callback" class="anchor" href="#scontrollername-callback"><span class="octicon octicon-link"></span></a>S.controller(name, callback)</h1>
+<a id="scontrollername-callback" class="anchor" href="#scontrollername-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.controller(name, callback)</h1>
+
+<p>A <code>S.controller</code> method which creates a organized, performing and stateful controls with declarative event binding. Use this method to create UI controls and organize them into higher-order business rules with S.route. It can serve as both a traditionals views and controllers.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'increment'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">item</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">increment</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">increment</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+    <span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">paseInt</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>If you want, you can add some options on controller callback.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'increment'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">target</span> <span class="o">||</span> <span class="nx">item</span><span class="p">;</span>
+
+  <span class="nx">item</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="nx">increment</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">increment</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>
+    <span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
 
 <h2>
-<a name="scontrolname-element--options" class="anchor" href="#scontrolname-element--options"><span class="octicon octicon-link"></span></a>S.control(name, element [, options])</h2>
+<a id="scontrolname-options" class="anchor" href="#scontrolname-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.control(name[, options])</h2>
+
+<p>A <code>S.control</code> method which be used to bind a controller. Usually as used inside a routes callbacks.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'button'</span><span class="p">).</span><span class="nx">control</span><span class="p">(</span><span class="s1">'increment'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#count'</span><span class="p">)</span> <span class="p">});</span>
+</pre></div>
 
 <h1>
-<a name="sroute" class="anchor" href="#sroute"><span class="octicon octicon-link"></span></a>S.route</h1>
+<a id="sroute" class="anchor" href="#sroute" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route</h1>
 
-<p>The <code>S.route</code> method can do diverent things depending on what arguments are passed (following the jQuery sytle). The route matcher can have params <code>/search?q={query}</code> and wildcards <code>/users*</code>, and it is possible to have many one callbacks trigered for a given path.</p>
+<p>The <code>S.route</code> method can do diverent things depending on what arguments are passed (following the jQuery sytle). The route matcher can have params <code>/search?q={query}</code> and wildcards <code>/users*</code>, and it is possible to have many one callbacks triggered for a given path.</p>
 
 <p>Routes should be used to bind controllers, plugins or to trigger actions on a model. This will help to keep you code well organized and respond correctly to changes on the page.</p>
 
 <p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/route_test.js">unit tests</a> for <code>S.route</code>.</p>
 
 <h2>
-<a name="sroutecallback" class="anchor" href="#sroutecallback"><span class="octicon octicon-link"></span></a>S.route(callback)</h2>
+<a id="sroutecallback" class="anchor" href="#sroutecallback" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route(callback)</h2>
 
 <p>This defines a generic route that will be called for all paths. This is usefull for binding plugins that will be used on all pages.</p>
 
 <div class="highlight highlight-js"><pre><span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// binds select2 plugin to all `select` tags</span>
   <span class="c1">// http://ivaynberg.github.io/select2/</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s2">"select"</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'select'</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
 
   <span class="c1">// prints the path of the current page.</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">);</span>
@@ -365,91 +406,91 @@
 </pre></div>
 
 <h2>
-<a name="sroutepath-callback" class="anchor" href="#sroutepath-callback"><span class="octicon octicon-link"></span></a>S.route(path, callback)</h2>
+<a id="sroutepath-callback" class="anchor" href="#sroutepath-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route(path, callback)</h2>
 
 <p>The given <code>callback</code> will be called for all routes that match the given <code>path</code> expression.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Sets a callback that will bind the "search" controller</span>
-<span class="c1">// on all paths that start with "/search".</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/search*"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-field"</span><span class="p">),</span> <span class="p">{</span>
-    <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-results"</span><span class="p">),</span>
+<div class="highlight highlight-js"><pre><span class="c1">// Sets a callback that will bind the 'search' controller</span>
+<span class="c1">// on all paths that start with '/search'.</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'/search*'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'search-field'</span><span class="p">),</span> <span class="p">{</span>
+    <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'search-results'</span><span class="p">),</span>
     <span class="nx">model</span><span class="o">:</span> <span class="nx">Search</span>
   <span class="p">});</span>
 <span class="p">});</span>
 
 <span class="c1">// Sets a callback that will call the `Search.search`</span>
 <span class="c1">// with the current path and given query</span>
-<span class="c1">// for routes that match "/search?q={query}"</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/search?q={query}"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// for routes that match '/search?q={query}'</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'/search?q={query}'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">Search</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
 <h2>
-<a name="srouteobject" class="anchor" href="#srouteobject"><span class="octicon octicon-link"></span></a>S.route(object)</h2>
+<a id="srouteobject" class="anchor" href="#srouteobject" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route(object)</h2>
 
 <p>This sintax alows to set many route callbacks at once.</p>
 
 <div class="highlight highlight-js"><pre><span class="c1">// This code will do exactly the same as the previous example.</span>
 <span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">({</span>
-  <span class="c1">// Sets a callback that will bind the "search" controller</span>
-  <span class="c1">// on all paths that start with "/search".</span>
-  <span class="s2">"/search*"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-field"</span><span class="p">),</span> <span class="p">{</span>
-      <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"search-results"</span><span class="p">),</span>
+  <span class="c1">// Sets a callback that will bind the 'search' controller</span>
+  <span class="c1">// on all paths that start with '/search'.</span>
+  <span class="s1">'/search*'</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">S</span><span class="p">.</span><span class="nx">controll</span><span class="p">(</span><span class="s1">'search'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'search-field'</span><span class="p">),</span> <span class="p">{</span>
+      <span class="nx">target</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'search-results'</span><span class="p">),</span>
       <span class="nx">model</span><span class="o">:</span> <span class="nx">Search</span>
     <span class="p">});</span>
   <span class="p">},</span>
 
   <span class="c1">// Sets a callback that will call the `Search.search`</span>
   <span class="c1">// with the current path and given query</span>
-  <span class="c1">// for routes that match "/search?q={query}"</span>
-  <span class="s2">"/search?q={query}"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// for routes that match '/search?q={query}'</span>
+  <span class="s1">'/search?q={query}'</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">Search</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
 </pre></div>
 
 <h2>
-<a name="sroutepath--triggersvisit--true" class="anchor" href="#sroutepath--triggersvisit--true"><span class="octicon octicon-link"></span></a>S.route(path [, triggersVisit = true])</h2>
+<a id="sroutepath--triggersvisit--true" class="anchor" href="#sroutepath--triggersvisit--true" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route(path [, triggersVisit = true])</h2>
 
 <p>Triggers all callbacks that match the given path, if <code>triggersVisit</code> is set to <code>false</code> it will NOT send a push state to update the browser.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Triggers all callbacks that match "/somepath"</span>
-<span class="c1">// and also calls `route.trigger("visit", "/somepath")`</span>
+<div class="highlight highlight-js"><pre><span class="c1">// Triggers all callbacks that match '/somepath'</span>
+<span class="c1">// and also calls `route.trigger('visit', '/somepath')`</span>
 <span class="c1">// that will send a push state to the browser updating</span>
 <span class="c1">// the url if `ext/route_browser.js` was included.</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/somepath"</span><span class="p">);</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'/somepath'</span><span class="p">);</span>
 
-<span class="c1">// Triggers all callbacks that match "/somepath"</span>
-<span class="c1">// but do NOT call `route.trigger("visit", "/somepath")`</span>
+<span class="c1">// Triggers all callbacks that match '/somepath'</span>
+<span class="c1">// but do NOT call `route.trigger('visit', '/somepath')`</span>
 <span class="c1">// so the browser URL wont change</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/somepath"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'/somepath'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 </pre></div>
 
 <h2>
-<a name="srouteupdatepath--callsvisit--true" class="anchor" href="#srouteupdatepath--callsvisit--true"><span class="octicon octicon-link"></span></a>S.route.update(path [, callsVisit = true])</h2>
+<a id="srouteupdatepath--callsvisit--true" class="anchor" href="#srouteupdatepath--callsvisit--true" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route.update(path [, callsVisit = true])</h2>
 
 <p>Updates a portion the current current url and calls all callbacks that match the new path, if callsVisit is set to <code>false</code> it will update the URL without triggering the callbacks.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// visits the "/search" and triggers all callbacks that match that route.</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s2">"/search"</span><span class="p">);</span>
+<div class="highlight highlight-js"><pre><span class="c1">// visits the '/search' and triggers all callbacks that match that route.</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'/search'</span><span class="p">);</span>
 
-<span class="c1">// Updates the current path to "/search?q=spice"</span>
+<span class="c1">// Updates the current path to '/search?q=spice'</span>
 <span class="c1">// and triggers all callbacks for visiting that route.</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"?q=spice"</span><span class="p">);</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">'?q=spice'</span><span class="p">);</span>
 
-<span class="c1">// Updates the current path to "/search?q=spice#doc"</span>
+<span class="c1">// Updates the current path to '/search?q=spice#doc'</span>
 <span class="c1">// WITHOUT triggering the callbacks for visinting that route</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"#doc"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">'#doc'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 
-<span class="c1">// Does exactly the same as `S.route("/search");`</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s2">"/search"</span><span class="p">);</span>
+<span class="c1">// Does exactly the same as `S.route('/search');`</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">'/search'</span><span class="p">);</span>
 </pre></div>
 
 <h1>
-<a name="extensions" class="anchor" href="#extensions"><span class="octicon octicon-link"></span></a>Extensions</h1>
+<a id="extensions" class="anchor" href="#extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extensions</h1>
 
 <p>The core of <em>Spice</em> is very minimal but supper flexible. With extensions it is easy to add powerfull features to <em>Spice</em> and to also to simplify the use of spice with other technologies.</p>
 
@@ -458,7 +499,7 @@
 <p><em>Spice</em> already comes with some usefull extensions that will be explained in this chapter.</p>
 
 <h2>
-<a name="extpolyfilljs" class="anchor" href="#extpolyfilljs"><span class="octicon octicon-link"></span></a>ext/polyfill.js</h2>
+<a id="extpolyfilljs" class="anchor" href="#extpolyfilljs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/polyfill.js</h2>
 
 <p>Add this if you need for compatibility with old browsers (like IE7), if you dont care about old browsers you dont need it.</p>
 
@@ -467,7 +508,7 @@
 </pre></div>
 
 <h2>
-<a name="extroute_browserjs" class="anchor" href="#extroute_browserjs"><span class="octicon octicon-link"></span></a>ext/route_browser.js</h2>
+<a id="extroute_browserjs" class="anchor" href="#extroute_browserjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/route_browser.js</h2>
 
 <p>Enables the <code>S.route</code> to change, and listen to changes, on the browser url. It will automatically use pushState or fallback to "#/" if the browser dont support push state.</p>
 
@@ -480,7 +521,7 @@
 <p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/ext/route_browser.html">tests</a> for <code>ext/route_browser</code>.</p>
 
 <h2>
-<a name="extroute_turbolinksjs" class="anchor" href="#extroute_turbolinksjs"><span class="octicon octicon-link"></span></a>ext/route_turbolinks.js</h2>
+<a id="extroute_turbolinksjs" class="anchor" href="#extroute_turbolinksjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/route_turbolinks.js</h2>
 
 <p>This is a complementary route extension that is only needed on apps use <a href="https://github.com/rails/turbolinks">turbolinks</a> and it must be added after the <code>ext/route_browser.js</code>. It will enable <em>Spice</em> router to listen to URL changes that are triggered by turbolinks.</p>
 
@@ -490,7 +531,7 @@
 </pre></div>
 
 <h2>
-<a name="extjquerycontroljs" class="anchor" href="#extjquerycontroljs"><span class="octicon octicon-link"></span></a>ext/jquery.control.js</h2>
+<a id="extjquerycontroljs" class="anchor" href="#extjquerycontroljs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/jquery.control.js</h2>
 
 <p>This supper cool extenssion will add a jQuery plugin that makes much easier to bind controllers to jQuery elements. I makes sure that the controller binds only once to an element that avoids issues of having the same element listening to duplicated events.</p>
 
@@ -501,21 +542,21 @@
 <p>With this you can bind controllers using a jquery plugin.</p>
 
 <div class="highlight highlight-js"><pre><span class="c1">// Creates a controller that logs when fields change</span>
-<span class="nx">S</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">"log-change"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">elements</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"change"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">'log-change'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">elements</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'change'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s2">"changed to =&gt; "</span><span class="o">+</span> <span class="nx">target</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s1">'changed to =&gt; '</span><span class="o">+</span> <span class="nx">target</span><span class="p">.</span><span class="nx">val</span><span class="p">());</span>
   <span class="p">});</span>
 <span class="p">});</span>
 
-<span class="c1">// Binds all inputs with [data-log-change] to the "log-change" controller</span>
-<span class="nx">$</span><span class="p">(</span><span class="s2">"input[data-log-change]"</span><span class="p">).</span><span class="nx">control</span><span class="p">(</span><span class="s2">"log-change"</span><span class="p">)</span>
+<span class="c1">// Binds all inputs with [data-log-change] to the 'log-change' controller</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'input[data-log-change]'</span><span class="p">).</span><span class="nx">control</span><span class="p">(</span><span class="s1">'log-change'</span><span class="p">)</span>
 </pre></div>
 
 <p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html">tests</a> for <code>ext/route_browser</code>.</p>
 
 <h1>
-<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h1>
 
 <ul>
 <li>
