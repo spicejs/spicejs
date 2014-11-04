@@ -1,4 +1,4 @@
-![spice.js](http://www.3den.org/spicejs/images/spicejs.png =250x)
+![spice.js](http://www.3den.org/spicejs/images/spicejs.png)
 
 [![Build Status](https://travis-ci.org/3den/spicejs.svg?branch=master)](https://travis-ci.org/3den/spicejs)
 
