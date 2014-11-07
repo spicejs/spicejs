@@ -154,8 +154,6 @@ describe('counter', function() {
 
 This method turns any object or function into an `observable` by adding some methods for dealing with events properties and inheritance. The `observable` can be considered the M (Model) of MVC, if is deals with data and business logic.
 
-
-
 ```js
 // Example of a a Search model
 var Search = S.observable({
@@ -286,13 +284,65 @@ TaxableOrder.subtotal !== Order.subtotal
 
 # S.template(text [, object])
 
-A `S.template` methods which creates a precompiled template. You needs a string that contains some tags. By default, tags are indicated by `<% ? %>`. A <% name %> tag renders the value of the `name` key in the current `object`. You can also write a javascript code in your template without having to learn different syntaxes.
+The `S.template` method can return either a precompiled template function (if only the first argument is passed), or the string if the "`object`" argument is passed. The "`text`" is a string that can contain any javascript code inside wrapper tags "`<% if(something === somethingElse) { %> blabla <% } %>`" and can have javascript output on wrapper return tags "<%= name %>".
 
 ```js
-var user = {name: 'John Lennon'};
-var tmpl = S.template('<p><% name %></p>');
+// Creates a precompiled template
+var tmpl = S.template('<p><%= name ? name : "?" %></p>');
 
-document.querySelector('body').innerHTML = tmpl(user);
+// This will return "<p>joe</p>";
+tmpl({name: "joe"});
+
+// This will return "<p>?</p>";
+tmpl({name: null});
+
+// If a template will be used only once you can pass the options directly.
+// This will return "<p>Dude</p>"
+S.template('<p><%= name %></p>', {name: "Dude"});
+```
+
+In practice is very common to get the template from the html.
+
+```html
+<ul id="users">
+</ul>
+
+<template id="users-template">
+  <% for(var i = 0; i < users.lenght; i++) { %>
+    <li><%= users[i].name %></li>
+  <% } %>
+</template>
+```
+
+To use that in you javascript code is very simple.
+
+```js
+// Some list of users
+var users = [
+  {name: "Luiz"},
+  {name: "Eden"} ];
+
+// Precompile the template
+var tmpl = S.template(document.getElementById("users-template").innerHTML);
+
+// Just update the html of the element you want.
+document.getElementById("users").innerHTML = tmpl({users: users});
+```
+
+Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/template_test.js) for `S.template`.
+
+## S.template.wrapper
+
+The default template wrapper is "`<%?%>`" but you can easily customize it will be the template wrapper that you need.
+
+```js
+// change the wrappers to "`{{ code }}`" and "`{{= "output" }}`".
+S.template.wrapper = "{{?}}";
+S.template("<p>{{= x }}</p>", {x: "foo"}) === "<p>foo</p>";
+
+// change the wrappers to "`<t code t>`" and "`<t= "output" t>`".
+S.template.wrapper = "<t?t>"
+S.template("<p><t= x t></p>", {x: "bar"}) === "<p>bar</p>";
 ```
 
 # S.controller(name, callback)
