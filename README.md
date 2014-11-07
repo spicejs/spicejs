@@ -331,6 +331,20 @@ document.getElementById("users").innerHTML = tmpl({users: users});
 
 Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/template_test.js) for `S.template`.
 
+## S.template.wrapper
+
+The default template wrapper is "`<%?%>`" but you can easily customize it will be the template wrapper that you need.
+
+```js
+// change the wrappers to "`{{ code }}`" and "`{{= "output" }}`".
+S.template.wrapper = "{{?}}";
+S.template("<p>{{= x }}</p>", {x: "foo"}) === "<p>foo</p>";
+
+// change the wrappers to "`<t code t>`" and "`<t= "output" t>`".
+S.template.wrapper = "<t?t>"
+S.template("<p><t= x t></p>", {x: "bar"}) === "<p>bar</p>";
+```
+
 # S.controller(name, callback)
 
 A `S.controller` method which creates a organized, performing and stateful controls with declarative event binding. Use this method to create UI controls and organize them into higher-order business rules with S.route. It can serve as both a traditionals views and controllers.
