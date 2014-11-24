@@ -27,8 +27,8 @@ _Spice_.js was inspired by [the SOLID Principles](http://en.wikipedia.org/wiki/S
 
 ### The Bad
 
-* **To Flexible**: There is no restriction on your code structure so you can make a very good architecture with _Spice_ or a very bad one.
-* **To Young**: It is a new project so there is not much documentation yet.
+* **Too Flexible**: There is no restriction on your code structure so you can make a very good architecture with _Spice_ or a very bad one.
+* **Too Young**: It is a new project so there is not much documentation yet.
 
 ### The Ugly
 
