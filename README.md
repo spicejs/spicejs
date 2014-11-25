@@ -566,3 +566,5 @@ Check the [tests](https://github.com/spicejs/spicejs/blob/master/test/ext/jquery
 # Examples
 
 * [Connect4](https://github.com/spicejs/spicejs-connect4): A simple connect4 game built with __Spice__.
+* [SnapGallery](https://github.com/spicejs/snapguide): An Spice.js example that uses the routes and a sinatra backend.
+
