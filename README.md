@@ -1,6 +1,5 @@
-![spice.js](http://www.3den.org/spicejs/images/spicejs.png)
-
-[![Build Status](https://travis-ci.org/3den/spicejs.svg?branch=master)](https://travis-ci.org/3den/spicejs)
+![spice.js](http://spicejs.github.io/spicejs/images/spicejs.png)
+[![Build Status](https://travis-ci.org/spicejs/spicejs.svg?branch=master)](https://travis-ci.org/spicejs/spicejs)
 
 # What is _Spice.js_?
 
@@ -58,7 +57,7 @@ By default bower will install packages in `./bower_components` so you can add _S
 <!-- Add other extensions as needed... -->
 ```
 
-If you don't want to use bower you can just copy the files you need from https://github.com/3den/spicejs.
+If you don't want to use bower you can just copy the files you need from https://github.com/spicejs/spicejs.
 
 ## _Spice_ on Node.js
 
@@ -72,7 +71,7 @@ var S = require('./bower_components/spicejs');
 
 # Test Driven Development
 
-Testability was the main focus of _Spice_ the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini [BDD](https://github.com/3den/spicejs/blob/master/bdd.js) (Dehaiviour Driven Development) framework that was inspired by [jasmine](http://jasmine.github.io/) but is **only 30 lines of code** and works on node and the browser.
+Testability was the main focus of _Spice_ the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini [BDD](https://github.com/spicejs/spicejs/blob/master/bdd.js) (Dehaiviour Driven Development) framework that was inspired by [jasmine](http://jasmine.github.io/) but is **only 30 lines of code** and works on node and the browser.
 
 
 ## BDD on the Browser
@@ -103,7 +102,7 @@ Testability was the main focus of _Spice_ the framework was built to be decouple
 </html>
 ```
 
-Check the [test/index.html](https://github.com/3den/spicejs/blob/master/test/index.html) for _Spice_ it self.
+Check the [test/index.html](https://github.com/spicejs/spicejs/blob/master/test/index.html) for _Spice_ it self.
 
 ## BDD on Node.js
 
@@ -120,7 +119,7 @@ global.S = require('bower_components/spicejs/index');
 });
 ```
 
-Check the [test/node.js](https://github.com/3den/spicejs/blob/master/test/node.js) for _Spice_ it self.
+Check the [test/node.js](https://github.com/spicejs/spicejs/blob/master/test/node.js) for _Spice_ it self.
 
 ## Writing tests
 
@@ -176,7 +175,7 @@ var Search = S.observable({
   }
 });
 ```
-Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js) for `S.observable`.
+Check the [unit tests](https://github.com/spicejs/spicejs/blob/master/test/lib/observable_test.js) for `S.observable`.
 
 ## observable.on(event, callback)
 
@@ -329,7 +328,7 @@ var tmpl = S.template(document.getElementById("users-template").innerHTML);
 document.getElementById("users").innerHTML = tmpl({users: users});
 ```
 
-Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/template_test.js) for `S.template`.
+Check the [unit tests](https://github.com/spicejs/spicejs/blob/master/test/lib/template_test.js) for `S.template`.
 
 ## S.template.wrapper
 
@@ -375,12 +374,20 @@ S.controller('increment', function(item, options) {
 });
 ```
 
-## S.control(name[, options])
+Check the [unit tests](https://github.com/spicejs/spicejs/blob/master/test/lib/controller_test.js) for `S.controller` and `S.control`.
+
+## S.control(name, element [, options])
 
 A `S.control` method which be used to bind a controller. Usually as used inside a routes callbacks.
 
 ```js
-$('button').control('increment', { target: document.querySelector('#count') });
+// Increments the count on the `#increment-btn`
+S.control('increment', document.getElementById("increment-btn"));
+
+// Increments the `#count` element
+S.control('increment', document.getElementById("increment-count-btn"), {
+  tagert: document.querySelector('#count')
+});
 ```
 
 # S.route
@@ -389,7 +396,7 @@ The `S.route` method can do diverent things depending on what arguments are pass
 
 Routes should be used to bind controllers, plugins or to trigger actions on a model. This will help to keep you code well organized and respond correctly to changes on the page.
 
-Check the [unit tests](https://github.com/3den/spicejs/blob/master/test/lib/route_test.js) for `S.route`.
+Check the [unit tests](https://github.com/spicejs/spicejs/blob/master/test/lib/route_test.js) for `S.route`.
 
 ## S.route(callback)
 
@@ -518,7 +525,7 @@ This extension should be used on the frontend of any app that needs the router.
 <script src="bower_components/spicejs/ext/route_browser.js"></script>
 ```
 
-Check the [tests](https://github.com/3den/spicejs/blob/master/test/ext/route_browser.html) for `ext/route_browser`.
+Check the [tests](https://github.com/spicejs/spicejs/blob/master/test/ext/route_browser.html) for `ext/route_browser`.
 
 ## ext/route_turbolinks.js
 
@@ -554,8 +561,8 @@ S.controller('log-change', function(elements, function(element) {
 $('input[data-log-change]').control('log-change')
 ```
 
-Check the [tests](https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html) for `ext/route_browser`.
+Check the [tests](https://github.com/spicejs/spicejs/blob/master/test/ext/jquery.control.html) for `ext/route_browser`.
 
 # Examples
 
-* [Connect4](https://github.com/3den/spicejs-connect4): A simple connect4 game built with __Spice__.
+* [Connect4](https://github.com/spicejs/spicejs-connect4): A simple connect4 game built with __Spice__.
