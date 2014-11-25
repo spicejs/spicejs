@@ -73,7 +73,9 @@ S.observable.proto = {
 };
 
 function merge(obj, obj2) {
-  for (var property in obj2) obj[property] = obj2[property];
+  for (var property in obj2) if (!obj.hasOwnProperty(property)) {
+    obj[property] = obj2[property];
+  }
   return obj;
 }
 // Generates a template function
