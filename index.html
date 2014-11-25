@@ -30,9 +30,8 @@
 
       </header>
       <section>
-        <p><img src="http://www.3den.org/spicejs/images/spicejs.png" alt="spice.js"></p>
-
-<p><a href="https://travis-ci.org/3den/spicejs"><img src="https://travis-ci.org/3den/spicejs.svg?branch=master" alt="Build Status"></a></p>
+        <p><img src="http://spicejs.github.io/spicejs/images/spicejs.png" alt="spice.js">
+<a href="https://travis-ci.org/spicejs/spicejs"><img src="https://travis-ci.org/spicejs/spicejs.svg?branch=master" alt="Build Status"></a></p>
 
 <h1>
 <a id="what-is-spicejs" class="anchor" href="#what-is-spicejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is <em>Spice.js</em>?</h1>
@@ -75,9 +74,9 @@
 
 <ul>
 <li>
-<strong>To Flexible</strong>: There is no restriction on your code structure so you can make a very good architecture with <em>Spice</em> or a very bad one.</li>
+<strong>Too Flexible</strong>: There is no restriction on your code structure so you can make a very good architecture with <em>Spice</em> or a very bad one.</li>
 <li>
-<strong>To Young</strong>: It is a new project so there is not much documentation yet.</li>
+<strong>Too Young</strong>: It is a new project so there is not much documentation yet.</li>
 </ul>
 
 <h3>
@@ -98,18 +97,18 @@
 
 <p>By default bower will install packages in <code>./bower_components</code> so you can add <em>Spice</em> and the extensions you need using:</p>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/min.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;
-<span class="cm">&lt;!-- or "bower_components/spicejs/index.js" for the uncompressed version --&gt;</span>
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<span class="pl-c">&lt;!-- or "bower_components/spicejs/index.js" for the uncompressed version --&gt;</span>
 
-<span class="cm">&lt;!-- Polyfill extension for compatibility with older browsers (IE 7) --&gt;</span>
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/polyfill.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;
+<span class="pl-c">&lt;!-- Polyfill extension for compatibility with older browsers (IE 7) --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/polyfill.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 
-<span class="cm">&lt;!-- Route extension for browser navigation and push state --&gt;</span>
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/route_browser.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;
+<span class="pl-c">&lt;!-- Route extension for browser navigation and push state --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/route_browser.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 
-<span class="cm">&lt;!-- Add other extensions as needed... --&gt;</span></pre></div>
+<span class="pl-c">&lt;!-- Add other extensions as needed... --&gt;</span></pre></div>
 
-<p>If you don't want to use bower you can just copy the files you need from <a href="https://github.com/3den/spicejs">https://github.com/3den/spicejs</a>.</p>
+<p>If you don't want to use bower you can just copy the files you need from <a href="https://github.com/spicejs/spicejs">https://github.com/spicejs/spicejs</a>.</p>
 
 <h2>
 <a id="spice-on-nodejs" class="anchor" href="#spice-on-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>
@@ -117,82 +116,82 @@
 
 <p>You can use Spice.js on node, to include <em>Spice</em> do:</p>
 
-<div class="highlight highlight-js"><pre><span class="k">var</span> S <span class="o">=</span> <span class="nf">require</span>(<span class="s1">'./bower_components/spicejs'</span>);
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> S <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>./bower_components/spicejs<span class="pl-pds">'</span></span>);
 
-<span class="c1">// now you can user _Spice_ on the backend</span></pre></div>
+<span class="pl-c">// now you can user _Spice_ on the backend</span></pre></div>
 
 <h1>
 <a id="test-driven-development" class="anchor" href="#test-driven-development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test Driven Development</h1>
 
-<p>Testability was the main focus of <em>Spice</em> the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini <a href="https://github.com/3den/spicejs/blob/master/bdd.js">BDD</a> (Dehaiviour Driven Development) framework that was inspired by <a href="http://jasmine.github.io/">jasmine</a> but is <strong>only 30 lines of code</strong> and works on node and the browser.</p>
+<p>Testability was the main focus of <em>Spice</em> the framework was built to be decoupled and easy to test since it started. That is why it also includes a mini <a href="https://github.com/spicejs/spicejs/blob/master/bdd.js">BDD</a> (Dehaiviour Driven Development) framework that was inspired by <a href="http://jasmine.github.io/">jasmine</a> but is <strong>only 30 lines of code</strong> and works on node and the browser.</p>
 
 <h2>
 <a id="bdd-on-the-browser" class="anchor" href="#bdd-on-the-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>BDD on the Browser</h2>
 
 <div class="highlight highlight-html"><pre>&lt;!doctype html&gt;
-&lt;<span class="nt">html</span>&gt;
-  &lt;<span class="nt">head</span>&gt;
-    &lt;<span class="nt">title</span>&gt;My Test&lt;/<span class="nt">title</span>&gt;
-<span class="h">    &lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/bdd.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</span>
+&lt;<span class="pl-ent">html</span>&gt;
+  &lt;<span class="pl-ent">head</span>&gt;
+    &lt;<span class="pl-ent">title</span>&gt;My Test&lt;/<span class="pl-ent">title</span>&gt;
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/bdd.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
 
-    <span class="cm">&lt;!-- the bdd framework can be used with or without spice --&gt;</span>
-<span class="h">    &lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/index.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</span>
+    <span class="pl-c">&lt;!-- the bdd framework can be used with or without spice --&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/index.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
 
-    <span class="cm">&lt;!-- Add all source files the you are testing here --&gt;</span>
-<span class="h">    &lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"js/some_file_that_will_be_tested.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</span>
+    <span class="pl-c">&lt;!-- Add all source files the you are testing here --&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>js/some_file_that_will_be_tested.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
     ...
-  &lt;/<span class="nt">head</span>&gt;
+  &lt;/<span class="pl-ent">head</span>&gt;
 
-  &lt;<span class="nt">body</span>&gt;
-    <span class="cm">&lt;!-- The test results will be displayed on the browser console %&gt;</span>
-<span class="cm">    &lt;p&gt;Open console to view the results&lt;/p&gt;</span>
-<span class="cm"></span>
-<span class="cm">    &lt;!<span class="err">--</span> Add all test files here --&gt;</span>
-<span class="h">    &lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"test/some_file_that_will_be_tested_test.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</span>
+  &lt;<span class="pl-ent">body</span>&gt;
+    <span class="pl-c">&lt;!-- The test results will be displayed on the browser console %&gt;</span>
+<span class="pl-c">    &lt;p&gt;Open console to view the results&lt;/p&gt;</span>
+<span class="pl-c"></span>
+<span class="pl-c">    &lt;!<span class="pl-ii">--</span> Add all test files here --&gt;</span>
+<span class="pl-s2">    &lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>test/some_file_that_will_be_tested_test.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span>
     ...
-  &lt;/<span class="nt">body</span>&gt;
-&lt;/<span class="nt">html</span>&gt;</pre></div>
+  &lt;/<span class="pl-ent">body</span>&gt;
+&lt;/<span class="pl-ent">html</span>&gt;</pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/index.html">test/index.html</a> for <em>Spice</em> it self.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/index.html">test/index.html</a> for <em>Spice</em> it self.</p>
 
 <h2>
 <a id="bdd-on-nodejs" class="anchor" href="#bdd-on-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>BDD on Node.js</h2>
 
-<div class="highlight highlight-js"><pre><span class="c1">// This is needed if the app you are testing uses spice</span>
-<span class="nv">global</span>.S <span class="o">=</span> <span class="nf">require</span>(<span class="s1">'bower_components/spicejs/index'</span>);
+<div class="highlight highlight-js"><pre><span class="pl-c">// This is needed if the app you are testing uses spice</span>
+<span class="pl-sv">global</span>.S <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>bower_components/spicejs/index<span class="pl-pds">'</span></span>);
 
 [
-  <span class="s1">'bower_components/spicejs/bdd'</span>,
-  <span class="c1">// require all your test files after the bdd framework</span>
-  <span class="s1">'test/your_awesome_test'</span>,
-].forEach(<span class="kt">function</span>(<span class="nv">file</span>){
-  <span class="nf">require</span>(<span class="s1">'./'</span> <span class="o">+</span> file <span class="o">+</span> <span class="s1">'.js'</span>);
+  <span class="pl-s1"><span class="pl-pds">'</span>bower_components/spicejs/bdd<span class="pl-pds">'</span></span>,
+  <span class="pl-c">// require all your test files after the bdd framework</span>
+  <span class="pl-s1"><span class="pl-pds">'</span>test/your_awesome_test<span class="pl-pds">'</span></span>,
+].forEach(<span class="pl-st">function</span>(<span class="pl-vpf">file</span>){
+  <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>./<span class="pl-pds">'</span></span> <span class="pl-k">+</span> file <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">'</span>.js<span class="pl-pds">'</span></span>);
 });</pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/node.js">test/node.js</a> for <em>Spice</em> it self.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/node.js">test/node.js</a> for <em>Spice</em> it self.</p>
 
 <h2>
 <a id="writing-tests" class="anchor" href="#writing-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing tests</h2>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Some object</span>
-<span class="k">var</span> counter <span class="o">=</span> {
-  index<span class="o">:</span> <span class="m">0</span>,
-  <span class="nf">add</span>: <span class="kt">function</span>() { <span class="nb">this</span>.<span class="no">index</span><span class="o">++</span>; }
+<div class="highlight highlight-js"><pre><span class="pl-c">// Some object</span>
+<span class="pl-s">var</span> counter <span class="pl-k">=</span> {
+  index<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+  <span class="pl-en">add</span>: <span class="pl-st">function</span>() { <span class="pl-v">this</span>.<span class="pl-sc">index</span><span class="pl-k">++</span>; }
 };
 
-<span class="c1">// Testing the object</span>
-describe(<span class="s1">'counter'</span>, <span class="kt">function</span>() {
-  it(<span class="s1">'starts with index === 0'</span>, <span class="kt">function</span>() {
-    assert.equal(counter.<span class="no">index</span>, <span class="m">0</span>);
+<span class="pl-c">// Testing the object</span>
+describe(<span class="pl-s1"><span class="pl-pds">'</span>counter<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+  it(<span class="pl-s1"><span class="pl-pds">'</span>starts with index === 0<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+    assert.equal(counter.<span class="pl-sc">index</span>, <span class="pl-c1">0</span>);
   });
 
-  describe(<span class="s1">'#add'</span>, <span class="kt">function</span>() {
-    <span class="k">var</span> c <span class="o">=</span> <span class="no">Object</span>.create(counter);
+  describe(<span class="pl-s1"><span class="pl-pds">'</span>#add<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+    <span class="pl-s">var</span> c <span class="pl-k">=</span> <span class="pl-s3">Object</span>.create(counter);
 
-    it(<span class="s1">'increments the index'</span>, <span class="kt">function</span>() {
-      c.<span class="nf">add</span>(); assert.equal(c.<span class="no">index</span>, <span class="m">1</span>);
-      c.<span class="nf">add</span>(); assert.equal(c.<span class="no">index</span>, <span class="m">2</span>);
-      c.<span class="nf">add</span>(); assert.equal(c.<span class="no">index</span>, <span class="m">3</span>);
+    it(<span class="pl-s1"><span class="pl-pds">'</span>increments the index<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+      c.<span class="pl-s3">add</span>(); assert.equal(c.<span class="pl-sc">index</span>, <span class="pl-c1">1</span>);
+      c.<span class="pl-s3">add</span>(); assert.equal(c.<span class="pl-sc">index</span>, <span class="pl-c1">2</span>);
+      c.<span class="pl-s3">add</span>(); assert.equal(c.<span class="pl-sc">index</span>, <span class="pl-c1">3</span>);
     });
   });
 });</pre></div>
@@ -202,37 +201,37 @@ describe(<span class="s1">'counter'</span>, <span class="kt">function</span>() {
 
 <p>This method turns any object or function into an <code>observable</code> by adding some methods for dealing with events properties and inheritance. The <code>observable</code> can be considered the M (Model) of MVC, if is deals with data and business logic.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Example of a a Search model</span>
-<span class="k">var</span> Search <span class="o">=</span> S.observable({
-  query<span class="o">:</span> <span class="kc">undefined</span>,
-  page<span class="o">:</span> <span class="m">1</span>,
+<div class="highlight highlight-js"><pre><span class="pl-c">// Example of a a Search model</span>
+<span class="pl-s">var</span> Search <span class="pl-k">=</span> S.observable({
+  query<span class="pl-k">:</span> <span class="pl-c1">undefined</span>,
+  page<span class="pl-k">:</span> <span class="pl-c1">1</span>,
 
-  <span class="nf">search</span>: <span class="kt">function</span>(<span class="nv">path</span>, <span class="nv">query</span>) {
-    <span class="k">var</span> self <span class="o">=</span> <span class="nb">this</span>;
+  <span class="pl-en">search</span>: <span class="pl-st">function</span>(<span class="pl-vpf">path</span>, <span class="pl-vpf">query</span>) {
+    <span class="pl-s">var</span> self <span class="pl-k">=</span> <span class="pl-v">this</span>;
 
     $.get(path, {
-      format<span class="o">:</span> <span class="s1">'json'</span>,
-      search<span class="o">:</span> query
-    }).done(<span class="kt">function</span>(<span class="nv">data</span>) {
-      self.query <span class="o">=</span> query;
-      self.page <span class="o">=</span> <span class="m">1</span>;
+      format<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>json<span class="pl-pds">'</span></span>,
+      search<span class="pl-k">:</span> query
+    }).done(<span class="pl-st">function</span>(<span class="pl-vpf">data</span>) {
+      self.query <span class="pl-k">=</span> query;
+      self.page <span class="pl-k">=</span> <span class="pl-c1">1</span>;
 
-      <span class="c1">// Triggers an event on the Search object.</span>
-      self.trigger(<span class="s1">'search'</span>, data, query);
+      <span class="pl-c">// Triggers an event on the Search object.</span>
+      self.trigger(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>, data, query);
     });
   }
 });</pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/observable_test.js">unit tests</a> for <code>S.observable</code>.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/lib/observable_test.js">unit tests</a> for <code>S.observable</code>.</p>
 
 <h2>
 <a id="observableonevent-callback" class="anchor" href="#observableonevent-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.on(event, callback)</h2>
 
 <p>Observables can listen to events using the the <code>on</code> callback.</p>
 
-<div class="highlight highlight-js"><pre>Search.on(<span class="s1">'search'</span>, <span class="kt">function</span>(<span class="nv">data</span>, <span class="nv">query</span>) {
-  <span class="nc">console</span><span class="nf">.log</span>(data); <span class="c1">// prints the data returned by the search</span>
-  <span class="nc">console</span><span class="nf">.log</span>(data); <span class="c1">// prints the query used to search</span>
+<div class="highlight highlight-js"><pre>Search.on(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">data</span>, <span class="pl-vpf">query</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(data); <span class="pl-c">// prints the data returned by the search</span>
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(data); <span class="pl-c">// prints the query used to search</span>
 });</pre></div>
 
 <h2>
@@ -245,174 +244,182 @@ describe(<span class="s1">'counter'</span>, <span class="kt">function</span>() {
 
 <p>Allows you to remove event listeners.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Removes all callbacks</span>
+<div class="highlight highlight-js"><pre><span class="pl-c">// Removes all callbacks</span>
 Search.off();
 
-<span class="c1">// Removes the 'search' callbacks</span>
-Search.off(<span class="s1">'search'</span>);
+<span class="pl-c">// Removes the 'search' callbacks</span>
+Search.off(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>);
 
-<span class="c1">// Removes just the `someCallback` function 'search' callbacks</span>
-Search.off(<span class="s1">'search'</span>, someCallback);</pre></div>
+<span class="pl-c">// Removes just the `someCallback` function 'search' callbacks</span>
+Search.off(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>, someCallback);</pre></div>
 
 <h2>
 <a id="observabletriggerevent-arg1-arg2" class="anchor" href="#observabletriggerevent-arg1-arg2" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.trigger(event, arg1, arg2...)</h2>
 
 <p>Triggers an event, the arguments are passed to the callback lisetener.</p>
 
-<div class="highlight highlight-js"><pre><span class="k">var</span> data <span class="o">=</span> [{id<span class="o">:</span> <span class="m">1</span>, name<span class="o">:</span> <span class="s1">'Borderlands'</span>}, {id<span class="o">:</span> <span class="m">2</span>, name<span class="o">:</span> <span class="s1">'Doom 3'</span>}]
-  , query <span class="o">=</span> <span class="s1">'games'</span>;
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> data <span class="pl-k">=</span> [{id<span class="pl-k">:</span> <span class="pl-c1">1</span>, name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Borderlands<span class="pl-pds">'</span></span>}, {id<span class="pl-k">:</span> <span class="pl-c1">2</span>, name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Doom 3<span class="pl-pds">'</span></span>}]
+  , query <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>games<span class="pl-pds">'</span></span>;
 
-<span class="c1">// This will call all callbacks attached to the 'search' event</span>
-<span class="c1">// passing `data` and `query` as the arguments.</span>
-Search.trigger(<span class="s1">'search'</span>, data, query);</pre></div>
+<span class="pl-c">// This will call all callbacks attached to the 'search' event</span>
+<span class="pl-c">// passing `data` and `query` as the arguments.</span>
+Search.trigger(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>, data, query);</pre></div>
 
 <h2>
 <a id="observablesetkey-value" class="anchor" href="#observablesetkey-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.set(key, value)</h2>
 
 <p>Sets the value of a property and triggers the events 'set' and <code>key</code>, passing</p>
 
-<div class="highlight highlight-js"><pre><span class="k">var</span> Order <span class="o">=</span> S.observable({
-  subtotal<span class="o">:</span> <span class="m">0</span>,
-  total<span class="o">:</span> <span class="m">0</span>,
-  shipping<span class="o">:</span> <span class="m">0</span>
-}).on(<span class="s1">'subtotal shipping'</span>, <span class="kt">function</span>(<span class="nv">value</span>, <span class="nv">oldValue</span>) {
-  <span class="nc">console</span><span class="nf">.log</span>(<span class="s1">'changed from '</span> <span class="o">+</span> oldValue <span class="o">+</span> <span class="s1">' to '</span> <span class="o">+</span> value);
-  <span class="nb">this</span>.set(<span class="s1">'total'</span>, <span class="nb">this</span>.subtotal <span class="o">+</span> <span class="nb">this</span>.shipping);
-}).on(<span class="s1">'set'</span>, <span class="kt">function</span>(<span class="nv">attr</span>, <span class="nv">value</span>, <span class="nv">oldValue</span>) {
-  <span class="nc">console</span><span class="nf">.log</span>(attr <span class="o">+</span> <span class="s1">' changed from '</span> <span class="o">+</span> oldValue <span class="o">+</span> <span class="s1">' to '</span> <span class="o">+</span> value);
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> Order <span class="pl-k">=</span> S.observable({
+  subtotal<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+  total<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+  shipping<span class="pl-k">:</span> <span class="pl-c1">0</span>
+}).on(<span class="pl-s1"><span class="pl-pds">'</span>subtotal shipping<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">value</span>, <span class="pl-vpf">oldValue</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-s1"><span class="pl-pds">'</span>changed from <span class="pl-pds">'</span></span> <span class="pl-k">+</span> oldValue <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">'</span> to <span class="pl-pds">'</span></span> <span class="pl-k">+</span> value);
+  <span class="pl-v">this</span>.set(<span class="pl-s1"><span class="pl-pds">'</span>total<span class="pl-pds">'</span></span>, <span class="pl-v">this</span>.subtotal <span class="pl-k">+</span> <span class="pl-v">this</span>.shipping);
+}).on(<span class="pl-s1"><span class="pl-pds">'</span>set<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">attr</span>, <span class="pl-vpf">value</span>, <span class="pl-vpf">oldValue</span>) {
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(attr <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">'</span> changed from <span class="pl-pds">'</span></span> <span class="pl-k">+</span> oldValue <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">'</span> to <span class="pl-pds">'</span></span> <span class="pl-k">+</span> value);
 });
 
-<span class="c1">// Updates the subtotal to 10,</span>
-<span class="c1">// the total will be altomatically set to 10</span>
-Order.set(<span class="s1">'subtotal'</span>, <span class="m">10</span>);
+<span class="pl-c">// Updates the subtotal to 10,</span>
+<span class="pl-c">// the total will be altomatically set to 10</span>
+Order.set(<span class="pl-s1"><span class="pl-pds">'</span>subtotal<span class="pl-pds">'</span></span>, <span class="pl-c1">10</span>);
 
-<span class="c1">// Updates the shipping to 2.50,</span>
-<span class="c1">// the total will be altomatically set to 12.50</span>
-Order.set(<span class="s1">'shipping'</span>, <span class="m">10</span>);</pre></div>
+<span class="pl-c">// Updates the shipping to 2.50,</span>
+<span class="pl-c">// the total will be altomatically set to 12.50</span>
+Order.set(<span class="pl-s1"><span class="pl-pds">'</span>shipping<span class="pl-pds">'</span></span>, <span class="pl-c1">10</span>);</pre></div>
 
 <h2>
 <a id="observablegetkey" class="anchor" href="#observablegetkey" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.get(key)</h2>
 
 <p>Returns the value of a property.</p>
 
-<div class="highlight highlight-js"><pre>Order.total <span class="o">===</span> Order.get(<span class="s1">'total'</span>);</pre></div>
+<div class="highlight highlight-js"><pre>Order.total <span class="pl-k">===</span> Order.get(<span class="pl-s1"><span class="pl-pds">'</span>total<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
 <a id="observablecreateproperties" class="anchor" href="#observablecreateproperties" aria-hidden="true"><span class="octicon octicon-link"></span></a>observable.create(properties)</h2>
 
 <p>Creates a new object based on the observable, <em>Spice</em> uses prototypal inheritance to do changes made on the parrent object are inherited on the new one but changes on the child don't mess up with the parent.</p>
 
-<div class="highlight highlight-js"><pre><span class="k">var</span> TaxableOrder <span class="o">=</span> Order.create({
-  tax<span class="o">:</span> <span class="m">0</span>
+<div class="highlight highlight-js"><pre><span class="pl-s">var</span> TaxableOrder <span class="pl-k">=</span> Order.create({
+  tax<span class="pl-k">:</span> <span class="pl-c1">0</span>
 
 }).off(
-  <span class="c1">// Removes the subtotal and shipping callbacks</span>
-  <span class="s1">'subtotal shipping'</span>
+  <span class="pl-c">// Removes the subtotal and shipping callbacks</span>
+  <span class="pl-s1"><span class="pl-pds">'</span>subtotal shipping<span class="pl-pds">'</span></span>
 
-).on(<span class="s1">'subtotal shipping tax'</span>, <span class="kt">function</span>() {
-  <span class="c1">// Adds the new callback</span>
-  <span class="nb">this</span>.set(<span class="s1">'total'</span>, <span class="nb">this</span>.subtotal <span class="o">+</span> <span class="nb">this</span>.shipping <span class="o">+</span> <span class="nb">this</span>.tax);
+).on(<span class="pl-s1"><span class="pl-pds">'</span>subtotal shipping tax<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>() {
+  <span class="pl-c">// Adds the new callback</span>
+  <span class="pl-v">this</span>.set(<span class="pl-s1"><span class="pl-pds">'</span>total<span class="pl-pds">'</span></span>, <span class="pl-v">this</span>.subtotal <span class="pl-k">+</span> <span class="pl-v">this</span>.shipping <span class="pl-k">+</span> <span class="pl-v">this</span>.tax);
 
 });
 
-<span class="c1">// Setting the tax updates the total</span>
-TaxableOrder.set(<span class="s1">'tax'</span>, <span class="m">1</span>)
-TaxableOrder.total <span class="o">===</span> Order.total <span class="o">+</span> <span class="m">1</span>
+<span class="pl-c">// Setting the tax updates the total</span>
+TaxableOrder.set(<span class="pl-s1"><span class="pl-pds">'</span>tax<span class="pl-pds">'</span></span>, <span class="pl-c1">1</span>)
+TaxableOrder.total <span class="pl-k">===</span> Order.total <span class="pl-k">+</span> <span class="pl-c1">1</span>
 
-<span class="c1">// Overriding a property dont touch the parent</span>
-TaxableOrder.set(<span class="s1">'subtotal'</span>, <span class="m">5</span>)
-TaxableOrder.subtotal <span class="o">!==</span> Order.subtotal</pre></div>
+<span class="pl-c">// Overriding a property dont touch the parent</span>
+TaxableOrder.set(<span class="pl-s1"><span class="pl-pds">'</span>subtotal<span class="pl-pds">'</span></span>, <span class="pl-c1">5</span>)
+TaxableOrder.subtotal <span class="pl-k">!==</span> Order.subtotal</pre></div>
 
 <h1>
 <a id="stemplatetext--object" class="anchor" href="#stemplatetext--object" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.template(text [, object])</h1>
 
 <p>The <code>S.template</code> method can return either a precompiled template function (if only the first argument is passed), or the string if the "<code>object</code>" argument is passed. The "<code>text</code>" is a string that can contain any javascript code inside wrapper tags "<code>&lt;% if(something === somethingElse) { %&gt; blabla &lt;% } %&gt;</code>" and can have javascript output on wrapper return tags "&lt;%= name %&gt;".</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Creates a precompiled template</span>
-<span class="k">var</span> tmpl <span class="o">=</span> S.template(<span class="s1">'&lt;p&gt;&lt;%= name ? name : "?" %&gt;&lt;/p&gt;'</span>);
+<div class="highlight highlight-js"><pre><span class="pl-c">// Creates a precompiled template</span>
+<span class="pl-s">var</span> tmpl <span class="pl-k">=</span> S.template(<span class="pl-s1"><span class="pl-pds">'</span>&lt;p&gt;&lt;%= name ? name : "?" %&gt;&lt;/p&gt;<span class="pl-pds">'</span></span>);
 
-<span class="c1">// This will return "&lt;p&gt;joe&lt;/p&gt;";</span>
-tmpl({name<span class="o">:</span> <span class="s2">"joe"</span>});
+<span class="pl-c">// This will return "&lt;p&gt;joe&lt;/p&gt;";</span>
+tmpl({name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>joe<span class="pl-pds">"</span></span>});
 
-<span class="c1">// This will return "&lt;p&gt;?&lt;/p&gt;";</span>
-tmpl({name<span class="o">:</span> <span class="kc">null</span>});
+<span class="pl-c">// This will return "&lt;p&gt;?&lt;/p&gt;";</span>
+tmpl({name<span class="pl-k">:</span> <span class="pl-c1">null</span>});
 
-<span class="c1">// If a template will be used only once you can pass the options directly.</span>
-<span class="c1">// This will return "&lt;p&gt;Dude&lt;/p&gt;"</span>
-S.template(<span class="s1">'&lt;p&gt;&lt;%= name %&gt;&lt;/p&gt;'</span>, {name<span class="o">:</span> <span class="s2">"Dude"</span>});</pre></div>
+<span class="pl-c">// If a template will be used only once you can pass the options directly.</span>
+<span class="pl-c">// This will return "&lt;p&gt;Dude&lt;/p&gt;"</span>
+S.template(<span class="pl-s1"><span class="pl-pds">'</span>&lt;p&gt;&lt;%= name %&gt;&lt;/p&gt;<span class="pl-pds">'</span></span>, {name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Dude<span class="pl-pds">"</span></span>});</pre></div>
 
 <p>In practice is very common to get the template from the html.</p>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s2">"users"</span>&gt;
-&lt;/<span class="nt">ul</span>&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">ul</span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>users<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">ul</span>&gt;
 
-&lt;<span class="nt">template</span> <span class="na">id</span><span class="o">=</span><span class="s2">"users-template"</span>&gt;
+&lt;<span class="pl-ent">template</span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>users-template<span class="pl-pds">"</span></span>&gt;
   &lt;% for(var i = 0; i &lt; users.lenght; i++) { %&gt;
-    &lt;<span class="nt">li</span>&gt;&lt;%= users[i].name %&gt;&lt;/<span class="nt">li</span>&gt;
+    &lt;<span class="pl-ent">li</span>&gt;&lt;%= users[i].name %&gt;&lt;/<span class="pl-ent">li</span>&gt;
   &lt;% } %&gt;
-&lt;/<span class="nt">template</span>&gt;</pre></div>
+&lt;/<span class="pl-ent">template</span>&gt;</pre></div>
 
 <p>To use that in you javascript code is very simple.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Some list of users</span>
-<span class="k">var</span> users <span class="o">=</span> [
-  {name<span class="o">:</span> <span class="s2">"Luiz"</span>},
-  {name<span class="o">:</span> <span class="s2">"Eden"</span>} ];
+<div class="highlight highlight-js"><pre><span class="pl-c">// Some list of users</span>
+<span class="pl-s">var</span> users <span class="pl-k">=</span> [
+  {name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Luiz<span class="pl-pds">"</span></span>},
+  {name<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Eden<span class="pl-pds">"</span></span>} ];
 
-<span class="c1">// Precompile the template</span>
-<span class="k">var</span> tmpl <span class="o">=</span> S.template(<span class="no">document</span>.<span class="nf">getElementById</span>(<span class="s2">"users-template"</span>).innerHTML);
+<span class="pl-c">// Precompile the template</span>
+<span class="pl-s">var</span> tmpl <span class="pl-k">=</span> S.template(<span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">"</span>users-template<span class="pl-pds">"</span></span>).innerHTML);
 
-<span class="c1">// Just update the html of the element you want.</span>
-<span class="no">document</span>.<span class="nf">getElementById</span>(<span class="s2">"users"</span>).innerHTML <span class="o">=</span> tmpl({users<span class="o">:</span> users});</pre></div>
+<span class="pl-c">// Just update the html of the element you want.</span>
+<span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">"</span>users<span class="pl-pds">"</span></span>).innerHTML <span class="pl-k">=</span> tmpl({users<span class="pl-k">:</span> users});</pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/template_test.js">unit tests</a> for <code>S.template</code>.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/lib/template_test.js">unit tests</a> for <code>S.template</code>.</p>
 
 <h2>
 <a id="stemplatewrapper" class="anchor" href="#stemplatewrapper" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.template.wrapper</h2>
 
 <p>The default template wrapper is "<code>&lt;%?%&gt;</code>" but you can easily customize it will be the template wrapper that you need.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// change the wrappers to "`{{ code }}`" and "`{{= "output" }}`".</span>
-S.template.wrapper <span class="o">=</span> <span class="s2">"{{?}}"</span>;
-S.template(<span class="s2">"&lt;p&gt;{{= x }}&lt;/p&gt;"</span>, {x<span class="o">:</span> <span class="s2">"foo"</span>}) <span class="o">===</span> <span class="s2">"&lt;p&gt;foo&lt;/p&gt;"</span>;
+<div class="highlight highlight-js"><pre><span class="pl-c">// change the wrappers to "`{{ code }}`" and "`{{= "output" }}`".</span>
+S.template.wrapper <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>{{?}}<span class="pl-pds">"</span></span>;
+S.template(<span class="pl-s1"><span class="pl-pds">"</span>&lt;p&gt;{{= x }}&lt;/p&gt;<span class="pl-pds">"</span></span>, {x<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>}) <span class="pl-k">===</span> <span class="pl-s1"><span class="pl-pds">"</span>&lt;p&gt;foo&lt;/p&gt;<span class="pl-pds">"</span></span>;
 
-<span class="c1">// change the wrappers to "`&lt;t code t&gt;`" and "`&lt;t= "output" t&gt;`".</span>
-S.template.wrapper <span class="o">=</span> <span class="s2">"&lt;t?t&gt;"</span>
-S.template(<span class="s2">"&lt;p&gt;&lt;t= x t&gt;&lt;/p&gt;"</span>, {x<span class="o">:</span> <span class="s2">"bar"</span>}) <span class="o">===</span> <span class="s2">"&lt;p&gt;bar&lt;/p&gt;"</span>;</pre></div>
+<span class="pl-c">// change the wrappers to "`&lt;t code t&gt;`" and "`&lt;t= "output" t&gt;`".</span>
+S.template.wrapper <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>&lt;t?t&gt;<span class="pl-pds">"</span></span>
+S.template(<span class="pl-s1"><span class="pl-pds">"</span>&lt;p&gt;&lt;t= x t&gt;&lt;/p&gt;<span class="pl-pds">"</span></span>, {x<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>}) <span class="pl-k">===</span> <span class="pl-s1"><span class="pl-pds">"</span>&lt;p&gt;bar&lt;/p&gt;<span class="pl-pds">"</span></span>;</pre></div>
 
 <h1>
 <a id="scontrollername-callback" class="anchor" href="#scontrollername-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.controller(name, callback)</h1>
 
 <p>A <code>S.controller</code> method which creates a organized, performing and stateful controls with declarative event binding. Use this method to create UI controls and organize them into higher-order business rules with S.route. It can serve as both a traditionals views and controllers.</p>
 
-<div class="highlight highlight-js"><pre>S.controller(<span class="s1">'increment'</span>, <span class="kt">function</span>(<span class="nv">item</span>) {
-  item.on(<span class="s1">'click'</span>, increment);
+<div class="highlight highlight-js"><pre>S.controller(<span class="pl-s1"><span class="pl-pds">'</span>increment<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">item</span>) {
+  item.on(<span class="pl-s1"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>, increment);
 
-  <span class="kt">function</span> <span class="nf">increment</span>(<span class="nv">e</span>) {
-    <span class="k">var</span> input <span class="o">=</span> e.<span class="no">target</span>;
-    input.<span class="no">value</span> <span class="o">=</span> paseInt(input.<span class="no">value</span>, <span class="m">10</span>) <span class="o">+</span> <span class="m">1</span>;
+  <span class="pl-st">function</span> <span class="pl-en">increment</span>(<span class="pl-vpf">e</span>) {
+    <span class="pl-s">var</span> input <span class="pl-k">=</span> e.<span class="pl-sc">target</span>;
+    input.<span class="pl-sc">value</span> <span class="pl-k">=</span> paseInt(input.<span class="pl-sc">value</span>, <span class="pl-c1">10</span>) <span class="pl-k">+</span> <span class="pl-c1">1</span>;
   }
 });</pre></div>
 
 <p>If you want, you can add some options on controller callback.</p>
 
-<div class="highlight highlight-js"><pre>S.controller(<span class="s1">'increment'</span>, <span class="kt">function</span>(<span class="nv">item</span>, <span class="nv">options</span>) {
-  <span class="k">var</span> target <span class="o">=</span> options.<span class="no">target</span> <span class="o">||</span> item;
+<div class="highlight highlight-js"><pre>S.controller(<span class="pl-s1"><span class="pl-pds">'</span>increment<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">item</span>, <span class="pl-vpf">options</span>) {
+  <span class="pl-s">var</span> target <span class="pl-k">=</span> options.<span class="pl-sc">target</span> <span class="pl-k">||</span> item;
 
-  item.on(<span class="s1">'click'</span>, increment);
+  item.on(<span class="pl-s1"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>, increment);
 
-  <span class="kt">function</span> <span class="nf">increment</span>(<span class="nv">e</span>) {
-    <span class="k">var</span> input <span class="o">=</span> <span class="no">document</span>.<span class="nf">getElementById</span>(e.<span class="no">target</span>);
-    target.<span class="no">value</span> <span class="o">=</span> <span class="nf">parseInt</span>(input.<span class="no">value</span>, <span class="m">10</span>) <span class="o">+</span> <span class="m">1</span>;
+  <span class="pl-st">function</span> <span class="pl-en">increment</span>(<span class="pl-vpf">e</span>) {
+    <span class="pl-s">var</span> input <span class="pl-k">=</span> <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(e.<span class="pl-sc">target</span>);
+    target.<span class="pl-sc">value</span> <span class="pl-k">=</span> <span class="pl-s3">parseInt</span>(input.<span class="pl-sc">value</span>, <span class="pl-c1">10</span>) <span class="pl-k">+</span> <span class="pl-c1">1</span>;
   }
 });</pre></div>
 
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/lib/controller_test.js">unit tests</a> for <code>S.controller</code> and <code>S.control</code>.</p>
+
 <h2>
-<a id="scontrolname-options" class="anchor" href="#scontrolname-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.control(name[, options])</h2>
+<a id="scontrolname-element--options" class="anchor" href="#scontrolname-element--options" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.control(name, element [, options])</h2>
 
 <p>A <code>S.control</code> method which be used to bind a controller. Usually as used inside a routes callbacks.</p>
 
-<div class="highlight highlight-js"><pre>$(<span class="s1">'button'</span>).control(<span class="s1">'increment'</span>, { target<span class="o">:</span> <span class="no">document</span>.querySelector(<span class="s1">'#count'</span>) });</pre></div>
+<div class="highlight highlight-js"><pre><span class="pl-c">// Increments the count on the `#increment-btn`</span>
+S.control(<span class="pl-s1"><span class="pl-pds">'</span>increment<span class="pl-pds">'</span></span>, <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">"</span>increment-btn<span class="pl-pds">"</span></span>));
+
+<span class="pl-c">// Increments the `#count` element</span>
+S.control(<span class="pl-s1"><span class="pl-pds">'</span>increment<span class="pl-pds">'</span></span>, <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">"</span>increment-count-btn<span class="pl-pds">"</span></span>), {
+  tagert<span class="pl-k">:</span> <span class="pl-s3">document</span>.querySelector(<span class="pl-s1"><span class="pl-pds">'</span>#count<span class="pl-pds">'</span></span>)
+});</pre></div>
 
 <h1>
 <a id="sroute" class="anchor" href="#sroute" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route</h1>
@@ -421,20 +428,20 @@ S.template(<span class="s2">"&lt;p&gt;&lt;t= x t&gt;&lt;/p&gt;"</span>, {x<span 
 
 <p>Routes should be used to bind controllers, plugins or to trigger actions on a model. This will help to keep you code well organized and respond correctly to changes on the page.</p>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/lib/route_test.js">unit tests</a> for <code>S.route</code>.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/lib/route_test.js">unit tests</a> for <code>S.route</code>.</p>
 
 <h2>
 <a id="sroutecallback" class="anchor" href="#sroutecallback" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route(callback)</h2>
 
 <p>This defines a generic route that will be called for all paths. This is usefull for binding plugins that will be used on all pages.</p>
 
-<div class="highlight highlight-js"><pre>S.route(<span class="kt">function</span>(<span class="nv">params</span>) {
-  <span class="c1">// binds select2 plugin to all `select` tags</span>
-  <span class="c1">// http://ivaynberg.github.io/select2/</span>
-  $(<span class="s1">'select'</span>).<span class="nf">select</span>();
+<div class="highlight highlight-js"><pre>S.route(<span class="pl-st">function</span>(<span class="pl-vpf">params</span>) {
+  <span class="pl-c">// binds select2 plugin to all `select` tags</span>
+  <span class="pl-c">// http://ivaynberg.github.io/select2/</span>
+  $(<span class="pl-s1"><span class="pl-pds">'</span>select<span class="pl-pds">'</span></span>).<span class="pl-s3">select</span>();
 
-  <span class="c1">// prints the path of the current page.</span>
-  <span class="nc">console</span><span class="nf">.log</span>(params.path);
+  <span class="pl-c">// prints the path of the current page.</span>
+  <span class="pl-en">console</span><span class="pl-s3">.log</span>(params.path);
 });</pre></div>
 
 <h2>
@@ -442,20 +449,20 @@ S.template(<span class="s2">"&lt;p&gt;&lt;t= x t&gt;&lt;/p&gt;"</span>, {x<span 
 
 <p>The given <code>callback</code> will be called for all routes that match the given <code>path</code> expression.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Sets a callback that will bind the 'search' controller</span>
-<span class="c1">// on all paths that start with '/search'.</span>
-S.route(<span class="s1">'/search*'</span>, <span class="kt">function</span>(<span class="nv">params</span>) {
-  S.controll(<span class="s1">'search'</span>, <span class="no">document</span>.<span class="nf">getElementById</span>(<span class="s1">'search-field'</span>), {
-    target<span class="o">:</span> <span class="no">document</span>.<span class="nf">getElementById</span>(<span class="s1">'search-results'</span>),
-    model<span class="o">:</span> Search
+<div class="highlight highlight-js"><pre><span class="pl-c">// Sets a callback that will bind the 'search' controller</span>
+<span class="pl-c">// on all paths that start with '/search'.</span>
+S.route(<span class="pl-s1"><span class="pl-pds">'</span>/search*<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">params</span>) {
+  S.controll(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>, <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>search-field<span class="pl-pds">'</span></span>), {
+    target<span class="pl-k">:</span> <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>search-results<span class="pl-pds">'</span></span>),
+    model<span class="pl-k">:</span> Search
   });
 });
 
-<span class="c1">// Sets a callback that will call the `Search.search`</span>
-<span class="c1">// with the current path and given query</span>
-<span class="c1">// for routes that match '/search?q={query}'</span>
-S.route(<span class="s1">'/search?q={query}'</span>, <span class="kt">function</span>(<span class="nv">params</span>) {
-  Search.<span class="nf">search</span>(params.path, params.query);
+<span class="pl-c">// Sets a callback that will call the `Search.search`</span>
+<span class="pl-c">// with the current path and given query</span>
+<span class="pl-c">// for routes that match '/search?q={query}'</span>
+S.route(<span class="pl-s1"><span class="pl-pds">'</span>/search?q={query}<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">params</span>) {
+  Search.<span class="pl-s3">search</span>(params.path, params.query);
 });</pre></div>
 
 <h2>
@@ -463,22 +470,22 @@ S.route(<span class="s1">'/search?q={query}'</span>, <span class="kt">function</
 
 <p>This sintax alows to set many route callbacks at once.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// This code will do exactly the same as the previous example.</span>
+<div class="highlight highlight-js"><pre><span class="pl-c">// This code will do exactly the same as the previous example.</span>
 S.route({
-  <span class="c1">// Sets a callback that will bind the 'search' controller</span>
-  <span class="c1">// on all paths that start with '/search'.</span>
-  <span class="s1">'<span class="nf">/search*</span>'</span>: <span class="kt">function</span>(<span class="nv">params</span>) {
-    S.controll(<span class="s1">'search'</span>, <span class="no">document</span>.<span class="nf">getElementById</span>(<span class="s1">'search-field'</span>), {
-      target<span class="o">:</span> <span class="no">document</span>.<span class="nf">getElementById</span>(<span class="s1">'search-results'</span>),
-      model<span class="o">:</span> Search
+  <span class="pl-c">// Sets a callback that will bind the 'search' controller</span>
+  <span class="pl-c">// on all paths that start with '/search'.</span>
+  <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-en">/search*</span><span class="pl-pds">'</span></span>: <span class="pl-st">function</span>(<span class="pl-vpf">params</span>) {
+    S.controll(<span class="pl-s1"><span class="pl-pds">'</span>search<span class="pl-pds">'</span></span>, <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>search-field<span class="pl-pds">'</span></span>), {
+      target<span class="pl-k">:</span> <span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>search-results<span class="pl-pds">'</span></span>),
+      model<span class="pl-k">:</span> Search
     });
   },
 
-  <span class="c1">// Sets a callback that will call the `Search.search`</span>
-  <span class="c1">// with the current path and given query</span>
-  <span class="c1">// for routes that match '/search?q={query}'</span>
-  <span class="s1">'<span class="nf">/search?q={query}</span>'</span>: <span class="kt">function</span>(<span class="nv">params</span>) {
-    Search.<span class="nf">search</span>(params.path, params.query);
+  <span class="pl-c">// Sets a callback that will call the `Search.search`</span>
+  <span class="pl-c">// with the current path and given query</span>
+  <span class="pl-c">// for routes that match '/search?q={query}'</span>
+  <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-en">/search?q={query}</span><span class="pl-pds">'</span></span>: <span class="pl-st">function</span>(<span class="pl-vpf">params</span>) {
+    Search.<span class="pl-s3">search</span>(params.path, params.query);
   }
 });</pre></div>
 
@@ -487,35 +494,35 @@ S.route({
 
 <p>Triggers all callbacks that match the given path, if <code>triggersVisit</code> is set to <code>false</code> it will NOT send a push state to update the browser.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Triggers all callbacks that match '/somepath'</span>
-<span class="c1">// and also calls `route.trigger('visit', '/somepath')`</span>
-<span class="c1">// that will send a push state to the browser updating</span>
-<span class="c1">// the url if `ext/route_browser.js` was included.</span>
-S.route(<span class="s1">'/somepath'</span>);
+<div class="highlight highlight-js"><pre><span class="pl-c">// Triggers all callbacks that match '/somepath'</span>
+<span class="pl-c">// and also calls `route.trigger('visit', '/somepath')`</span>
+<span class="pl-c">// that will send a push state to the browser updating</span>
+<span class="pl-c">// the url if `ext/route_browser.js` was included.</span>
+S.route(<span class="pl-s1"><span class="pl-pds">'</span>/somepath<span class="pl-pds">'</span></span>);
 
-<span class="c1">// Triggers all callbacks that match '/somepath'</span>
-<span class="c1">// but do NOT call `route.trigger('visit', '/somepath')`</span>
-<span class="c1">// so the browser URL wont change</span>
-S.route(<span class="s1">'/somepath'</span>, <span class="kc">false</span>);</pre></div>
+<span class="pl-c">// Triggers all callbacks that match '/somepath'</span>
+<span class="pl-c">// but do NOT call `route.trigger('visit', '/somepath')`</span>
+<span class="pl-c">// so the browser URL wont change</span>
+S.route(<span class="pl-s1"><span class="pl-pds">'</span>/somepath<span class="pl-pds">'</span></span>, <span class="pl-c1">false</span>);</pre></div>
 
 <h2>
 <a id="srouteupdatepath--callsvisit--true" class="anchor" href="#srouteupdatepath--callsvisit--true" aria-hidden="true"><span class="octicon octicon-link"></span></a>S.route.update(path [, callsVisit = true])</h2>
 
 <p>Updates a portion the current current url and calls all callbacks that match the new path, if callsVisit is set to <code>false</code> it will update the URL without triggering the callbacks.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// visits the '/search' and triggers all callbacks that match that route.</span>
-S.route(<span class="s1">'/search'</span>);
+<div class="highlight highlight-js"><pre><span class="pl-c">// visits the '/search' and triggers all callbacks that match that route.</span>
+S.route(<span class="pl-s1"><span class="pl-pds">'</span>/search<span class="pl-pds">'</span></span>);
 
-<span class="c1">// Updates the current path to '/search?q=spice'</span>
-<span class="c1">// and triggers all callbacks for visiting that route.</span>
-S.route.update(<span class="s1">'?q=spice'</span>);
+<span class="pl-c">// Updates the current path to '/search?q=spice'</span>
+<span class="pl-c">// and triggers all callbacks for visiting that route.</span>
+S.route.update(<span class="pl-s1"><span class="pl-pds">'</span>?q=spice<span class="pl-pds">'</span></span>);
 
-<span class="c1">// Updates the current path to '/search?q=spice#doc'</span>
-<span class="c1">// WITHOUT triggering the callbacks for visinting that route</span>
-S.route.update(<span class="s1">'#doc'</span>, <span class="kc">false</span>);
+<span class="pl-c">// Updates the current path to '/search?q=spice#doc'</span>
+<span class="pl-c">// WITHOUT triggering the callbacks for visinting that route</span>
+S.route.update(<span class="pl-s1"><span class="pl-pds">'</span>#doc<span class="pl-pds">'</span></span>, <span class="pl-c1">false</span>);
 
-<span class="c1">// Does exactly the same as `S.route('/search');`</span>
-S.route.update(<span class="s1">'/search'</span>);</pre></div>
+<span class="pl-c">// Does exactly the same as `S.route('/search');`</span>
+S.route.update(<span class="pl-s1"><span class="pl-pds">'</span>/search<span class="pl-pds">'</span></span>);</pre></div>
 
 <h1>
 <a id="extensions" class="anchor" href="#extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extensions</h1>
@@ -531,8 +538,8 @@ S.route.update(<span class="s1">'/search'</span>);</pre></div>
 
 <p>Add this if you need for compatibility with old browsers (like IE7), if you dont care about old browsers you dont need it.</p>
 
-<div class="highlight highlight-html"><pre><span class="cm">&lt;!--makes _Spice_ compatible with older browsers --&gt;</span>
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/polyfill.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</pre></div>
+<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!--makes _Spice_ compatible with older browsers --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/polyfill.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
 <h2>
 <a id="extroute_browserjs" class="anchor" href="#extroute_browserjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/route_browser.js</h2>
@@ -541,49 +548,49 @@ S.route.update(<span class="s1">'/search'</span>);</pre></div>
 
 <p>This extension should be used on the frontend of any app that needs the router.</p>
 
-<div class="highlight highlight-html"><pre><span class="cm">&lt;!-- adds route extension for browser navigation --&gt;</span>
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/route_browser.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</pre></div>
+<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!-- adds route extension for browser navigation --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/route_browser.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/ext/route_browser.html">tests</a> for <code>ext/route_browser</code>.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/ext/route_browser.html">tests</a> for <code>ext/route_browser</code>.</p>
 
 <h2>
 <a id="extroute_turbolinksjs" class="anchor" href="#extroute_turbolinksjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/route_turbolinks.js</h2>
 
 <p>This is a complementary route extension that is only needed on apps use <a href="https://github.com/rails/turbolinks">turbolinks</a> and it must be added after the <code>ext/route_browser.js</code>. It will enable <em>Spice</em> router to listen to URL changes that are triggered by turbolinks.</p>
 
-<div class="highlight highlight-html"><pre><span class="cm">&lt;!-- router will listen to turbolinks navigation --&gt;</span>
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/route_browser.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/route_turbolinks.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</pre></div>
+<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!-- router will listen to turbolinks navigation --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/route_browser.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/route_turbolinks.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
 <h2>
 <a id="extjquerycontroljs" class="anchor" href="#extjquerycontroljs" aria-hidden="true"><span class="octicon octicon-link"></span></a>ext/jquery.control.js</h2>
 
 <p>This supper cool extenssion will add a jQuery plugin that makes much easier to bind controllers to jQuery elements. I makes sure that the controller binds only once to an element that avoids issues of having the same element listening to duplicated events.</p>
 
-<div class="highlight highlight-html"><pre><span class="cm">&lt;!-- adds the `.control` plugin to jquery --&gt;</span>
-&lt;<span class="nt">script</span> <span class="na">src</span>=<span class="s2">"bower_components/spicejs/ext/jquery.control.js"</span>&gt;&lt;/<span class="nt">script</span>&gt;</pre></div>
+<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!-- adds the `.control` plugin to jquery --&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/spicejs/ext/jquery.control.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
 <p>With this you can bind controllers using a jquery plugin.</p>
 
-<div class="highlight highlight-js"><pre><span class="c1">// Creates a controller that logs when fields change</span>
-S.controller(<span class="s1">'log-change'</span>, <span class="kt">function</span>(<span class="nv">elements</span>, <span class="nv">function</span>(element) {
-  elements.on(<span class="s1">'change'</span>, <span class="kt">function</span>(<span class="nv">e</span>) {
-    <span class="k">var</span> target <span class="o">=</span> $(e.<span class="no">target</span>);
-    <span class="nc">console</span><span class="nf">.log</span>(target, <span class="s1">'changed to =&gt; '</span><span class="o">+</span> target.val());
+<div class="highlight highlight-js"><pre><span class="pl-c">// Creates a controller that logs when fields change</span>
+S.controller(<span class="pl-s1"><span class="pl-pds">'</span>log-change<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">elements</span>, <span class="pl-vpf">function</span>(element) {
+  elements.on(<span class="pl-s1"><span class="pl-pds">'</span>change<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">e</span>) {
+    <span class="pl-s">var</span> target <span class="pl-k">=</span> $(e.<span class="pl-sc">target</span>);
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>(target, <span class="pl-s1"><span class="pl-pds">'</span>changed to =&gt; <span class="pl-pds">'</span></span><span class="pl-k">+</span> target.val());
   });
 });
 
-<span class="c1">// Binds all inputs with [data-log-change] to the 'log-change' controller</span>
-$(<span class="s1">'input[data-log-change]'</span>).control(<span class="s1">'log-change'</span>)</pre></div>
+<span class="pl-c">// Binds all inputs with [data-log-change] to the 'log-change' controller</span>
+$(<span class="pl-s1"><span class="pl-pds">'</span>input[data-log-change]<span class="pl-pds">'</span></span>).control(<span class="pl-s1"><span class="pl-pds">'</span>log-change<span class="pl-pds">'</span></span>)</pre></div>
 
-<p>Check the <a href="https://github.com/3den/spicejs/blob/master/test/ext/jquery.control.html">tests</a> for <code>ext/route_browser</code>.</p>
+<p>Check the <a href="https://github.com/spicejs/spicejs/blob/master/test/ext/jquery.control.html">tests</a> for <code>ext/route_browser</code>.</p>
 
 <h1>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h1>
 
 <ul>
 <li>
-<a href="https://github.com/3den/spicejs-connect4">Connect4</a>: A simple connect4 game built with <strong>Spice</strong>.</li>
+<a href="https://github.com/spicejs/spicejs-connect4">Connect4</a>: A simple connect4 game built with <strong>Spice</strong>.</li>
 </ul>
       </section>
       <footer>
