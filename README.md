@@ -83,7 +83,7 @@ Testability was the main focus of _Spice_, the framework was built to be decoupl
     <title>My Test</title>
     <script src="bower_components/spicejs/bdd.js"></script>
 
-    <!-- the bdd framework can be used with or without spice -->
+    <!-- the BDD framework can be used with or without Spice -->
     <script src="bower_components/spicejs/index.js"></script>
 
     <!-- Add all source files the you are testing here -->
@@ -92,7 +92,7 @@ Testability was the main focus of _Spice_, the framework was built to be decoupl
   </head>
 
   <body>
-    <!-- The test results will be displayed on the browser console %>
+    <!-- The test results will be displayed in the Browser Console %>
     <p>Open console to view the results</p>
 
     <!-- Add all test files here -->
@@ -102,24 +102,24 @@ Testability was the main focus of _Spice_, the framework was built to be decoupl
 </html>
 ```
 
-Check the [test/index.html](https://github.com/spicejs/spicejs/blob/master/test/index.html) for _Spice_ it self.
+For example, check the [test/index.html](https://github.com/spicejs/spicejs/blob/master/test/index.html) used in _Spice_.
 
 ## BDD in Node
 
 ```js
-// This is needed if the app you are testing uses spice
+// This is needed if the app you are testing uses Spice
 global.S = require('bower_components/spicejs/index');
 
 [
   'bower_components/spicejs/bdd',
-  // require all your test files after the bdd framework
+  // require all your test files after the BDD framework
   'test/your_awesome_test',
 ].forEach(function(file){
   require('./' + file + '.js');
 });
 ```
 
-Check the [test/node.js](https://github.com/spicejs/spicejs/blob/master/test/node.js) used in _Spice_ itself.
+For example, check the [test/node.js](https://github.com/spicejs/spicejs/blob/master/test/node.js) used in _Spice_.
 
 ## Writing tests
 
@@ -151,7 +151,7 @@ describe('counter', function() {
 
 # S.observable(object)
 
-This method turns any object or function into an `observable` by adding some methods for dealing with events properties and inheritance. The `observable` can be considered the M (Model) of MVC, as it deals with data and business logic.
+This method turns any object or function into an `observable` by adding some methods for dealing with events properties and inheritance. The `observable` can be considered the M (Model) in MVC, because it deals with the data and business logic.
 
 ```js
 // Example of a a Search model
