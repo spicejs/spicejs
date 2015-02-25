@@ -16,7 +16,7 @@ describe("#template", function() {
     assert.equal(S.template("<%= 10 %>", {}), "10");
     assert.equal(S.template("hi", {}), "hi");
     assert.equal(S.template('"hi"',  {}), '"hi"');
-    //assert.equal(S.template("'hi'",  {}), "'hi'");
+    assert.equal(S.template("'hi'",  {}), "'hi'");
   });
 
   it("compiles javascript code", function() {
