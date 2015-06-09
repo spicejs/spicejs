@@ -83,6 +83,7 @@ S.template = (function() {
   var cache = {};
 
   function template(str, data){
+    if (!str) return "";
     str = str.trim();
     cache[str] = cache[str] || generate(str);
     return data ? cache[str](data) : cache[str];
