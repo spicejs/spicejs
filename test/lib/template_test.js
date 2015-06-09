@@ -1,6 +1,7 @@
 describe("#template", function() {
   it("generates a template function", function() {
     var tmpl = S.template("<%= x %>");
+    assert.equal(S.template(), "");
     assert.equal(tmpl({x: "foo"}), "foo");
     assert.equal(tmpl({x: 1}), "1");
     assert.equal(tmpl({x: true}), "true");
